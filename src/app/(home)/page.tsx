@@ -11,7 +11,7 @@ export default async function Home() {
       <About />
       <Socials />
       <section className="mb-10">
-        <h2 className="text-lg mb-3">Projects</h2>
+        <h2 className="text-xl mb-3">Projects</h2>
         <p>Hang tight. Coming up shortly.</p>
       </section>
       <Blog posts={posts.reverse().slice(0, 4)} />

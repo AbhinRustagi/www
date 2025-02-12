@@ -31,13 +31,10 @@ export async function getAllPosts(): Promise<IPost[]> {
   )
     .then((res) => res.json())
     .catch((e: Error) => {
-      console.log(e);
       return {
         tree: [],
       };
     });
-
-  console.log(tree);
 
   const posts = tree
     .filter((node: any) => {
@@ -51,7 +48,6 @@ export async function getAllPosts(): Promise<IPost[]> {
     });
 
   return Promise.all(posts).catch((e: Error) => {
-    console.log(e.message);
     return [];
   });
 }

@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     fontFamily: {
       mono: ["var(--font-cascadia-code)", "ui-monospace", "system-ui"],
-      sans: ["var(--font-inter)", "ui-sans-serif", "system-ui"],
+      sans: ["var(--font-syne)", "Inter", "ui-sans-serif", "system-ui"],
     },
     extend: {
       colors: {

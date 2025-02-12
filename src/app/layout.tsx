@@ -4,12 +4,12 @@ import Footer from "@/components/Footer";
 import generateMetadata from "@/lib/metadata";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Syne } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
   weight: ["400", "700", "600", "500"],
 });
@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} ${cascadia_code.variable} antialiased`}
+        className={`${syne.className} ${cascadia_code.variable} antialiased`}
       >
         <Announcement />
         <Container>

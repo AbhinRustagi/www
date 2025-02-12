@@ -8,7 +8,7 @@ import AvatarImage from "@/public/avatar.jpg";
 
 export function Avatar() {
   return (
-    <div className="rounded-full aspect-square overflow-hidden w-20 h-20 mb-10">
+    <div className="rounded-xl aspect-square overflow-hidden w-20 h-20 mb-5">
       <Image
         width={80}
         height={80}
@@ -23,7 +23,7 @@ export function Avatar() {
 export function About() {
   return (
     <div className="mb-10">
-      <h1 className="text-xl">Hello, I&apos;m Abhin</h1>
+      <h1 className="text-2xl font-medium">Hello, I&apos;m Abhin</h1>
       <p className="mb-4 text-sm text-subtitle">pronounced /ab-hin/</p>
       <p className="mb-4">
         I am a final semester Masters of IT student at the University of
@@ -46,7 +46,7 @@ export function About() {
 export function Blog(props: { posts: IPost[] }) {
   return (
     <div className="mb-10">
-      <h2 className="mb-3 text-lg">Writing</h2>
+      <h2 className="mb-3 text-xl">Writing</h2>
       <ul className="pl-4">
         {props.posts.map(({ metadata }) => (
           <li key={metadata.slug} className="list-disc">

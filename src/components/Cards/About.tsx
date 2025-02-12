@@ -6,7 +6,7 @@ export const Content = () => {
   return (
     <>
       <section id={about.section_name} className="mb-10">
-        <h1 className="text-xl mb-4">
+        <h1 className="text-2xl mb-4">
           {about.title.primary}
           <span className="text-subtitle">{about.title.secondary}</span>
         </h1>
@@ -18,7 +18,7 @@ export const Content = () => {
           ))}
       </section>
       <section>
-        <h2 className="text-lg mt-8 mb-6">{testimonials.title.primary}</h2>
+        <h2 className="text-xl mt-8 mb-6">{testimonials.title.primary}</h2>
         <div>
           {testimonials.testimonies &&
             testimonials.testimonies.map((testimony, index) => (
@@ -29,7 +29,7 @@ export const Content = () => {
                 <p className="mb-2 text-subtitle text-sm leading-6">
                   {testimony.message}
                 </p>
-                <p className="text-xs">{testimony.person}</p>
+                <p className="text-sm">{testimony.person}</p>
               </div>
             ))}
         </div>
