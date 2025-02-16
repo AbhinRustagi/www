@@ -3,10 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --background: #1b1b1b;
+  --background: #181818;
   --title: #f0f0f0;
-  --subtitle: #999;
-  --body: #9f9f9f;
+  --body: #aaa;
   --card: #191919;
   --card-shadow: 0 0 3px rgba(255, 255, 255, 0.2);
   --border: #333;
@@ -15,29 +14,19 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 15px;
 }
 
 body {
-  @apply font-sans text-body;
+  @apply font-sans text-body leading-relaxed;
   background-color: var(--background);
-  background-size: 40px 40px;
-  background-image: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.3) 1px,
-    rgba(0, 0, 0, 0) 1px
-  );
-}
-
-p,
-ul {
-  @apply leading-relaxed;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  @apply !leading-normal font-sans font-medium text-title;
+  @apply !leading-normal font-medium text-title;
 }
 
 @layer utilities {

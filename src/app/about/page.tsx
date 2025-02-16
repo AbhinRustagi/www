@@ -1,6 +1,6 @@
 import Button from "@/components/Button";
-import { Content } from "@/components/Cards/About";
 import generateMetadata from "@/lib/metadata";
+import AboutPage from "@/pages/About";
 import React from "react";
 
 export const metadata = generateMetadata({
@@ -10,13 +10,13 @@ export const metadata = generateMetadata({
   canonical: "/about",
 });
 
-export default function AboutPage() {
+export default function About() {
   return (
     <React.Fragment>
       <div className="mb-8">
         <Button direction="backward" text="home" href="/" />
       </div>
-      <Content />
+      <AboutPage />
     </React.Fragment>
   );
 }
