@@ -1,13 +1,8 @@
 import Button from "@/components/Button";
-import Socials from "@/components/Socials";
 import { IPost } from "@/lib/blog";
 import CartoonAvatarImage from "@/public/cartoon-avatar.png";
 import Image from "next/image";
 import Link from "next/link";
-
-interface HomePageProps {
-  posts: IPost[];
-}
 
 function CartoonAvatar() {
   return (
@@ -69,17 +64,4 @@ function Blog(props: { posts: IPost[] }) {
   );
 }
 
-export default async function Page(props: HomePageProps) {
-  return (
-    <>
-      <CartoonAvatar />
-      <About />
-      <Socials />
-      <section className="mb-10">
-        <h2 className="text-xl mb-3">Projects</h2>
-        <p>Hang tight. Coming up shortly.</p>
-      </section>
-      <Blog posts={props.posts} />
-    </>
-  );
-}
+export { About, Blog, CartoonAvatar };
