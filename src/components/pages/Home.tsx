@@ -1,6 +1,5 @@
 import Button from "@/components/Button";
 import { IPost } from "@/lib/blog";
-import CartoonAvatarImage from "@/public/cartoon-avatar.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,7 +9,7 @@ function CartoonAvatar() {
       <Image
         width={80}
         height={80}
-        src={CartoonAvatarImage}
+        src="/avatar.jpg"
         className="object-cover"
         alt="Abhin Rustagi"
       />

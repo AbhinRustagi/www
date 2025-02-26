@@ -1,15 +1,11 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     fontFamily: {
       mono: ["var(--font-cascadia-code)", "ui-monospace", "system-ui"],
-      sans: ["Inter", "SF Pro", "Helvetica Neue", "ui-sans-serif", "system-ui"],
+      sans: ["SF Pro", "Inter", "Helvetica Neue", "ui-sans-serif", "system-ui"],
     },
     extend: {
       colors: {

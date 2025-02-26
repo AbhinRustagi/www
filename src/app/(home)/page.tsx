@@ -1,5 +1,5 @@
 import { getAllPosts } from "@/lib/blog";
-import { About, Blog, CartoonAvatar } from "@/pages/Home";
+import { About, Blog, CartoonAvatar } from "@/components/pages/Home";
 import Socials from "@/components/Socials";
 
 export default async function Home() {

@@ -1,6 +1,6 @@
 import Button from "@/components/Button";
 import generateMetadata from "@/lib/metadata";
-import AboutPage from "@/pages/About";
+import AboutPage from "@/components/pages/About";
 import React from "react";
 
 export const metadata = generateMetadata({

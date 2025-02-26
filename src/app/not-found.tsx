@@ -1,4 +1,3 @@
-import NotFoundMeme from "@/public/404.jpg";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,7 +6,7 @@ export default function NotFound() {
     <section className="mt-16">
       <div className="flex gap-6 flex-wrap md:flex-nowrap">
         <div className="relative aspect-square rounded-lg overflow-hidden md:flex-1">
-          <Image src={NotFoundMeme} alt="" />
+          <Image src="/404.jpg" alt="" />
         </div>
         <div className="md:flex-1">
           <h1>404: Not Found</h1>
