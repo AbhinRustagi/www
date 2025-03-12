@@ -1,15 +1,41 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import type { Metadata } from "next";
+import localFont from "next/font/local";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const satoshiFont = localFont({
+  src: [
+    {
+      weight: "400",
+      style: "normal",
+      path: "../fonts/Satoshi-Regular.otf",
+    },
+    {
+      weight: "700",
+      style: "normal",
+      path: "../fonts/Satoshi-Bold.otf",
+    },
+    {
+      weight: "400",
+      style: "italic",
+      path: "../fonts/Satoshi-Italic.otf",
+    },
+    {
+      weight: "700",
+      style: "italic",
+      path: "../fonts/Satoshi-BoldItalic.otf",
+    },
+    {
+      weight: "500",
+      style: "normal",
+      path: "../fonts/Satoshi-Medium.otf",
+    },
+    {
+      weight: "500",
+      style: "italic",
+      path: "../fonts/Satoshi-MediumItalic.otf",
+    },
+  ],
+  variable: "--font-satoshi",
 });
 
 export const metadata: Metadata = {
@@ -24,11 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${satoshiFont.className} antialiased`}>{children}</body>
     </html>
   );
 }
