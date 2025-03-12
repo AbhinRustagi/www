@@ -1,0 +1,44 @@
+{
+  "title": "Abhin Rustagi - Software Engineer",
+  "titleTemplate": "%s | Abhin Rustagi",
+  "description": "Software Engineer, Full Stack Developer, and Coffee enthusiast. I build things.",
+  "siteUrl": "https://abhin.dev",
+  "siteLanguage": "en",
+  "siteLocale": "en_AU",
+  "alternates": {
+    "types": [
+      {
+        "type": "application/rss+xml",
+        "href": "https://abhin.dev/feed.xml"
+      }
+    ]
+  },
+  "twitter": {
+    "site": "@abhinrustagi",
+    "creator": "@abhinrustagi",
+    "card": "summary_large_image",
+    "image": "https://abhin.dev/static/images/og-image.jpg"
+  },
+  "keywords": [
+    "Software Engineer",
+    "React",
+    "Node",
+    "Next.js",
+    "TailwindCSS",
+    "TypeScript",
+    "Coffee",
+    "University of Melbourne"
+  ],
+  "openGraph": {
+    "type": "website",
+    "locale": "en_AU",
+    "images": [
+      {
+        "url": "https://abhin.dev/static/images/og-image.jpg",
+        "width": 1200,
+        "height": 630,
+        "alt": "Abhin Rustagi - Software Engineer"
+      }
+    ]
+  }
+}
