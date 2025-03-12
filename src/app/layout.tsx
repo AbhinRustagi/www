@@ -1,6 +1,7 @@
 import generateMetadata from "@/lib/metadata";
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "@/components/Header";
 
 const satoshiFont = localFont({
   src: [
@@ -36,6 +37,7 @@ const satoshiFont = localFont({
     },
   ],
   variable: "--font-satoshi",
+  preload: true,
 });
 
 export const metadata = generateMetadata();
@@ -48,7 +50,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${satoshiFont.className} antialiased`}>
-        <main className="mx-auto max-w-3xl px-3">{children}</main>
+        <div className="mx-auto max-w-3xl px-3 pt-12 pb-20">
+          <Header />
+          <main>{children}</main>
+        </div>
       </body>
     </html>
   );

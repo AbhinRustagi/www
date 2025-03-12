@@ -4,7 +4,7 @@ import { getAllPosts } from "@/lib/blog";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const links = [
     {
-      url: "https://abhin.dev", // Replace with your homepage
+      url: "https://abhin.dev",
       lastModified: new Date(),
     },
     {
