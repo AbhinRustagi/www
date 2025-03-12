@@ -50,7 +50,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${satoshiFont.className} antialiased`}>{children}</body>
+      <body className={`${satoshiFont.className} antialiased`}>
+        <main className="mx-auto max-w-3xl px-3">{children}</main>
+      </body>
     </html>
   );
 }
