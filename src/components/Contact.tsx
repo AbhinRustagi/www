@@ -21,7 +21,7 @@ const socials = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="mt-12">
+    <section id="contact" className="mt-12 pt-12 border-t border-t-neutral-800">
       <h2 className="text-xl font-bold mb-4 text-neutral-100">
         Let's discuss your project and ideas.
       </h2>

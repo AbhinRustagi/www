@@ -1,0 +1,86 @@
+.renderer p {
+  color: #bbb;
+  line-height: 1.5;
+}
+
+.renderer em {
+  font-style: italic;
+}
+
+.renderer p:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.renderer pre {
+  margin: 1rem 0;
+  border-radius: 0.375rem;
+  padding: 1rem;
+  font-size: 0.875rem;
+  overflow: auto;
+  background-color: #2d3748;
+}
+
+.renderer pre code {
+  overflow: auto;
+  color: cornsilk;
+}
+
+.renderer p code {
+  background-color: #2d3748;
+  border-radius: 0.375rem;
+  position: relative;
+  padding: 0.25rem;
+  font-size: 0.875rem;
+  overflow: auto;
+}
+
+.renderer blockquote {
+  padding: 1rem;
+  background-color: #2d3748;
+  margin-bottom: 1rem;
+  border-radius: 0.375rem;
+  color: cornsilk;
+}
+
+.renderer blockquote p {
+  border-left: 0.25rem solid #4a5568;
+  padding-left: 1rem;
+  font-size: 0.875rem;
+}
+
+.renderer h1 {
+  font-size: 1.75rem;
+}
+
+.renderer h1,
+.renderer h2,
+.renderer h3 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.renderer h2 {
+  font-size: 1.5rem;
+}
+
+.renderer h3 {
+  font-size: 1.25rem;
+}
+
+.renderer ul {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  list-style: disc;
+}
+
+.renderer ul li {
+  margin: 1rem 0;
+}
+
+.renderer img {
+  margin: 1.5rem 0;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 0.375rem;
+}
