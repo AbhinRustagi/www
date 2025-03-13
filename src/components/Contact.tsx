@@ -22,11 +22,10 @@ const socials = [
 export default function Contact() {
   return (
     <section id="contact" className="mt-12 pt-12 border-t border-t-neutral-800">
-      <h2 className="text-xl font-bold mb-4 text-neutral-100">
-        Let's discuss your project and ideas.
-      </h2>
-      <p className="my-4">
-        Happy to chat about tech, coffee, mountains and everything in between.
+      <p className="text-lg font-semibold max-w-lg mb-4">
+        Have a question, a project idea, or just want to say hello? I’d love to
+        hear from you! Happy to chat about tech, coffee, mountains and
+        everything in between.
       </p>
       <div>
         <ul className="flex gap-3 flex-wrap">
