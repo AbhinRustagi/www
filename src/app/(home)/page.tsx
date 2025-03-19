@@ -14,7 +14,6 @@ export default function Home() {
         Masters of Information Technology, and specialising in Artificial
         Intelligence from the University of Melbourne.{" "}
       </p>
-      <Work />
     </section>
   );
 }
