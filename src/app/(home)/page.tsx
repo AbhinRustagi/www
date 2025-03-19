@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Work from "@/components/Work";
 
 export default function Home() {
   return (
@@ -9,9 +9,12 @@ export default function Home() {
       <p className="text-2xl font-semibold text-neutral-400 max-w-lg leading-normal">
         Full Stack Engineer building user-first applications creating impact.
       </p>
-      <ul className="mt-4 flex md:justify-between md:flex-row flex-col">
-        <li>📍 Melbourne</li>
-      </ul>
+      <p className="max-w-lg my-8">
+        Currently – I am based in Melbourne, Australia. I am completing a
+        Masters of Information Technology, and specialising in Artificial
+        Intelligence from the University of Melbourne.{" "}
+      </p>
+      <Work />
     </section>
   );
 }
