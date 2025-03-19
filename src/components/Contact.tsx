@@ -7,15 +7,19 @@ const socials = [
   },
   {
     name: "Linkedin",
-    link: "https://twitter.com/abhinavcreed",
+    link: "https://linkedin.com/in/abhinrustagi",
+  },
+  {
+    name: "Github",
+    link: "https://www.github.com/AbhinRustagi",
   },
   {
     name: "X (Twitter)",
-    link: "",
+    link: "https://www.x.com/@abhinrustagi",
   },
   {
     name: "Bluesky",
-    link: "",
+    link: "https://bsky.app/profile/abhinr.bsky.social",
   },
 ];
 
@@ -28,10 +32,12 @@ export default function Contact() {
         everything in between.
       </p>
       <div>
-        <ul className="flex gap-3 flex-wrap">
+        <ul className="flex gap-4 flex-wrap">
           {socials.map((social) => (
             <li key={social.name}>
               <Link
+                target="_blank"
+                rel="noopener"
                 className="text-neutral-100 hover:underline"
                 href={social.link}
               >
