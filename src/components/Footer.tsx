@@ -1,3 +1,7 @@
+"use client";
+
+import ReactClock from "react-live-clock";
+
 type DateFormatOptions = {
   year: "numeric";
   month: "long";
@@ -12,12 +16,21 @@ export default function Footer() {
   } as DateFormatOptions;
 
   return (
-    <footer className="mt-12 pt-12 border-t border-t-neutral-800 text-neutral-500 text-xs">
-      <p className="mb-2">Built using Next and Tailwind, hosted on Vercel.</p>
-      <p className="my-2">
-        Last updated {new Date().toLocaleDateString("en-US", dateOptions)}
+    <footer className="mt-12 pt-12 border-t border-t-neutral-700 text-neutral-500 text-xs">
+      <div className="text-xs">
+        <ReactClock
+          ticking
+          format="LTS"
+          timezone="Australia/Melbourne"
+          className="m-0 p-0"
+        />{" "}
+        AEST
+      </div>
+      <p className="my-2">Built using Next and Tailwind, hosted on Vercel.</p>
+      <p>
+        &copy; 2025 Abhin Rustagi. Last updated{" "}
+        {new Date().toLocaleDateString("en-US", dateOptions)}
       </p>
-      <p>&copy; 2025 Abhin Rustagi</p>
     </footer>
   );
 }

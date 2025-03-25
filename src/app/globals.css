@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0f0f0f;
-  --foreground: #f1f1f1;
+  --background: #131313;
+  --foreground: #bebfbf;
+  --title: #eceded;
+  --accent: #69a5ff;
 }
 
 * {
@@ -10,14 +12,21 @@
 }
 
 html {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.625;
+  font-size: 16px;
 }
 
 body {
   background: var(--background);
-  @apply text-neutral-500;
-  font-family: var(--font-satoshi), -apple-system, "Helvetica Neue", Arial,
-    sans-serif;
+  color: var(--foreground);
+}
+
+h1,
+h2,
+h3 {
+  /* color: var(--title); */
+}
+
+a {
+  /* color: var(--accent); */
 }

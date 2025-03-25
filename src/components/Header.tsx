@@ -3,10 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const links = [
+const links: { href: string; label: string }[] = [
   { href: "/", label: "home" },
+  // { href: "/work", label: "work" },
   { href: "/blog", label: "blog" },
-  { href: "/about", label: "about" },
+  { href: "/bio", label: "bio" },
   { href: "#contact", label: "contact" },
 ];
 
@@ -22,7 +23,7 @@ export default function Header() {
   };
 
   return (
-    <header className="mb-12">
+    <header className="mb-12 flex items-center justify-between">
       <nav>
         <ul className="flex gap-4">
           {links.map(({ href, label }) => (

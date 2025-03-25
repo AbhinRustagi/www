@@ -25,8 +25,8 @@ const socials = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="mt-12 pt-12 border-t border-t-neutral-800">
-      <p className="text-lg font-semibold max-w-lg mb-4">
+    <section id="contact" className="mt-12 pt-12">
+      <p className="mb-4">
         Have a question, a project idea, or just want to say hello? I’d love to
         hear from you! Happy to chat about tech, coffee, mountains and
         everything in between.
@@ -38,7 +38,7 @@ export default function Contact() {
               <Link
                 target="_blank"
                 rel="noopener"
-                className="text-neutral-100 hover:underline"
+                className="text-neutral-100 font-medium hover:underline"
                 href={social.link}
               >
                 {social.name}
