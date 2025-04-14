@@ -15,6 +15,8 @@ export default function Footer() {
     day: "numeric",
   } as DateFormatOptions;
 
+  const dateStr = new Date().toLocaleDateString("en-US", dateOptions);
+
   return (
     <footer className="mt-12 pt-12 border-t border-t-neutral-700 text-neutral-500 text-xs">
       <div className="text-xs">
@@ -27,10 +29,7 @@ export default function Footer() {
         AEST
       </div>
       <p className="my-2">Built using Next and Tailwind, hosted on Vercel.</p>
-      <p>
-        &copy; 2025 Abhin Rustagi. Last updated{" "}
-        {new Date().toLocaleDateString("en-US", dateOptions)}
-      </p>
+      <p>&copy; 2025 Abhin Rustagi. Last updated {dateStr}</p>
     </footer>
   );
 }
