@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #131313;
-  --foreground: #bebfbf;
-  --title: #eceded;
+  --background: #f5f5f5;
+  --foreground: #686868;
+  --title: #101010;
+  --card-border: #e2e2e2;
+  --card-background: #f9f9f9;
   --accent: #69a5ff;
 }
 
@@ -24,9 +26,10 @@ body {
 h1,
 h2,
 h3 {
-  /* color: var(--title); */
+  font-weight: 500;
+  color: var(--title);
 }
 
 a {
-  /* color: var(--accent); */
+  color: var(--accent);
 }

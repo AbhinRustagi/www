@@ -2,13 +2,13 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import generateMetadata from "@/lib/metadata";
-import { Reddit_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 
-const interFont = Reddit_Mono({
+const geist = Geist({
   weight: ["400", "500", "700"],
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-geist",
   preload: true,
 });
 
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${interFont.className} antialiased`}>
+      <body className={`${geist.className} antialiased`}>
         <div className="mx-auto max-w-xl px-6 md:px-0 pt-12 pb-20">
           <Header />
           <main>
