@@ -1,12 +1,27 @@
 @import "tailwindcss";
 
-:root {
-  --background: #f5f5f5;
-  --foreground: #686868;
-  --title: #101010;
-  --card-border: #e2e2e2;
-  --card-background: #f9f9f9;
-  --accent: #69a5ff;
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background: #f5f5f5;
+  --color-foreground: #686868;
+  --color-title: #101010;
+  --color-card-border: #e2e2e2;
+  --color-card-background: #f9f9f9;
+  --color-accent: #1b56fd;
+  --color-container-border: #e4e4e4;
+}
+
+@layer theme {
+  .dark {
+    --color-background: #111111;
+    --color-foreground: #a4a4a4;
+    --color-title: #f0f0f0;
+    --color-card-border: #2e2e2e;
+    --color-card-background: #0f0f0f;
+    --color-accent: #60b5ff;
+    --color-container-border: #242424;
+  }
 }
 
 * {
@@ -19,17 +34,11 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  @apply bg-background text-foreground;
 }
 
 h1,
 h2,
 h3 {
-  font-weight: 500;
-  color: var(--title);
-}
-
-a {
-  color: var(--accent);
+  @apply font-medium text-title;
 }
