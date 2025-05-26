@@ -14,9 +14,7 @@ export default async function Blog() {
 
   return (
     <section>
-      <h1 className="text-2xl font-bold text-neutral-100 mb-8">
-        Thoughts, ideas and opinions
-      </h1>
+      <h1 className="text-2xl font-bold mb-8">Thoughts, ideas and opinions</h1>
       <div className="mb-16 max-w-md">
         {organizedPosts.map((groupedPosts) => (
           <div key={groupedPosts.date}>
@@ -27,7 +25,7 @@ export default async function Blog() {
                   <div>
                     <Link
                       href={`/blog/${item.slug}`}
-                      className="text-neutral-100"
+                      className="hover:text-accent"
                     >
                       {item.title}
                     </Link>

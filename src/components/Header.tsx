@@ -53,7 +53,7 @@ const socials = [
 export default function Header() {
   return (
     <BaseCard className="mb-12 py-4 px-5 md:p-4 w-max mx-auto">
-      <ul className="flex items-center justify-between  gap-5">
+      <ul className="flex items-center justify-between gap-3 md:gap-5">
         <li>
           <Link href="/">
             <PiHouseBold className="w-6 h-5 text-title hover:text-accent" />

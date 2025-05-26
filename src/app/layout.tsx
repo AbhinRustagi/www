@@ -1,9 +1,9 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import generateMetadata from "@/lib/metadata";
 import { Gabarito } from "next/font/google";
-import "./globals.css";
-import Footer from "@/components/Footer";
 import "react-tooltip/dist/react-tooltip.css";
+import "./globals.css";
 
 const gabarito = Gabarito({
   weight: ["400", "500", "600", "700"],
