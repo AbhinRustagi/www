@@ -8,7 +8,7 @@
   --color-title: #f0f0f0;
   --color-gray-border: #585858;
   --color-accent: #60b5ff;
-  --font-geist: var(--font-geist);
+  --font-inter-tight: var(--font-inter-tight);
   --font-source: var(--font-source);
 }
 
@@ -35,7 +35,7 @@ body {
 h1,
 h2,
 h3 {
-  @apply font-semibold text-title font-geist;
+  @apply font-semibold text-title font-inter-tight;
 }
 
 a {

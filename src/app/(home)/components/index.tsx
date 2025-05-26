@@ -55,3 +55,15 @@ export async function Writing() {
     </section>
   );
 }
+
+export function Projects() {
+  return (
+    <section className="mb-16">
+      <h2 className="mb-5 text-2xl">Projects</h2>
+      <p>
+        Coming soon. Meanwhile, have you checked out my work log on my{" "}
+        <Link href="/timeline">timeline</Link>?
+      </p>
+    </section>
+  );
+}

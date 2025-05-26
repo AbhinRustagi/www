@@ -1,0 +1,38 @@
+[
+  {
+    "type": "education",
+    "title": "Graduated from University of Melbourne",
+    "date": "August, 2025",
+    "description": "Graduated with a Masters of Information Technology from the University of Melbourne."
+  },
+  {
+    "type": "work",
+    "title": "Software Engineer with JointSense",
+    "date": "March, 2025 - June, 2025",
+    "description": "Worked on a mobile app for joint replacement surgery."
+  },
+  {
+    "type": "work",
+    "title": "VR Software Developer Intern, Virtetic",
+    "date": "July, 2024 - October, 2024",
+    "description": "Worked on a VR software for medical training."
+  },
+  {
+    "type": "education",
+    "title": "Commenced Masters of Information Technology, University of Melbourne",
+    "date": "July, 2023",
+    "description": "Started Masters of Information Technology at the University of Melbourne."
+  },
+  {
+    "type": "life_update",
+    "title": "Migrated to Melbourne",
+    "date": "July, 2023",
+    "description": "Moved to Melbourne to study Masters of Information Technology."
+  },
+  {
+    "type": "work",
+    "title": "Software Engineer, Openhouse",
+    "date": "February, 2022 - July, 2023",
+    "description": "Worked on a mobile app for joint replacement surgery."
+  }
+]

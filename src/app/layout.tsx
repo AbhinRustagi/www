@@ -6,10 +6,10 @@ import { Inter_Tight, Source_Serif_4 } from "next/font/google";
 import "react-tooltip/dist/react-tooltip.css";
 import "./globals.css";
 
-const geist = Inter_Tight({
+const inter_tight = Inter_Tight({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-geist",
+  variable: "--font-inter-tight",
   preload: true,
 });
 
@@ -30,7 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geist.variable} ${source.variable} antialiased`}>
+      <body
+        className={`${inter_tight.variable} ${source.variable} antialiased`}
+      >
         <div className="mx-auto max-w-3xl px-6 md:px-0 pt-10 pb-20 min-h-screen">
           <main>{children}</main>
           <Socials />

@@ -8,7 +8,7 @@ export default function Header() {
       </div>
       <div className="pt-6">
         <h2 className="text-2xl font-source!">Abhin Rustagi</h2>
-        <p className="font-geist! text-lg">Software Engineer</p>
+        <p className="font-inter-tight! text-lg">Software Engineer</p>
       </div>
     </div>
   );
