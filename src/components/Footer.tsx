@@ -22,7 +22,7 @@ export default function Footer() {
   ).toLocaleDateString("en-US", dateOptions);
 
   return (
-    <footer className="mt-12 border-t border-card-border pt-12 text-foreground">
+    <footer className="mt-12 border-t border-gray-border pt-12 text-foreground">
       <div className="text-base">
         <ReactClock
           ticking
