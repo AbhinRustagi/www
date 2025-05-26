@@ -68,13 +68,33 @@ export default function About() {
           or planning my next travel.
         </p>
         <p className="mt-5">
-          You can check out my complete{" "}
-          <Link href="" className="underline">
-            resume here
-          </Link>
+          You can check out my complete <Link href="">resume here</Link>
           .<br /> I also maintain an <Link href="/">unconventional resume</Link>
-          .
+          .<br /> You can also check out my{" "}
+          <Link href="/timeline">timeline</Link>.
         </p>
+      </section>
+      <section className="mb-16">
+        <h2 className="text-2xl">Tech skills</h2>
+        <p className="mt-5 mb-10">
+          Here's an incomplete list of the technologies I use on a daily basis,
+          or have used extensively in the past.
+        </p>
+        <ul className="list-disc list-inside pl-5">
+          <li>Languages - Javascript, Typescript, Python, Go, C#</li>
+          <li>
+            Frameworks/Libraries - React, Next, React Native, Tailwind, Shadcn,
+            Firebase
+          </li>
+          <li>BE Frameworks - Django, FastAPI, Flask, Express, .NET</li>
+          <li>
+            Databases - PostgreSQL, MySQL, MongoDB, Redis, SQLite, Supabase
+          </li>
+          <li>AI - OpenAI, Claude, DeepSeek, Llama, Mistral, Grok</li>
+          <li>Cloud - AWS, GCP</li>
+          <li>DevOps - Docker, Github Actions, Kubernetes, Terraform</li>
+          <li>Misc: FAISS, Langchain</li>
+        </ul>
       </section>
       <section id="colophon" className="mb-16">
         <h2 className="text-2xl">Colophon</h2>
