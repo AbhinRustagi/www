@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { PiArrowLeftBold } from "react-icons/pi";
 
@@ -71,6 +72,7 @@ export default function About() {
           <Link href="" className="underline">
             resume here
           </Link>
+          .<br /> I also maintain an <Link href="/">unconventional resume</Link>
           .
         </p>
       </section>
@@ -127,7 +129,15 @@ export default function About() {
           >
             Tailwind CSS
           </Link>
-          . It is hosted on{" "}
+          . The illustrations are from{" "}
+          <Link
+            href="https://www.instagram.com/pablostanley/?hl=en"
+            target="_blank"
+            className="underline !text-foreground !hover:text-foreground/80"
+          >
+            Pablo Stanley's
+          </Link>{" "}
+          Open Peeps Illustrations. It is hosted on{" "}
           <Link
             href="https://vercel.com/"
             target="_blank"
@@ -137,7 +147,21 @@ export default function About() {
           </Link>
           .
         </p>
-        <ul className="flex items-center gap-3 md:gap-5"></ul>
+      </section>
+      <section className="mb-16">
+        <p className="my-5">
+          Meanwhile, this is what happens when you let me near Figma after 10pm.
+          <br />
+          Professional? Yes. Cartoonist? Questionable.
+        </p>
+        <Image
+          src="/cartoon.svg"
+          alt="Me"
+          width={600}
+          height={600}
+          objectFit="cover"
+          className="rounded-md mb-5"
+        />
       </section>
     </>
   );
