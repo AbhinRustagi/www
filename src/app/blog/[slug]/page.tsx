@@ -2,6 +2,8 @@ import MdRenderer from "@/components/MdRenderer/MdRenderer";
 import { getAllPosts, getPostBySlug, IPost } from "@/lib/blog";
 import _generateMetadata from "@/lib/metadata";
 import { Metadata } from "next";
+import Link from "next/link";
+import { PiArrowLeftBold } from "react-icons/pi";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -23,12 +25,31 @@ export default async function BlogPost({ params }: Props) {
   const data = await getPostBySlug(decodeURIComponent((await params).slug));
 
   return (
-    <section className="max-w-xl">
-      <h1 className="text-neutral-100 mb-8 text-2xl font-bold">
-        {data.metadata.title}
-      </h1>
-      <MdRenderer content={data.content} />
-    </section>
+    <>
+      <div>
+        <Link
+          href="/"
+          className="flex items-center gap-2 mb-10 no-underline! hover:underline"
+        >
+          <PiArrowLeftBold />
+          <span>Home</span>
+        </Link>
+      </div>
+      <section className="mb-16">
+        <h1 className="text-neutral-100 mb-8 text-2xl font-bold">
+          {data.metadata.title}
+        </h1>
+        <p className="text-foreground/80 mb-8">
+          {data.metadata.date.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}{" "}
+          • {data.metadata.reading_time} minutes
+        </p>
+        <MdRenderer content={data.content} />
+      </section>
+    </>
   );
 }
 
