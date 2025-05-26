@@ -1,4 +1,4 @@
-import { getIndex, groupPostsByDate } from "@/lib/blog";
+import { getAllPosts, getIndex, groupPostsByDate } from "@/lib/blog";
 import generateMetadata from "@/lib/metadata";
 import Link from "next/link";
 import { PiArrowLeftBold } from "react-icons/pi";
@@ -10,8 +10,7 @@ export const metadata = generateMetadata({
 });
 
 export default async function Blog() {
-  const postsIndex = await getIndex();
-  const organizedPosts = groupPostsByDate(postsIndex);
+  const posts = await getAllPosts();
 
   return (
     <section>
@@ -24,27 +23,31 @@ export default async function Blog() {
           <span>Home</span>
         </Link>
       </div>
-      <h1 className="text-2xl mb-3">Blog</h1>
+      <h1 className="text-2xl mb-1">Blog</h1>
       <p className="mb-8">Thoughts, ideas and opinions</p>
       <div className="mb-16">
-        {organizedPosts.map((groupedPosts) => (
-          <div key={groupedPosts.date}>
-            <h2 className="mb-2 text-base text-foreground!">
-              {groupedPosts.date}
-            </h2>
-            <ul>
-              {groupedPosts.posts.map((item) => (
-                <li key={item.slug} className="mb-6">
-                  <div>
-                    <Link href={`/blog/${item.slug}`} className="no-underline!">
-                      {item.title}
-                    </Link>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <ul className="mb-10">
+          {posts.reverse().map((post) => (
+            <li
+              key={post.metadata.title}
+              className="md:flex-row flex-col mb-4 flex justify-between"
+            >
+              <Link
+                href={`/blog/${post.metadata.slug}`}
+                className="no-underline! md:max-w-md"
+              >
+                {post.metadata.title}
+              </Link>
+              <span>
+                {(post.metadata.date as Date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

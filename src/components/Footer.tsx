@@ -22,18 +22,9 @@ export default function Footer() {
   ).toLocaleDateString("en-US", dateOptions);
 
   return (
-    <footer className="mt-12 border-t border-gray-border pt-12 text-foreground">
-      <div className="text-base">
-        <ReactClock
-          ticking
-          format="LTS"
-          timezone="Australia/Melbourne"
-          className="m-0 p-0"
-        />{" "}
-        AEST
-      </div>
-      <p className="my-2 text-base">
-        Last updated {buildDate}. <Link href="/colophon">Colophon</Link>
+    <footer className="my-12 border-t border-gray-border pt-12 text-foreground">
+      <p className="text-base">
+        Last updated {buildDate}. <Link href="/about#colophon">Colophon</Link>
       </p>
     </footer>
   );

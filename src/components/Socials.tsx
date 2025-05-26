@@ -52,7 +52,8 @@ export default function Socials() {
       <h2 className="text-2xl">Let's Connect</h2>
       <p className="mt-5 mb-10">
         I'm always looking for new opportunities and collaborations. Feel free
-        to reach out to me.
+        to reach out to me. The best way to reach me is via email. You can also
+        find me on LinkedIn, Github, and X.
       </p>
       <ul className="flex items-center gap-3 md:gap-5">
         {socials.map(({ href, icon: Icon, title }) => {
