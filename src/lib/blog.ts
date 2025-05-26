@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 
 export interface PostMetadata {
   title: string;
-  date: string;
+  date: Date;
   reading_time: string;
   tags: string[];
   slug: string;
@@ -52,7 +52,7 @@ export async function getAllPosts(): Promise<IPost[]> {
   });
 }
 
-const sortPosts = (posts: any): Index[] =>
+export const sortPosts = (posts: any): Index[] =>
   posts.sort((a: any, b: any) => {
     const date1 = new Date(a.date);
     const date2 = new Date(b.date);

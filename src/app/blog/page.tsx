@@ -1,6 +1,7 @@
 import { getIndex, groupPostsByDate } from "@/lib/blog";
 import generateMetadata from "@/lib/metadata";
 import Link from "next/link";
+import { PiArrowLeftBold } from "react-icons/pi";
 
 export const metadata = generateMetadata({
   title: "Blog",
@@ -9,24 +10,33 @@ export const metadata = generateMetadata({
 });
 
 export default async function Blog() {
-  const posts = await getIndex();
-  const organizedPosts = groupPostsByDate(posts);
+  const postsIndex = await getIndex();
+  const organizedPosts = groupPostsByDate(postsIndex);
 
   return (
     <section>
-      <h1 className="text-2xl font-bold mb-8">Thoughts, ideas and opinions</h1>
-      <div className="mb-16 max-w-md">
+      <div>
+        <Link
+          href="/"
+          className="flex items-center gap-2 mb-10 no-underline! hover:underline"
+        >
+          <PiArrowLeftBold />
+          <span>Home</span>
+        </Link>
+      </div>
+      <h1 className="text-2xl mb-3">Blog</h1>
+      <p className="mb-8">Thoughts, ideas and opinions</p>
+      <div className="mb-16">
         {organizedPosts.map((groupedPosts) => (
           <div key={groupedPosts.date}>
-            <h2 className="mb-2 text-sm">{groupedPosts.date}</h2>
+            <h2 className="mb-2 text-base text-foreground!">
+              {groupedPosts.date}
+            </h2>
             <ul>
               {groupedPosts.posts.map((item) => (
                 <li key={item.slug} className="mb-6">
                   <div>
-                    <Link
-                      href={`/blog/${item.slug}`}
-                      className="hover:text-accent"
-                    >
+                    <Link href={`/blog/${item.slug}`} className="no-underline!">
                       {item.title}
                     </Link>
                   </div>

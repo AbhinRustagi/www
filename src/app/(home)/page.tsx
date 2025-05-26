@@ -1,12 +1,12 @@
-import { About, Now, Profile, Writing } from "./components";
+import Header from "@/components/Header";
+import { About, Writing } from "./components";
 
 export default function Home() {
   return (
     <>
-      <Profile />
-      <Writing />
+      <Header />
       <About />
-      <Now />
+      <Writing />
     </>
   );
 }
