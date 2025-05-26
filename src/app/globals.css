@@ -10,8 +10,8 @@
   --color-card-background: #0f0f0f;
   --color-accent: #60b5ff;
   --color-container-border: #242424;
-  --font-bricolage: var(--font-bricolage);
-  --font-crimson: var(--font-crimson);
+  --font-geist: var(--font-geist);
+  --font-source: var(--font-source);
 }
 
 @layer theme {
@@ -31,11 +31,15 @@
 }
 
 body {
-  @apply bg-background text-foreground font-crimson text-xl;
+  @apply bg-background text-foreground font-source text-lg;
 }
 
 h1,
 h2,
 h3 {
-  @apply font-medium text-title font-bricolage;
+  @apply font-semibold text-title font-geist;
+}
+
+a {
+  @apply underline text-title;
 }
