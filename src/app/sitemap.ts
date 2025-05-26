@@ -12,10 +12,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
     },
     {
-      url: "https://abhin.dev/work",
-      lastModified: new Date(),
-    },
-    {
       url: "https://abhin.dev/blog",
       lastModified: new Date(),
     },

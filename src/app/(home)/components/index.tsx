@@ -1,4 +1,4 @@
-import { getAllPosts, sortPosts } from "@/lib/blog";
+import { getAllPosts } from "@/lib/blog";
 import Link from "next/link";
 
 export function About() {

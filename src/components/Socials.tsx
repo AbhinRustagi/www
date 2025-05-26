@@ -6,9 +6,7 @@ import {
   PiEnvelopeBold,
   PiFileBold,
   PiGithubLogoBold,
-  PiHouseBold,
   PiLinkedinLogoBold,
-  PiSunDimBold,
   PiXLogoBold,
 } from "react-icons/pi";
 
