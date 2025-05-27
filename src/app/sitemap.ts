@@ -15,6 +15,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: "https://abhin.dev/blog",
       lastModified: new Date(),
     },
+    {
+      url: "https://abhin.dev/timeline",
+      lastModified: new Date(),
+    },
   ];
 
   const posts = await getAllPosts();

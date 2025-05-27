@@ -1,4 +1,4 @@
-# Personal Website
+# www
 
 Personal website, projects, blogs and everything. Visit the website at [abhin.dev](https://www.abhin.dev/).
 
@@ -8,7 +8,7 @@ This website is powered by Nextjs 14, Typescript & TailwindCSS and deployed on V
 
 ## Content
 
-- **Local**: localised content such as hero, about me and other is sourced from the [data](/src/data) folder.
+- **Local**: localised content such as metadata, timeline and other is sourced from the [content](/src/content) folder.
 - **Blog**: fetched from my [blog](https://www.github.com/AbhinRustagi/blog) repository, which is the root for all posts for this website and publishing on different platforms. On each post published, the website is re-built and deployed via Vercel webhooks.
 - **Projects**: sourced from my source-of-truth [projects](https://www.github.com/AbhinRustagi/projects) repository. On each project added, the website is re-built and deployed via Vercel webhooks.
 
@@ -25,19 +25,18 @@ yarn dev
 ```
 src/
   |- app/
-  |   |- _fonts/
   |   |- (home)/
   |   |- about/
   |   |- blog/
   |       |- [slug]/
-  |   |- work/
+  |   |- timeline/
   |   |- favicon.ico
   |   |- globals.css
   |   |- layout.tsx
+  |   |- sitemap.ts
   |- components/
-  |- data/
+  |- content/
   |- lib/
-  |- public/
 ```
 
 ## License
