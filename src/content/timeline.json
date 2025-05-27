@@ -3,13 +3,13 @@
     "type": "education",
     "title": "Graduated from University of Melbourne",
     "date": "August, 2025",
-    "description": "Completion to my final 2 years of academic study, and celebrating 2 years of being in Melbourne. 🥂"
+    "description": "Two years, several mental breakdowns, and one Master's later - I made it. Also officially became a coffee snob. 🥂"
   },
   {
     "type": "work",
     "title": "App Development with JointSense",
     "date": "March, 2025 - June, 2025",
-    "description": "As part of a mandatory Software Engineering Project, worked with a newly founded startup JointSense to develop a mobile app to help physiotherapy students learn about joint assessments using a IMU sensor."
+    "description": "As part of a mandatory Software Engineering Project, worked with a newly founded startup JointSense to develop a mobile app to help physiotherapy students analyze and quantify joint assessments using a IMU sensor."
   },
   {
     "type": "work",
@@ -20,14 +20,13 @@
   {
     "type": "education",
     "title": "Commenced Masters of Information Technology, University of Melbourne",
-    "date": "July, 2023",
-    "description": "Finally."
+    "date": "July, 2023"
   },
   {
     "type": "life_update",
     "title": "Migrated to Melbourne",
     "date": "July, 2023",
-    "description": "It just got real, people."
+    "description": "Goodbye Delhi heat, hello Melbourne rain. Brought 23 kg of luggage and 2300 kg of ambition. It just got real, people."
   },
   {
     "type": "work",
@@ -45,7 +44,7 @@
     "type": "education",
     "title": "Graduated from University of Delhi",
     "date": "July, 2022",
-    "description": "COVID made life difficult, but I did it."
+    "description": "Got a degree in Statistics during a global pandemic. Nothing screams 'resilience' louder than online exams at 9AM."
   },
   {
     "type": "work",
@@ -69,13 +68,13 @@
     "type": "work",
     "title": "Internship Fair Portal",
     "date": "February, 2021",
-    "description": "Built my first production ready project for my undergrad college, used by over 600 students."
+    "description": "Built my first production ready project for my undergrad college, used by over 600 students. Accidentally became the IT guy for my entire undergrad batch."
   },
   {
     "type": "life_update",
     "title": "Self learn programming",
     "date": "April, 2020",
-    "description": "Started self learning programming with Youtube courses, and a big cloud of curiosity, and started to build my own projects."
+    "description": "Lockdown + YouTube + irrational confidence = Programmer. Started with HTML, ended up knee-deep in Git."
   },
   {
     "type": "education",
@@ -91,12 +90,12 @@
     "type": "work",
     "title": "KiD Inc. - first tryst with development",
     "date": "2013-2015",
-    "description": "Developed Android apps with a mate using MIT App Inventor, and published them on the Play Store. We got over 2000 total downloads in 2 years, before we discontinued due to the high school pressure."
+    "description": "Developed Android apps with a mate using MIT App Inventor. Got 2K downloads. Then gave it up because... exams. RIP early startup dreams."
   },
   {
     "type": "life_update",
     "title": "Started a Youtube Channel",
     "date": "2011",
-    "description": "Started a Youtube Channel as a 10yo sharing Microsoft Powerpoint tutorials, and Pika Software Builder tutorials (got over 40K views). Removed the videos in 2017 when I realised I was a nerd (and the videos were cringe). Still have my loyal ~300 subscribers."
+    "description": "Started a Youtube Channel sharing Microsoft Powerpoint tutorials, and Pika Software Builder tutorials (got over 40K views). Removed the videos in 2017 when I realised I was a nerd (and the videos were cringe). Still have my loyal ~300 subscribers."
   }
 ]
