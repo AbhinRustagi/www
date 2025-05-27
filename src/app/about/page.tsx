@@ -192,7 +192,8 @@ export default function About() {
           >
             Pablo Stanley's
           </Link>{" "}
-          Open Peeps Illustrations. It is hosted on{" "}
+          Open Peeps Illustrations. Using Google Analytics for insights. It is
+          hosted on{" "}
           <Link
             href="https://vercel.com/"
             target="_blank"
