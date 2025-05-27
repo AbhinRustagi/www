@@ -20,7 +20,8 @@
   {
     "type": "education",
     "title": "Commenced Masters of Information Technology, University of Melbourne",
-    "date": "July, 2023"
+    "date": "July, 2023",
+    "description": "Specializing in AI"
   },
   {
     "type": "life_update",
@@ -84,7 +85,8 @@
   {
     "type": "education",
     "title": "Graduated High School",
-    "date": "May, 2019"
+    "date": "May, 2019",
+    "description": "Headboy 😎"
   },
   {
     "type": "work",

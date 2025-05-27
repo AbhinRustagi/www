@@ -7,7 +7,7 @@ export function About() {
       <p className="mb-5">
         With over 2 years of experience in software development, I'm a full
         stack software engineer who loves building impactful products. I am a
-        recent graduate from the University of Melbourne, where I studied
+        recent (post)graduate from the University of Melbourne, where I studied
         Information Technology, with a specialisation in AI. Prior to this I
         studied Statistics as my undergrad major.
       </p>

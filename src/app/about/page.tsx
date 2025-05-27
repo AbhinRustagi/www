@@ -99,10 +99,35 @@ export default function About() {
           <li>
             Databases - PostgreSQL, MySQL, MongoDB, Redis, SQLite, Supabase
           </li>
-          <li>AI - OpenAI, Claude, DeepSeek, Llama, Mistral, Grok</li>
+          <li>LLMs - LLama, Grok, OpenAI, Mistral</li>
+          <li>
+            Libraries - PyTorch, TensorFlow, Hugging Face, Transformers, FAISS,
+            Langchain and more
+          </li>
           <li>Cloud - AWS, GCP</li>
           <li>DevOps - Docker, Github Actions, Kubernetes, Terraform</li>
-          <li>Misc: FAISS, Langchain</li>
+        </ul>
+      </section>
+      <section id="testimonials" className="mb-16">
+        <h2 className="text-2xl">Testimonials</h2>
+        <p className="my-5">
+          I've worked with some amazing folks, and they had some good things to
+          say.{" "}
+          <Link href="https://www.linkedin.com/in/abhinrustagi">(Source)</Link>
+        </p>
+        <ul className="list-disc list-inside mb-5">
+          <li className="mb-3">
+            Abhin is reliable, with strong ownership and passion. He is calm and
+            can work under high pressure with crazy deadlines.
+          </li>
+          <li className="mb-3">
+            Abhin has a flawless work ethic, he is an amazing team member, and
+            his work is of the upmost quality.
+          </li>
+          <li>
+            He is extremely motivated and has a strong sense of ownership of his
+            work.
+          </li>
         </ul>
       </section>
       <section id="colophon" className="mb-16">
@@ -134,7 +159,8 @@ export default function About() {
           >
             Typescript
           </Link>
-          . Typeset is in{" "}
+          , with concrete plans to add a custom CMS (the content is mostly
+          hard-coded right now). Typeset is in{" "}
           <Link
             href="https://fonts.google.com/specimen/Inter+Tight"
             target="_blank"
