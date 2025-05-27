@@ -3,67 +3,79 @@
     "type": "education",
     "title": "Graduated from University of Melbourne",
     "date": "August, 2025",
-    "description": "Graduated with a Masters of Information Technology from the University of Melbourne."
+    "description": "Completion to my final 2 years of academic study, and celebrating 2 years of being in Melbourne. 🥂"
   },
   {
     "type": "work",
-    "title": "Software Engineer with JointSense",
+    "title": "App Development with JointSense",
     "date": "March, 2025 - June, 2025",
-    "description": "Worked on a mobile app for joint replacement surgery."
+    "description": "As part of a mandatory Software Engineering Project, worked with a newly founded startup JointSense to develop a mobile app to help physiotherapy students learn about joint assessments using a IMU sensor."
   },
   {
     "type": "work",
     "title": "VR Software Developer Intern, Virtetic",
     "date": "July, 2024 - October, 2024",
-    "description": "Worked on a VR software for medical training."
+    "description": "Joined Virtetic as a VR Software Developer Intern to develop a globally distributed database and cloud architecture, and also develop an in-game visual leaderboard for their VR games."
   },
   {
     "type": "education",
     "title": "Commenced Masters of Information Technology, University of Melbourne",
     "date": "July, 2023",
-    "description": "Started Masters of Information Technology at the University of Melbourne."
+    "description": "Finally."
   },
   {
     "type": "life_update",
     "title": "Migrated to Melbourne",
     "date": "July, 2023",
-    "description": "Moved to Melbourne to study Masters of Information Technology."
+    "description": "It just got real, people."
   },
   {
     "type": "work",
-    "title": "ReWorld",
-    "date": "2022-Present"
+    "title": "ReWorld Earth",
+    "date": "2022-Present",
+    "description": "Joined ReWorld as a Frontend Engineer to develop their pilot website, but stuck around voluntarily because climate change is real, and we need to act now."
   },
   {
     "type": "work",
     "title": "Software Engineer, Openhouse",
     "date": "February, 2022 - July, 2023",
-    "description": "Worked on a mobile app for joint replacement surgery."
+    "description": "Worked as a Backend Engineer to help build a platform to promote offline learning in young children. Learnt a lot about backend development, and product development."
   },
   {
     "type": "education",
     "title": "Graduated from University of Delhi",
-    "date": "July, 2022"
+    "date": "July, 2022",
+    "description": "COVID made life difficult, but I did it."
   },
   {
     "type": "work",
     "title": "Freelance Web Developer",
-    "date": "2021-2023"
+    "date": "2021-2023",
+    "description": "Worked with multiple SMBs and startups to build their websites and web applications."
   },
   {
     "type": "work",
     "title": "Frontend Engineer, Blue Ocean Global Technology",
-    "date": "June, 2021 - December, 2021"
+    "date": "June, 2021 - December, 2021",
+    "description": "Worked as a Frontend Engineer to help BOGT's clients."
   },
   {
     "type": "work",
-    "title": "Javascript Engineer, Pabio",
-    "date": "May, 2021"
+    "title": "Javascript Engineer Intern, Pabio",
+    "date": "May, 2021",
+    "description": "Got a trial internship with Pabio, and my first taste of working in a startup and with large codebases."
   },
   {
     "type": "work",
     "title": "Internship Fair Portal",
-    "date": "February, 2021"
+    "date": "February, 2021",
+    "description": "Built my first production ready project for my undergrad college, used by over 600 students."
+  },
+  {
+    "type": "life_update",
+    "title": "Self learn programming",
+    "date": "April, 2020",
+    "description": "Started self learning programming with Youtube courses, and a big cloud of curiosity, and started to build my own projects."
   },
   {
     "type": "education",
@@ -78,6 +90,13 @@
   {
     "type": "work",
     "title": "KiD Inc. - first tryst with development",
-    "date": "2013-2015"
+    "date": "2013-2015",
+    "description": "Developed Android apps with a mate using MIT App Inventor, and published them on the Play Store. We got over 2000 total downloads in 2 years, before we discontinued due to the high school pressure."
+  },
+  {
+    "type": "life_update",
+    "title": "Started a Youtube Channel",
+    "date": "2011",
+    "description": "Started a Youtube Channel as a 10yo sharing Microsoft Powerpoint tutorials, and Pika Software Builder tutorials (got over 40K views). Removed the videos in 2017 when I realised I was a nerd (and the videos were cringe). Still have my loyal ~300 subscribers."
   }
 ]

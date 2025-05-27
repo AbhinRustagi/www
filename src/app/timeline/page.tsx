@@ -24,7 +24,7 @@ const TimelineItem = (props: ITimelineItem) => {
       </div>
       <div>
         <h2 className="text-xl mb-2">{title}</h2>
-        {description && <p>{description}</p>}
+        {description && <p className="text-base">{description}</p>}
       </div>
     </div>
   );
