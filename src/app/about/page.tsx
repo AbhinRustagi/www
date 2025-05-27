@@ -5,7 +5,7 @@ import { PiArrowLeftBold } from "react-icons/pi";
 export default function About() {
   return (
     <>
-      <section className="mb-16">
+      <section className="mb-16 relative">
         <div>
           <Link
             href="/"
@@ -17,6 +17,15 @@ export default function About() {
         </div>
         <h1 className="text-2xl mb-1">About Me</h1>
         <p className="mb-8">Who even am I?</p>
+        <div className="lg:absolute top-42 -left-32">
+          <Image
+            src="/headshot.jpg"
+            alt="Abhin"
+            width={100}
+            height={100}
+            className="rounded-xl"
+          />
+        </div>
         <p className="my-5">
           My name is Abhin, and I'm a software engineer who loves a good
           challenge. In the past, I've had the opportunity to develop software
@@ -76,11 +85,11 @@ export default function About() {
       </section>
       <section className="mb-16">
         <h2 className="text-2xl">Tech skills</h2>
-        <p className="mt-5 mb-10">
+        <p className="my-5">
           Here's an incomplete list of the technologies I use on a daily basis,
           or have used extensively in the past.
         </p>
-        <ul className="list-disc list-inside pl-5">
+        <ul className="list-disc list-inside">
           <li>Languages - Javascript, Typescript, Python, Go, C#</li>
           <li>
             Frameworks/Libraries - React, Next, React Native, Tailwind, Shadcn,
