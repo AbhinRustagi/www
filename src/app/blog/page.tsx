@@ -1,3 +1,4 @@
+import Back from "@/components/Back";
 import { getAllPosts, getIndex, groupPostsByDate } from "@/lib/blog";
 import generateMetadata from "@/lib/metadata";
 import Link from "next/link";
@@ -14,17 +15,9 @@ export default async function Blog() {
 
   return (
     <section>
-      <div>
-        <Link
-          href="/"
-          className="flex items-center gap-2 mb-10 no-underline! hover:underline"
-        >
-          <PiArrowLeftBold />
-          <span>Home</span>
-        </Link>
-      </div>
+      <Back />
       <h1 className="text-2xl mb-1">Blog</h1>
-      <p className="mb-8">Thoughts, ideas and opinions</p>
+      <p className="mb-8 italic">Thoughts, ideas and opinions</p>
       <div className="mb-16">
         <ul className="mb-10">
           {posts.reverse().map((post) => (

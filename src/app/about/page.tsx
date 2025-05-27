@@ -1,3 +1,4 @@
+import Back from "@/components/Back";
 import Image from "next/image";
 import Link from "next/link";
 import { PiArrowLeftBold } from "react-icons/pi";
@@ -6,17 +7,9 @@ export default function About() {
   return (
     <>
       <section className="mb-16 relative">
-        <div>
-          <Link
-            href="/"
-            className="flex items-center gap-2 mb-10 !no-underline hover:underline"
-          >
-            <PiArrowLeftBold />
-            <span>Home</span>
-          </Link>
-        </div>
+        <Back />
         <h1 className="text-2xl mb-1">About Me</h1>
-        <p className="mb-8">Who even am I?</p>
+        <p className="mb-8 italic">Who even am I?</p>
         <div className="lg:absolute top-42 -left-32">
           <Image
             src="/headshot.jpg"
@@ -113,7 +106,12 @@ export default function About() {
         <p className="my-5">
           I've worked with some amazing folks, and they had some good things to
           say.{" "}
-          <Link href="https://www.linkedin.com/in/abhinrustagi">(Source)</Link>
+          <Link
+            className="italic"
+            href="https://www.linkedin.com/in/abhinrustagi"
+          >
+            (Source)
+          </Link>
         </p>
         <ul className="list-disc list-inside mb-5">
           <li className="mb-3">
@@ -208,7 +206,7 @@ export default function About() {
         <p className="my-5">
           Meanwhile, this is what happens when you let me near Figma after 10pm.
           <br />
-          Professional? Yes. Cartoonist? Questionable.
+          <em>Professional? Yes. Cartoonist? Questionable.</em>
         </p>
         <Image
           src="/cartoon.svg"

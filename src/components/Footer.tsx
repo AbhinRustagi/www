@@ -20,7 +20,10 @@ export default function Footer() {
   return (
     <footer className="my-16 border-t border-gray-border pt-12 text-foreground">
       <p className="text-base">
-        Last updated {buildDate}. <Link href="/about#colophon">Colophon</Link>
+        Last updated {buildDate}.{" "}
+        <Link className="italic" href="/about#colophon">
+          Colophon
+        </Link>
       </p>
     </footer>
   );

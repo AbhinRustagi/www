@@ -39,5 +39,5 @@ h3 {
 }
 
 a {
-  @apply underline text-title;
+  @apply underline text-title decoration-gray-border underline-offset-4 decoration-1 hover:decoration-title transition-all;
 }

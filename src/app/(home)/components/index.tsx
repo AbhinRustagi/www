@@ -6,10 +6,10 @@ export function About() {
     <section className="mb-16">
       <p className="mb-5">
         With over 2 years of experience in software development, I'm a full
-        stack software engineer who loves building impactful products. I am a
-        recent (post)graduate from the University of Melbourne, where I studied
-        Information Technology, with a specialisation in AI. Prior to this I
-        studied Statistics as my undergrad major.
+        stack software engineer who <em>loves</em> building impactful products.
+        I am a recent (post)graduate from the University of Melbourne, where I
+        studied Information Technology, with a specialisation in AI. Prior to
+        this I studied Statistics as my undergrad major.
       </p>
       <p className="pl-4 border-l-3 border-gray-border">
         If you want to learn <Link href="/about">more about me</Link>
@@ -62,7 +62,10 @@ export function Projects() {
       <h2 className="mb-5 text-2xl">Projects</h2>
       <p>
         Coming soon. Meanwhile, have you checked out my work log on my{" "}
-        <Link href="/timeline">timeline</Link>?
+        <Link className="italic" href="/timeline">
+          timeline
+        </Link>
+        ?
       </p>
     </section>
   );
