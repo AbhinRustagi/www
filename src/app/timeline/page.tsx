@@ -1,3 +1,4 @@
+import Back from "@/components/Back";
 import timeline from "@/content/timeline.json";
 import {
   TimelineItem as ITimelineItem,
@@ -33,17 +34,9 @@ const TimelineItem = (props: ITimelineItem) => {
 export default async function Timeline() {
   return (
     <section className="mb-16">
-      <div>
-        <Link
-          href="/"
-          className="flex items-center gap-2 mb-10 !no-underline hover:underline"
-        >
-          <PiArrowLeftBold />
-          <span>Home</span>
-        </Link>
-      </div>
+      <Back />
       <h1 className="text-2xl mb-1">Timeline</h1>
-      <p className="mb-8">Infrequent updates of what I've been up to.</p>
+      <p className="mb-8 italic">Infrequent updates of what I've been up to.</p>
       <div className="mt-16 border-l-3 border-l-gray-border border-dashed pl-5 py-4">
         {timeline.map((item) => (
           <TimelineItem key={item.title} {...(item as ITimelineItem)} />

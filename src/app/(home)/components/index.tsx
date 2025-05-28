@@ -1,5 +1,7 @@
 import { getAllPosts } from "@/lib/blog";
 import Link from "next/link";
+import projects from "@/content/projects.json";
+import { Project } from "@/lib/types";
 
 export function About() {
   return (
@@ -60,12 +62,35 @@ export function Projects() {
   return (
     <section className="mb-16">
       <h2 className="mb-5 text-2xl">Projects</h2>
+      <ul className="mb-10">
+        {(projects as Project[]).map((project) => (
+          <li
+            key={project.title}
+            className="md:flex-row flex-col mb-4 flex justify-between"
+          >
+            <span>
+              <Link
+                target="_blank"
+                href={project.link}
+                className="no-underline! hover:underline!"
+              >
+                {project.title}
+              </Link>{" "}
+              {project.mini && (
+                <sup className="italic text-orange-300">mini</sup>
+              )}
+            </span>
+            <span>{project.date}</span>
+          </li>
+        ))}
+      </ul>
       <p>
-        Coming soon. Meanwhile, have you checked out my work log on my{" "}
+        More projects in the works. Meanwhile, have you checked out my work log
+        on my{" "}
         <Link className="italic" href="/timeline">
           timeline
         </Link>
-        ?
+        ? <span>📜</span>
       </p>
     </section>
   );
