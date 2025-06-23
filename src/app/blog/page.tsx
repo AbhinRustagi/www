@@ -1,8 +1,7 @@
 import Back from "@/components/Back";
-import { getAllPosts, getIndex, groupPostsByDate } from "@/lib/blog";
+import { getAllPosts } from "@/lib/blog";
 import generateMetadata from "@/lib/metadata";
 import Link from "next/link";
-import { PiArrowLeftBold } from "react-icons/pi";
 
 export const metadata = generateMetadata({
   title: "Blog",

@@ -1,7 +1,7 @@
-import { getAllPosts } from "@/lib/blog";
-import Link from "next/link";
 import projects from "@/content/projects.json";
+import { getAllPosts } from "@/lib/blog";
 import { Project } from "@/lib/types";
+import Link from "next/link";
 
 export function About() {
   return (
@@ -12,6 +12,13 @@ export function About() {
         I am a recent (post)graduate from the University of Melbourne, where I
         studied Information Technology, with a specialisation in AI. Prior to
         this I studied Statistics as my undergrad major.
+      </p>
+      <p className="mb-5">
+        Currently working with{" "}
+        <Link href="https://www.layerlicensing.com/" target="_blank">
+          Layer
+        </Link>{" "}
+        as a freelance software engineer, and open to new opportunities.
       </p>
       <p className="pl-4 border-l-3 border-gray-border">
         If you want to learn <Link href="/about">more about me</Link>
