@@ -1,11 +1,13 @@
+"use client";
+
 import Back from "@/components/Back";
 import Image from "next/image";
 import Link from "next/link";
-import { PiArrowLeftBold } from "react-icons/pi";
+import React from "react";
 
 export default function About() {
   return (
-    <>
+    <React.Fragment>
       <section className="mb-16 relative">
         <Back />
         <h1 className="text-2xl mb-1">About Me</h1>
@@ -202,21 +204,6 @@ export default function About() {
           .
         </p>
       </section>
-      <section className="mb-16">
-        <p className="my-5">
-          Meanwhile, this is what happens when you let me near Figma after 10pm.
-          <br />
-          <em>Professional? Yes. Cartoonist? Questionable.</em>
-        </p>
-        <Image
-          src="/cartoon.svg"
-          alt="Me"
-          width={600}
-          height={600}
-          objectFit="cover"
-          className="rounded-md mb-5"
-        />
-      </section>
-    </>
+    </React.Fragment>
   );
 }

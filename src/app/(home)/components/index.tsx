@@ -13,13 +13,7 @@ export function About() {
         studied Information Technology, with a specialisation in AI. Prior to
         this I studied Statistics as my undergrad major.
       </p>
-      <p className="mb-5">
-        Currently working with{" "}
-        <Link href="https://www.layerlicensing.com/" target="_blank">
-          Layer
-        </Link>{" "}
-        as a freelance software engineer, and open to new opportunities.
-      </p>
+      <p className="mb-5">Currently open to new opportunities.</p>
       <p className="pl-4 border-l-3 border-gray-border">
         If you want to learn <Link href="/about">more about me</Link>
       </p>
