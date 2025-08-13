@@ -81,7 +81,7 @@ export function Projects() {
                 <sup className="italic text-orange-300">mini</sup>
               )}
             </span>
-            <span>{project.date}</span>
+            <span className="text-sm">{project.date}</span>
           </li>
         ))}
       </ul>

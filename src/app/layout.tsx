@@ -1,11 +1,10 @@
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import Socials from "@/components/Socials";
 import generateMetadata from "@/lib/metadata";
-import { Inter_Tight, Source_Serif_4 } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { Host_Grotesk, Inter_Tight } from "next/font/google";
 import "react-tooltip/dist/react-tooltip.css";
 import "./globals.css";
-import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter_tight = Inter_Tight({
   weight: ["400", "500", "600", "700"],
@@ -14,11 +13,11 @@ const inter_tight = Inter_Tight({
   preload: true,
 });
 
-const source = Source_Serif_4({
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
+const host_grotesk = Host_Grotesk({
+  weight: ["400", "500", "600", "700"],
+  style: ["normal"],
   subsets: ["latin"],
-  variable: "--font-source",
+  variable: "--font-host-grotesk",
   preload: true,
 });
 
@@ -32,9 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter_tight.variable} ${source.variable} antialiased`}
+        className={`${inter_tight.variable} ${host_grotesk.variable} antialiased`}
       >
-        <div className="mx-auto max-w-3xl px-6 md:px-0 pt-10 pb-20 min-h-screen">
+        <div className="mx-auto max-w-4xl px-8 md:px-16 lg:px-24 lg:py-18 md:py-12 py-8 pb-20 min-h-screen bg-neutral-900 border-x border-neutral-800/50">
           <main>{children}</main>
           <Socials />
           <Footer />

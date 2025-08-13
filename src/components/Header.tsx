@@ -2,13 +2,13 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <div className="mb-12 flex gap-5">
-      <div className="flex items-center justify-between gap-3 md:gap-5">
-        <Image src="/header.png" alt="logo" width={100} height={100} />
+    <div className="mb-12 flex gap-5 items-center">
+      <div className="flex items-center justify-between gap-3 md:gap-5 rounded overflow-hidden">
+        <Image src="/headshot.jpg" alt="logo" width={80} height={80} />
       </div>
-      <div className="pt-6">
-        <h2 className="text-2xl font-source!">Abhin Rustagi</h2>
-        <p className="font-inter-tight! text-lg">Software Engineer</p>
+      <div>
+        <h2 className="text-2xl">Abhin Rustagi</h2>
+        <p className="text-base">Software Engineer</p>
       </div>
     </div>
   );
