@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export function About() {
   return (
-    <section className="mb-16">
+    <section className="mb-24">
       <p className="mb-5">
         With over 2 years of experience in software development, I'm a full
         stack software engineer who <em>loves</em> building impactful products.
@@ -14,8 +14,13 @@ export function About() {
         this I studied Statistics as my undergrad major.
       </p>
       <p className="mb-5">Currently open to new opportunities.</p>
-      <p className="pl-4 border-l-3 border-gray-border">
+      {/* <p className="pl-4 border-l-3 border-gray-border">
         If you want to learn <Link href="/about">more about me</Link>
+      </p> */}
+      <p>
+        <Link href="/about" className="mono">
+          More about me
+        </Link>
       </p>
     </section>
   );
@@ -25,8 +30,8 @@ export async function Writing() {
   const posts = await getAllPosts();
 
   return (
-    <section className="mb-16">
-      <h2 className="mb-5 text-2xl">Writing</h2>
+    <section className="mb-24">
+      <h2 className="mb-5 text-3xl">Writing</h2>
       <ul className="mb-10">
         {posts
           .reverse()
@@ -52,17 +57,19 @@ export async function Writing() {
             </li>
           ))}
       </ul>
-      <div className="pl-4 border-l-3 border-gray-border">
-        You can find <Link href="/blog">all my posts here</Link>
-      </div>
+      <p>
+        <Link href="/blog" className="mono">
+          All posts here
+        </Link>
+      </p>
     </section>
   );
 }
 
 export function Projects() {
   return (
-    <section className="mb-16">
-      <h2 className="mb-5 text-2xl">Projects</h2>
+    <section className="mb-24">
+      <h2 className="mb-5 text-3xl">Projects</h2>
       <ul className="mb-10">
         {(projects as Project[]).map((project) => (
           <li
@@ -81,7 +88,7 @@ export function Projects() {
                 <sup className="italic text-orange-300">mini</sup>
               )}
             </span>
-            <span className="text-sm">{project.date}</span>
+            <span>{project.date}</span>
           </li>
         ))}
       </ul>

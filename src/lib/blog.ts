@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import fs from "fs/promises";
 import matter from "gray-matter";
 import { parse } from "marked";
 import { notFound } from "next/navigation";
@@ -162,4 +163,19 @@ export async function getPostByPath(path: string): Promise<IPost> {
     metadata: { ...parsedMdContent.data } as PostMetadata,
     content: await parse(content),
   };
+}
+
+export async function readMarkdownFile(
+  path: string,
+  local: boolean = false
+): Promise<{ content: string; data: any }> {
+  if (local) {
+    const mdContent = await fs.readFile(path, "utf8");
+    return matter(mdContent);
+  } else {
+    const mdContent = await fetch(
+      `https://raw.githubusercontent.com/AbhinRustagi/blog/main/${path}`
+    ).then((res) => res.text());
+    return matter(mdContent);
+  }
 }

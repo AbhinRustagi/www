@@ -6,7 +6,10 @@ interface MdRendererProps {
 
 export default function MdRenderer({ content }: MdRendererProps) {
   // Convert anchor links to external
-  const modifiedContent = content.replaceAll("<a", "<a target='_blank'");
+  const modifiedContent = content.replaceAll(
+    "<a",
+    "<a target='_blank' rel='noopener noreferrer'"
+  );
 
   return (
     <div

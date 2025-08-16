@@ -36,10 +36,10 @@ export default async function BlogPost({ params }: Props) {
         </Link>
       </div>
       <section className="mb-16 pb-16 border-b border-b-gray-border">
-        <h1 className="text-neutral-100 mb-8 text-2xl font-bold">
+        <h1 className="text-neutral-100 mb-8 text-3xl font-bold">
           {data.metadata.title}
         </h1>
-        <p className="text-foreground/80 mb-8">
+        <p className="text-foreground/80 mb-8 font-google-sans-code font-medium text-sm">
           {data.metadata.date.toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",

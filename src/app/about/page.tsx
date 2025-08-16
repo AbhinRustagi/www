@@ -10,17 +10,8 @@ export default function About() {
     <React.Fragment>
       <section className="mb-16 relative">
         <Back />
-        <h1 className="text-2xl mb-1">About Me</h1>
+        <h1 className="text-3xl mb-1">About Me</h1>
         <p className="mb-8 italic">Who even am I?</p>
-        <div className="lg:absolute top-42 -left-32">
-          <Image
-            src="/headshot.jpg"
-            alt="Abhin"
-            width={100}
-            height={100}
-            className="rounded-xl"
-          />
-        </div>
         <p className="my-5">
           My name is Abhin, and I'm a software engineer who loves a good
           challenge. In the past, I've had the opportunity to develop software
@@ -71,15 +62,22 @@ export default function About() {
           </Link>{" "}
           or planning my next travel.
         </p>
-        <p className="mt-5">
-          You can check out my complete <Link href="">resume here</Link>
-          .<br /> I also maintain an <Link href="/">unconventional resume</Link>
-          .<br /> You can also check out my{" "}
-          <Link href="/timeline">timeline</Link>.
-        </p>
+        <ul className="mt-5 flex gap-2">
+          <li>
+            <Link className="mono" href="">
+              Resume
+            </Link>
+          </li>
+          <span>•</span>
+          <li>
+            <Link className="mono" href="/">
+              Timeline
+            </Link>
+          </li>
+        </ul>
       </section>
-      <section className="mb-16">
-        <h2 className="text-2xl">Tech skills</h2>
+      {/* <section className="mb-16">
+        <h2 className="text-3xl">Tech skills</h2>
         <p className="my-5">
           Here's an incomplete list of the technologies I use on a daily basis,
           or have used extensively in the past.
@@ -102,25 +100,25 @@ export default function About() {
           <li>Cloud - AWS, GCP</li>
           <li>DevOps - Docker, Github Actions, Kubernetes, Terraform</li>
         </ul>
-      </section>
+      </section> */}
       <section id="testimonials" className="mb-16">
-        <h2 className="text-2xl">Testimonials</h2>
+        <h2 className="text-3xl">Testimonials</h2>
         <p className="my-5">
           I've worked with some amazing folks, and they had some good things to
           say.{" "}
           <Link
-            className="italic"
+            className="mono"
             href="https://www.linkedin.com/in/abhinrustagi"
           >
             (Source)
           </Link>
         </p>
         <ul className="list-disc list-inside mb-5">
-          <li className="mb-3">
+          <li className="mb-1">
             Abhin is reliable, with strong ownership and passion. He is calm and
             can work under high pressure with crazy deadlines.
           </li>
-          <li className="mb-3">
+          <li className="mb-1">
             Abhin has a flawless work ethic, he is an amazing team member, and
             his work is of the upmost quality.
           </li>
@@ -131,78 +129,14 @@ export default function About() {
         </ul>
       </section>
       <section id="colophon" className="mb-16">
-        <h2 className="text-2xl">Colophon</h2>
-        <p className="mt-5 mb-10">
-          This site is built with a lot of love, and a bit of borrowing. Major
-          credit to{" "}
-          <Link
-            href="https://kyswtn.com?utm_source=abhin.dev"
-            target="_blank"
-            className="underline !text-foreground !hover:text-foreground/80"
-          >
-            Kyaw
-          </Link>{" "}
-          for the minimal design inspiration. I’ve adapted their structure while
-          adding my own content, projects, and quirks. This website is made with{" "}
-          <Link
-            href="https://nextjs.org/"
-            target="_blank"
-            className="underline !text-foreground !hover:text-foreground/80"
-          >
-            Next.js
-          </Link>{" "}
-          and{" "}
-          <Link
-            href="https://www.typescriptlang.org/"
-            target="_blank"
-            className="underline !text-foreground !hover:text-foreground/80"
-          >
-            Typescript
-          </Link>
-          , with concrete plans to add a custom CMS (the content is mostly
-          hard-coded right now). Typeset is in{" "}
-          <Link
-            href="https://fonts.google.com/specimen/Inter+Tight"
-            target="_blank"
-            className="underline !text-foreground !hover:text-foreground/80"
-          >
-            Inter Tight
-          </Link>{" "}
-          and{" "}
-          <Link
-            href="https://fonts.google.com/specimen/Source+Serif+4"
-            target="_blank"
-            className="underline !text-foreground !hover:text-foreground/80"
-          >
-            Source Serif 4
-          </Link>
-          . Styling is done with{" "}
-          <Link
-            href="https://tailwindcss.com/"
-            target="_blank"
-            className="underline !text-foreground !hover:text-foreground/80"
-          >
-            Tailwind CSS
-          </Link>
-          . The illustrations are from{" "}
-          <Link
-            href="https://www.instagram.com/pablostanley/?hl=en"
-            target="_blank"
-            className="underline !text-foreground !hover:text-foreground/80"
-          >
-            Pablo Stanley's
-          </Link>{" "}
-          Open Peeps Illustrations. Using Google Analytics for insights. It is
-          hosted on{" "}
-          <Link
-            href="https://vercel.com/"
-            target="_blank"
-            className="underline !text-foreground !hover:text-foreground/80"
-          >
-            Vercel
-          </Link>
-          .
-        </p>
+        <h2 className="text-3xl">Colophon</h2>
+        <ul className="mt-5 mb-10 list-disc list-inside">
+          <li>Built with Next.js, Tailwind CSS, and TypeScript</li>
+          <li>Hosted on Vercel.</li>
+          <li>Typeset in Inter Tight, Google Sans Code and Host Grotesk.</li>
+          <li>Google Analytics for insights.</li>
+          <li>Built with love, and a bit of borrowing.</li>
+        </ul>
       </section>
     </React.Fragment>
   );

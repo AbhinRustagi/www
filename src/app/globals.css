@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap");
 
 @custom-variant light (&:where(.light, .light *));
 
@@ -8,9 +7,10 @@
   --color-foreground: #dedede;
   --color-title: #f0f0f0;
   --color-gray-border: #585858;
-  --color-accent: #60b5ff;
+  --color-accent: #00ffab;
   --font-inter-tight: var(--font-inter-tight);
   --font-host-grotesk: var(--font-host-grotesk);
+  --font-google-sans-code: var(--font-google-sans-code);
 }
 
 @layer theme {
@@ -30,19 +30,28 @@
 }
 
 body {
-  @apply bg-black text-foreground leading-relaxed font-host-grotesk lg:text-lg;
+  @apply relative bg-black text-foreground leading-relaxed font-inter-tight;
+}
+
+.bg-image {
+  @apply absolute inset-0 bg-black z-0;
   opacity: 0.8;
-  background-image: linear-gradient(#0c0c0c 1px, transparent 1px),
-    linear-gradient(to right, #0c0c0c 1px, #000000 1px);
+  background-image: radial-gradient(#404040 0.5px, transparent 0.5px),
+    radial-gradient(#404040 0.5px, #000000 0.5px);
   background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
 }
 
 h1,
 h2,
 h3 {
-  @apply font-bold text-title font-inter-tight;
+  @apply font-bold text-title font-host-grotesk;
 }
 
 a {
-  @apply underline text-title decoration-gray-border underline-offset-4 decoration-1 hover:decoration-title transition-all;
+  @apply underline text-title decoration-gray-border decoration-dotted underline-offset-4 decoration-1 hover:decoration-title transition-all;
+}
+
+a.mono {
+  @apply text-accent font-google-sans-code text-sm underline-offset-6 font-medium decoration-solid decoration-1 decoration-accent;
 }

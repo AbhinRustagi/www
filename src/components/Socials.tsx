@@ -47,7 +47,7 @@ const socials = [
 export default function Socials() {
   return (
     <div>
-      <h2 className="text-2xl">Let's Connect</h2>
+      <h2 className="text-3xl">Let's Connect</h2>
       <p className="mt-5 mb-10">
         I'm always looking for new opportunities and collaborations. Feel free
         to reach out to me. The best way to reach me is via email. You can also
