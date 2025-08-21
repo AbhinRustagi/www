@@ -37,8 +37,8 @@ export async function Writing() {
   const posts = await getAllPosts();
 
   return (
-    <section className="mb-20">
-      <h2 className="mb-5 text-3xl">Writing</h2>
+    <section className="flex-1">
+      <h2 className="mb-5 text-2xl">Writing</h2>
       <ul className="mb-10">
         {posts
           .reverse()
@@ -46,7 +46,7 @@ export async function Writing() {
           .map((post) => (
             <li
               key={post.metadata.title}
-              className="md:flex-row flex-col mb-4 flex justify-between"
+              className="md:flex-row flex-col mb-6 md:mb-4 flex justify-between gap-2"
             >
               <Link
                 href={`/blog/${post.metadata.slug}`}
@@ -54,7 +54,7 @@ export async function Writing() {
               >
                 {post.metadata.title}
               </Link>
-              <span>
+              <span className="text-sm! md:text-right">
                 {(post.metadata.date as Date).toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
@@ -64,24 +64,25 @@ export async function Writing() {
             </li>
           ))}
       </ul>
-      <p>
-        <Link href="/blog" className="mono">
-          All posts here
-        </Link>
-      </p>
+      <Link
+        href="/blog"
+        className="py-4 px-6 text-title font-semibold inline-block bg-white/10 hover:bg-accent hover:text-black"
+      >
+        All posts
+      </Link>
     </section>
   );
 }
 
 export function Projects() {
   return (
-    <section className="mb-20">
-      <h2 className="mb-5 text-3xl">Projects</h2>
+    <section className="flex-1">
+      <h2 className="mb-5 text-2xl">Projects</h2>
       <ul className="mb-10">
         {(projects as Project[]).map((project) => (
           <li
             key={project.title}
-            className="md:flex-row flex-col mb-4 flex justify-between"
+            className="mb-4 flex justify-between items-center"
           >
             <span>
               <Link
@@ -90,23 +91,18 @@ export function Projects() {
                 className="no-underline! hover:underline!"
               >
                 {project.title}
-              </Link>{" "}
-              {project.mini && (
-                <sup className="italic text-orange-300">mini</sup>
-              )}
+              </Link>
             </span>
-            <span>{project.date}</span>
+            <span className="text-sm!">{project.date}</span>
           </li>
         ))}
       </ul>
-      <p>
-        More projects in the works. Meanwhile, have you checked out my work log
-        on my{" "}
-        <Link className="italic" href="/timeline">
-          timeline
-        </Link>
-        ? <span>📜</span>
-      </p>
+      <Link
+        href="/timeline"
+        className="py-4 px-6 text-title font-semibold inline-block bg-white/10 hover:bg-accent hover:text-black"
+      >
+        Timeline
+      </Link>
     </section>
   );
 }

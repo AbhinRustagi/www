@@ -48,12 +48,12 @@ export default function Socials() {
   return (
     <div className="max-w-lg">
       <h2 className="text-2xl">Let's Connect</h2>
-      <p className="my-5 text-lg font-medium leading-relaxed">
+      <p className="my-5 text-xl!">
         Always on the lookout for new opportunities and collaborations. Feel
         free to reach out to me.
       </p>
-      <ul className="flex flex-col gap-2">
-        {socials.map(({ href, icon: Icon, title }) => {
+      <ul className="flex gap-4">
+        {socials.map(({ href, title }) => {
           const id = `header-${title.toLowerCase()}`;
 
           return (
@@ -64,7 +64,7 @@ export default function Socials() {
                 target="_blank"
                 data-tooltip-id={id}
                 data-tooltip-content={title}
-                className="text-lg font-medium leading-relaxed hover:text-accent"
+                className="hover:text-accent text-xl!"
               >
                 {title}
               </Link>

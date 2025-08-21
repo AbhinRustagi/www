@@ -4,8 +4,10 @@ export default function Home() {
   return (
     <>
       <About />
-      <Projects />
-      <Writing />
+      <div className="flex flex-col md:flex-row md:justify-between gap-20 !mb-20">
+        <Projects />
+        <Writing />
+      </div>
     </>
   );
 }
