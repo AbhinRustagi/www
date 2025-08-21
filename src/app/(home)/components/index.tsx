@@ -5,23 +5,30 @@ import Link from "next/link";
 
 export function About() {
   return (
-    <section className="mb-24">
-      <p className="mb-5">
-        With over 2 years of experience in software development, I'm a full
-        stack software engineer who <em>loves</em> building impactful products.
-        I am a recent (post)graduate from the University of Melbourne, where I
-        studied Information Technology, with a specialisation in AI. Prior to
-        this I studied Statistics as my undergrad major.
-      </p>
-      <p className="mb-5">Currently open to new opportunities.</p>
-      {/* <p className="pl-4 border-l-3 border-gray-border">
-        If you want to learn <Link href="/about">more about me</Link>
-      </p> */}
-      <p>
-        <Link href="/about" className="mono">
-          More about me
-        </Link>
-      </p>
+    <section className="mb-20">
+      <h2 className="text-3xl mb-4">
+        Hello, I'm <span className="text-accent">Abhin</span>
+        <br />
+        <span className="text-sm font-medium text-foreground">
+          pronounced /ab-hin/
+        </span>
+      </h2>
+      <div>
+        <p className="font-semibold! text-2xl! text-title! max-w-xl tracking-tighter">
+          I'm a <span className="text-accent">software engineer</span> living in
+          Melbourne, and I've been a digital builder for the past few years. I'm
+          passionate about interfaces that automate, infrastructure that scales,
+          products that delight.
+          <br />
+          I'm currently open to new opportunities.
+        </p>
+      </div>
+      <Link
+        href="/about"
+        className="mt-12 py-4 px-6 text-title font-semibold inline-block bg-white/10 hover:bg-accent hover:text-black"
+      >
+        About Me
+      </Link>
     </section>
   );
 }
@@ -30,7 +37,7 @@ export async function Writing() {
   const posts = await getAllPosts();
 
   return (
-    <section className="mb-24">
+    <section className="mb-20">
       <h2 className="mb-5 text-3xl">Writing</h2>
       <ul className="mb-10">
         {posts
@@ -68,7 +75,7 @@ export async function Writing() {
 
 export function Projects() {
   return (
-    <section className="mb-24">
+    <section className="mb-20">
       <h2 className="mb-5 text-3xl">Projects</h2>
       <ul className="mb-10">
         {(projects as Project[]).map((project) => (

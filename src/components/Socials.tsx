@@ -38,7 +38,7 @@ const socials = [
     icon: PiXLogoBold,
   },
   {
-    title: "CV",
+    title: "Resume",
     href: "",
     icon: PiFileBold,
   },
@@ -46,14 +46,13 @@ const socials = [
 
 export default function Socials() {
   return (
-    <div>
-      <h2 className="text-3xl">Let's Connect</h2>
-      <p className="mt-5 mb-10">
-        I'm always looking for new opportunities and collaborations. Feel free
-        to reach out to me. The best way to reach me is via email. You can also
-        find me on LinkedIn, Github, and X.
+    <div className="max-w-lg">
+      <h2 className="text-2xl">Let's Connect</h2>
+      <p className="my-5 text-lg font-medium leading-relaxed">
+        Always on the lookout for new opportunities and collaborations. Feel
+        free to reach out to me.
       </p>
-      <ul className="flex items-center gap-3 md:gap-5">
+      <ul className="flex flex-col gap-2">
         {socials.map(({ href, icon: Icon, title }) => {
           const id = `header-${title.toLowerCase()}`;
 
@@ -65,8 +64,9 @@ export default function Socials() {
                 target="_blank"
                 data-tooltip-id={id}
                 data-tooltip-content={title}
+                className="text-lg font-medium leading-relaxed hover:text-accent"
               >
-                <Icon className="w-7 h-7 text-title hover:text-accent" />
+                {title}
               </Link>
             </li>
           );

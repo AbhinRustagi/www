@@ -4,13 +4,11 @@
 
 @theme {
   --color-background: #111111;
-  --color-foreground: #dedede;
+  --color-foreground: #b6b6b6;
   --color-title: #f0f0f0;
   --color-gray-border: #585858;
-  --color-accent: #00ffab;
-  --font-inter-tight: var(--font-inter-tight);
-  --font-host-grotesk: var(--font-host-grotesk);
-  --font-google-sans-code: var(--font-google-sans-code);
+  --color-accent: #ffb22c;
+  --font-inter-display: var(--font-inter-display);
 }
 
 @layer theme {
@@ -30,28 +28,23 @@
 }
 
 body {
-  @apply relative bg-black text-foreground leading-relaxed font-inter-tight;
-}
-
-.bg-image {
-  @apply absolute inset-0 bg-black z-0;
-  opacity: 0.8;
-  background-image: radial-gradient(#404040 0.5px, transparent 0.5px),
-    radial-gradient(#404040 0.5px, #000000 0.5px);
-  background-size: 20px 20px;
-  background-position: 0 0, 10px 10px;
+  @apply relative bg-black text-foreground leading-relaxed;
+  background-color: #111;
 }
 
 h1,
 h2,
 h3 {
-  @apply font-bold text-title font-host-grotesk;
+  @apply text-title font-semibold;
+  letter-spacing: -0.05rem;
 }
 
-a {
-  @apply underline text-title decoration-gray-border decoration-dotted underline-offset-4 decoration-1 hover:decoration-title transition-all;
+p,
+ul,
+li {
+  @apply text-foreground text-lg font-medium leading-relaxed tracking-tight;
 }
 
-a.mono {
-  @apply text-accent font-google-sans-code text-sm underline-offset-6 font-medium decoration-solid decoration-1 decoration-accent;
+a.link {
+  @apply text-title decoration-gray-border decoration-dotted underline-offset-4 decoration-1 hover:decoration-title transition-all;
 }
