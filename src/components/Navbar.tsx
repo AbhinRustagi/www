@@ -36,7 +36,7 @@ export default function Navbar() {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <header className="mb-16 pb-8 border-b border-border flex gap-4 items-center flex-wrap">
+    <header className="mb-16 pb-8 border-b border-border flex gap-4 items-center justify-center flex-wrap">
       <NavigationMenu>
         <NavigationMenuList>
           {navItems.map((item) => (
@@ -45,7 +45,7 @@ export default function Navbar() {
                 href={item.href}
                 className={`${
                   isActive(item.href)
-                    ? "font-bold underline underline-offset-4"
+                    ? "font-bold underline underline-offset-4 text-foreground"
                     : ""
                 }`}
               >

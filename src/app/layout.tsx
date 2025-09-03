@@ -44,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${satoshi.className} antialiased`}>
-        <div className="mx-auto max-w-5xl px-10 md:px-16 lg:px-48 lg:py-28 md:py-12 py-16 pb-20 min-h-screen">
+        <div className="mx-auto max-w-xl px-4 md:px-0 lg:px-0 lg:py-14 md:py-12 py-8 pb-20 min-h-screen">
           <main>
             <Navbar />
             {children}

@@ -103,7 +103,7 @@ export function Projects() {
       </CardHeader>
       <CardContent>
         <ul className="mb-10">
-          {(projects as Project[]).map((project) => (
+          {(projects as Project[]).slice(0, 3).map((project) => (
             <li key={project.title} className="mb-8">
               <h3 className="mb-1 text-lg">
                 <Link target="_blank" href={project.link}>
