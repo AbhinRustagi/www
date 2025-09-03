@@ -9,6 +9,8 @@ import {
   PiLinkedinLogoBold,
   PiXLogoBold,
 } from "react-icons/pi";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { Button } from "./ui/button";
 
 interface Social {
   href: string;
@@ -46,32 +48,35 @@ const socials = [
 
 export default function Socials() {
   return (
-    <section id="contact">
-      <h2 className="text-2xl font-bold!">Let's Connect</h2>
-      <p className="my-5">
-        Always on the lookout for new opportunities and collaborations. Feel
-        free to reach out to me.
-      </p>
-      <ul className="flex gap-4">
-        {socials.map(({ href, title }) => {
-          const id = `header-${title.toLowerCase()}`;
+    <Card id="contact">
+      <CardHeader>
+        <CardTitle className="text-2xl font-bold!">Let's Connect</CardTitle>
+        <p className="my-3 text-muted-foreground">
+          Always on the lookout for new opportunities and collaborations. Feel
+          free to reach out to me.
+        </p>
+      </CardHeader>
+      <CardContent>
+        <ul className="flex gap-4">
+          {socials.map(({ href, title }) => {
+            const id = `header-${title.toLowerCase()}`;
 
-          return (
-            <li key={id}>
-              <Link
-                href={href}
-                id={id}
-                target="_blank"
-                data-tooltip-id={id}
-                data-tooltip-content={title}
-                className="hover:text-accent"
-              >
-                {title}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </section>
+            return (
+              <li key={id}>
+                <Link
+                  href={href}
+                  target="_blank"
+                  className="hover:text-primary"
+                  data-tooltip-id={id}
+                  data-tooltip-content={title}
+                >
+                  {title}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </CardContent>
+    </Card>
   );
 }

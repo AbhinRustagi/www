@@ -31,13 +31,13 @@ const interDisplay = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-inter-display",
+  variable: "--inter-display",
   preload: true,
 });
 
 const lora = Lora({
   subsets: ["latin"],
-  variable: "--font-lora",
+  variable: "--lora",
   preload: true,
 });
 
@@ -49,11 +49,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="">
-      <body
-        className={`${lora.className} ${interDisplay.variable} antialiased`}
-      >
-        <div className="mx-auto max-w-5xl px-10 md:px-16 lg:px-48 lg:py-28 md:py-12 py-16 pb-20 min-h-screen relative bg-card border-x border-border">
+    <html lang="en" className="dark">
+      <body className={`${interDisplay.className} antialiased`}>
+        <div className="mx-auto max-w-5xl px-10 md:px-16 lg:px-48 lg:py-28 md:py-12 py-16 pb-20 min-h-screen">
           <main>
             <Navbar />
             {children}

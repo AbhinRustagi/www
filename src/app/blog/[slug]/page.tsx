@@ -39,7 +39,7 @@ export default async function BlogPost({ params }: Props) {
         <h1 className="text-neutral-100 mb-8 text-3xl font-bold">
           {data.metadata.title}
         </h1>
-        <p className="text-foreground/80 mb-8 font-google-sans-code font-medium text-sm">
+        <p className="text-muted-foreground/80 mb-8 font-google-sans-code font-medium text-sm">
           {data.metadata.date.toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",

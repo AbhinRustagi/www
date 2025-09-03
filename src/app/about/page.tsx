@@ -12,7 +12,7 @@ export default function About() {
           across a variety of settings — from an innovative{" "}
           <Link
             href="https://www.openhouse.study/"
-            className="underline underline-offset-4 !text-foreground !hover:text-foreground/80"
+            className="underline underline-offset-4 !text-muted-foreground !hover:text-muted-foreground/80"
             target="_blank"
           >
             EdTech platform
@@ -20,7 +20,7 @@ export default function About() {
           , or a creative{" "}
           <Link
             href="https://www.virtetic.com.au/"
-            className="underline underline-offset-4 !text-foreground !hover:text-foreground/80"
+            className="underline underline-offset-4 !text-muted-foreground !hover:text-muted-foreground/80"
             target="_blank"
           >
             MedTech solution
@@ -50,7 +50,7 @@ export default function About() {
           <Link
             href="https://eats.abhin.dev/"
             target="_blank"
-            className="underline underline-offset-4 !text-foreground !hover:text-foreground/80"
+            className="underline underline-offset-4 !text-muted-foreground !hover:text-muted-foreground/80"
           >
             new places to eat at
           </Link>{" "}

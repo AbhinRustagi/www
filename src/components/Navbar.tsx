@@ -1,7 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "./ui/navigation-menu";
 
 const navItems = [
   {
@@ -32,11 +37,11 @@ export default function Navbar() {
 
   return (
     <header className="mb-16 pb-8 border-b border-border flex gap-4 items-center flex-wrap">
-      <nav>
-        <ul className="flex gap-4 flex-wrap">
+      <NavigationMenu>
+        <NavigationMenuList>
           {navItems.map((item) => (
-            <li key={item.title}>
-              <Link
+            <NavigationMenuItem key={item.title}>
+              <NavigationMenuLink
                 href={item.href}
                 className={`${
                   isActive(item.href)
@@ -45,11 +50,11 @@ export default function Navbar() {
                 }`}
               >
                 {item.title}
-              </Link>
-            </li>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
           ))}
-        </ul>
-      </nav>
+        </NavigationMenuList>
+      </NavigationMenu>
     </header>
   );
 }
