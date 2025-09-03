@@ -66,7 +66,7 @@ export default function Socials() {
                 <Link
                   href={href}
                   target="_blank"
-                  className="hover:text-primary"
+                  className="hover:text-primary font-bold"
                   data-tooltip-id={id}
                   data-tooltip-content={title}
                 >

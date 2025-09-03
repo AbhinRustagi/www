@@ -2,42 +2,35 @@ import Footer from "@/components/Footer";
 import Socials from "@/components/Socials";
 import generateMetadata from "@/lib/metadata";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Lora } from "next/font/google";
 import localFont from "next/font/local";
 import "react-tooltip/dist/react-tooltip.css";
 import "@/lib/styles/globals.css";
 import Navbar from "@/components/Navbar";
 
-const interDisplay = localFont({
+const satoshi = localFont({
   src: [
     {
-      path: "../fonts/InterDisplay-Regular.ttf",
+      path: "../fonts/Satoshi-Regular.otf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../fonts/InterDisplay-Medium.ttf",
+      path: "../fonts/Satoshi-Medium.otf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../fonts/InterDisplay-Bold.ttf",
+      path: "../fonts/Satoshi-Bold.otf",
       weight: "700",
       style: "normal",
     },
     {
-      path: "../fonts/InterDisplay-SemiBold.ttf",
-      weight: "600",
+      path: "../fonts/Satoshi-Light.otf",
+      weight: "300",
       style: "normal",
     },
   ],
-  variable: "--inter-display",
-  preload: true,
-});
-
-const lora = Lora({
-  subsets: ["latin"],
-  variable: "--lora",
+  variable: "--satoshi",
   preload: true,
 });
 
@@ -50,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${interDisplay.className} antialiased`}>
+      <body className={`${satoshi.className} antialiased`}>
         <div className="mx-auto max-w-5xl px-10 md:px-16 lg:px-48 lg:py-28 md:py-12 py-16 pb-20 min-h-screen">
           <main>
             <Navbar />

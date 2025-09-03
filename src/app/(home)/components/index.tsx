@@ -86,7 +86,7 @@ export async function Writing() {
         </ul>
         <Link
           href="/blog"
-          className="font-bold text-primary inline-block hover:text-muted-foreground font-inter-display"
+          className="font-bold text-primary inline-block hover:text-muted-foreground"
         >
           Browse all {posts.length} posts →
         </Link>

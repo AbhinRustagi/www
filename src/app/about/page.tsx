@@ -89,7 +89,7 @@ export default function About() {
           <ul className="list-disc list-inside">
             <li>Built with Next.js, Tailwind CSS, and TypeScript</li>
             <li>Hosted on Vercel.</li>
-            <li>Typeset in Inter Display.</li>
+            <li>Typeset in Satoshi.</li>
             <li>Google Analytics for insights.</li>
             <li>Built with love, and a bit of borrowing.</li>
           </ul>

@@ -33,13 +33,13 @@ export default async function BlogPost({ params }: Props) {
 
   return (
     <>
-      <Card className="mb-16 pb-16 border-b border-b-border">
+      <Card className="mb-8">
         <CardHeader>
           <CardTitle className="text-neutral-100 mb-8 text-3xl font-bold">
             {data.metadata.title}
           </CardTitle>
           <CardDescription>
-            <p className="text-muted-foreground/80 mb-8 font-google-sans-code font-medium text-sm">
+            <p className="text-muted-foreground/80 font-medium text-sm">
               {data.metadata.date.toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
