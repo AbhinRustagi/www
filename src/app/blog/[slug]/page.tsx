@@ -1,4 +1,11 @@
 import MdRenderer from "@/components/MdRenderer/MdRenderer";
+import {
+  Card,
+  CardTitle,
+  CardHeader,
+  CardContent,
+  CardDescription,
+} from "@/components/ui/card";
 import { getAllPosts, getPostBySlug, IPost } from "@/lib/blog";
 import _generateMetadata from "@/lib/metadata";
 import { Metadata } from "next";
@@ -26,29 +33,26 @@ export default async function BlogPost({ params }: Props) {
 
   return (
     <>
-      <div>
-        <Link
-          href="/"
-          className="flex items-center gap-2 mb-10 no-underline! hover:underline"
-        >
-          <PiArrowLeftBold />
-          <span>Home</span>
-        </Link>
-      </div>
-      <section className="mb-16 pb-16 border-b border-b-border">
-        <h1 className="text-neutral-100 mb-8 text-3xl font-bold">
-          {data.metadata.title}
-        </h1>
-        <p className="text-muted-foreground/80 mb-8 font-google-sans-code font-medium text-sm">
-          {data.metadata.date.toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}{" "}
-          • {data.metadata.reading_time} minutes
-        </p>
-        <MdRenderer content={data.content} />
-      </section>
+      <Card className="mb-16 pb-16 border-b border-b-border">
+        <CardHeader>
+          <CardTitle className="text-neutral-100 mb-8 text-3xl font-bold">
+            {data.metadata.title}
+          </CardTitle>
+          <CardDescription>
+            <p className="text-muted-foreground/80 mb-8 font-google-sans-code font-medium text-sm">
+              {data.metadata.date.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}{" "}
+              • {data.metadata.reading_time} minutes
+            </p>
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <MdRenderer content={data.content} />
+        </CardContent>
+      </Card>
     </>
   );
 }
