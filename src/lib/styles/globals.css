@@ -1,59 +1,21 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @import "tw-animate-css";
+}
 
 @custom-variant light (&:where(.light, .light *));
-
-@theme {
-  --color-background: hsl(21 45% 3%);
-  --color-title: hsl(21 12% 100%);
-  --color-foreground: hsl(21 6% 67%);
-  --color-card: hsl(21 45% 4%);
-  --color-border: hsl(21 10% 12%);
-  --color-accent: hsl(21 90% 48%);
-  --font-inter-display: var(--font-inter-display);
-  --font-lora: var(--font-lora);
-}
-
-@layer theme {
-  .light {
-    --color-background: hsl(21 47% 98%);
-    --color-title: hsl(21 53% 0%);
-    --color-foreground: hsl(21 6% 33%);
-    --color-card: hsl(21 47% 97%);
-    --color-border: hsl(21 10% 91%);
-    --color-accent: hsl(21 90% 48%);
-  }
-
-  .blue-dark {
-    --color-background: hsl(270 10% 3.92%);
-    --color-title: hsl(0 0% 98%);
-    --color-foreground: hsl(240 5% 64.9%);
-    --color-accent: hsl(211.06 100% 50%);
-    --color-card: hsl(0 0% 7.84%);
-    --color-border: hsl(240 3.7% 15.9%);
-  }
-
-  .blue-light {
-    --color-background: hsl(210 20% 98.04%);
-    --color-title: hsl(220 60% 0.98%);
-    --color-foreground: hsl(0 0% 25.88%);
-    --color-card: hsl(0 0% 100%);
-    --color-border: hsl(216 14.29% 93.14%);
-    --color-accent: hsl(211.06 100% 50%);
-  }
-}
 
 * {
   scroll-behavior: smooth;
 }
 
-body {
-  @apply relative text-title leading-relaxed bg-background;
-}
-
 h1,
 h2,
 h3 {
-  @apply font-semibold font-inter-display;
+  @apply font-semibold;
   letter-spacing: -0.05rem;
 }
 
@@ -63,6 +25,41 @@ li {
   @apply font-medium leading-relaxed tracking-tight;
 }
 
-a.link {
-  @apply text-title decoration-border decoration-dotted underline-offset-4 decoration-1 hover:decoration-title transition-all;
+@layer base {
+  :root {
+    --background: 0 0% 6.67%;
+    --foreground: 0 0% 93.33%;
+    --muted: 0 0% 13.33%;
+    --muted-foreground: 0 0% 70.59%;
+    --popover: 0 0% 9.8%;
+    --popover-foreground: 0 0% 93.33%;
+    --card: 0 0% 9.8%;
+    --card-foreground: 0 0% 93.33%;
+    --border: 44 14% 11%;
+    --input: 0 0% 28.24%;
+    --primary: 22.93 92.59% 52.35%;
+    --primary-foreground: 29.51 0% 100%;
+    --secondary: 28.5 64.52% 12.16%;
+    --secondary-foreground: 29.51 100% 88.04%;
+    --accent: 0 0% 16.47%;
+    --accent-foreground: 0 0% 93.33%;
+    --destructive: 10.16 77.87% 53.92%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 23.11 59.8% 40%;
+    --chart-1: 22.93 92.59% 52.35%;
+    --chart-2: 28.5 64.52% 12.16%;
+    --chart-3: 0 0% 16.47%;
+    --chart-4: 28.5 64.52% 15.16%;
+    --chart-5: 22.93 95.59% 52.35%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-muted-foreground;
+  }
 }
