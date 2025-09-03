@@ -36,7 +36,7 @@ export default function Navbar() {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <header className="mb-16 pb-8 border-b border-border flex gap-4 items-center justify-center flex-wrap">
+    <header className="mb-16 pb-8 border-b border-border flex gap-4 items-center justify-center md:justify-start flex-wrap">
       <NavigationMenu>
         <NavigationMenuList>
           {navItems.map((item) => (

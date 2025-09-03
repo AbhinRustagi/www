@@ -1,3 +1,4 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getAllPosts } from "@/lib/blog";
 import generateMetadata from "@/lib/metadata";
 import Link from "next/link";
@@ -12,18 +13,22 @@ export default async function Blog() {
   const posts = await getAllPosts();
 
   return (
-    <section className="my-16">
-      <h1 className="mb-8 text-3xl font-bold!">Thoughts, ideas and opinions</h1>
-      <div>
-        <ul className="mb-10">
+    <Card className="my-8">
+      <CardHeader>
+        <CardTitle className="text-3xl font-bold! text-foreground">
+          Thoughts, ideas and opinions
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <ul>
           {posts.reverse().map((post) => (
-            <li key={post.metadata.title} className="mb-10">
-              <h3 className="mb-1 text-lg">
+            <li key={post.metadata.title} className="my-6">
+              <h3 className="mb-1 text-foreground">
                 <Link href={`/blog/${post.metadata.slug}`}>
                   {post.metadata.title}
                 </Link>
               </h3>
-              <p className="mb-1 text-muted-foreground">
+              <p className="mb-1 text-muted-foreground text-sm">
                 <span className="font-medium">
                   {(post.metadata.date as Date).toLocaleDateString("en-US", {
                     year: "numeric",
@@ -34,11 +39,13 @@ export default async function Blog() {
                 {" • "}
                 {post.metadata.reading_time} minutes
               </p>
-              <p>{post.metadata.description}</p>
+              <p className="text-muted-foreground text-sm">
+                {post.metadata.description}
+              </p>
             </li>
           ))}
         </ul>
-      </div>
-    </section>
+      </CardContent>
+    </Card>
   );
 }
