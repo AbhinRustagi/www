@@ -46,9 +46,9 @@ const socials = [
 
 export default function Socials() {
   return (
-    <div className="max-w-lg">
-      <h2 className="text-2xl">Let's Connect</h2>
-      <p className="my-5 text-xl!">
+    <section id="contact">
+      <h2 className="text-2xl font-bold!">Let's Connect</h2>
+      <p className="my-5">
         Always on the lookout for new opportunities and collaborations. Feel
         free to reach out to me.
       </p>
@@ -64,7 +64,7 @@ export default function Socials() {
                 target="_blank"
                 data-tooltip-id={id}
                 data-tooltip-content={title}
-                className="hover:text-accent text-xl!"
+                className="hover:text-accent"
               >
                 {title}
               </Link>
@@ -72,6 +72,6 @@ export default function Socials() {
           );
         })}
       </ul>
-    </div>
+    </section>
   );
 }

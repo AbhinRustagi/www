@@ -35,7 +35,7 @@ export default async function BlogPost({ params }: Props) {
           <span>Home</span>
         </Link>
       </div>
-      <section className="mb-16 pb-16 border-b border-b-gray-border">
+      <section className="mb-16 pb-16 border-b border-b-border">
         <h1 className="text-neutral-100 mb-8 text-3xl font-bold">
           {data.metadata.title}
         </h1>

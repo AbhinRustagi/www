@@ -5,29 +5,28 @@ import Link from "next/link";
 
 export function About() {
   return (
-    <section className="mb-20">
-      <h2 className="text-3xl mb-4">
-        Hello, I'm <span className="text-accent">Abhin</span>
+    <section className="mb-16">
+      <h2 className="text-3xl mb-1">
+        Hello, I'm Abhin
         <br />
-        <span className="text-sm font-medium text-foreground">
-          pronounced /ab-hin/
-        </span>
       </h2>
+      <div className="text-sm font-medium text-foreground mb-4">
+        pronounced /ab-hin/
+      </div>
       <div>
-        <p className="font-semibold! text-2xl! text-title! max-w-xl tracking-tighter">
-          I'm a <span className="text-accent">software engineer</span> living in
-          Melbourne, and I've been a digital builder for the past few years. I'm
-          passionate about interfaces that automate, infrastructure that scales,
-          products that delight.
+        <p>
+          I'm a software engineer living in Melbourne, and I've been a digital
+          builder for the past few years. I'm passionate about interfaces that
+          automate, infrastructure that scales, products that delight.
           <br />
           I'm currently open to new opportunities.
         </p>
       </div>
       <Link
         href="/about"
-        className="mt-12 py-4 px-6 text-title font-semibold inline-block bg-white/10 hover:bg-accent hover:text-black"
+        className="mt-12 text-accent font-bold inline-block hover:text-foreground font-inter-display"
       >
-        About Me
+        About Me →
       </Link>
     </section>
   );
@@ -37,38 +36,43 @@ export async function Writing() {
   const posts = await getAllPosts();
 
   return (
-    <section className="flex-1">
-      <h2 className="mb-5 text-2xl">Writing</h2>
+    <section className="flex-1 my-16">
+      <h2 className="mb-8 text-2xl font-bold!">Thoughts, ideas and opinions</h2>
       <ul className="mb-10">
         {posts
           .reverse()
           .slice(0, 3)
           .map((post) => (
-            <li
-              key={post.metadata.title}
-              className="md:flex-row flex-col mb-6 md:mb-4 flex justify-between gap-2"
-            >
-              <Link
-                href={`/blog/${post.metadata.slug}`}
-                className="no-underline! md:max-w-md"
-              >
-                {post.metadata.title}
-              </Link>
-              <span className="text-sm! md:text-right">
-                {(post.metadata.date as Date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </span>
+            <li key={post.metadata.title} className="mb-8">
+              <h3 className="mb-1 text-lg">
+                <Link
+                  href={`/blog/${post.metadata.slug}`}
+                  className="no-underline"
+                >
+                  {post.metadata.title}
+                </Link>
+              </h3>
+              <p className="text-foreground">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Molestias impedit modi ad dolorum quidem facere vero voluptate
+                saepe quasi similique deserunt excepturi nam hic, vel culpa ea
+                veniam accusantium voluptates.{" • "}
+                <span className="text-foreground">
+                  {(post.metadata.date as Date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </span>
+              </p>
             </li>
           ))}
       </ul>
       <Link
         href="/blog"
-        className="py-4 px-6 text-title font-semibold inline-block bg-white/10 hover:bg-accent hover:text-black"
+        className="font-bold text-accent inline-block hover:text-foreground font-inter-display"
       >
-        All posts
+        Browse all {posts.length} posts →
       </Link>
     </section>
   );
@@ -76,32 +80,30 @@ export async function Writing() {
 
 export function Projects() {
   return (
-    <section className="flex-1">
-      <h2 className="mb-5 text-2xl">Projects</h2>
+    <section className="flex-1 my-16">
+      <h2 className="mb-8 text-2xl font-bold!">Projects</h2>
       <ul className="mb-10">
         {(projects as Project[]).map((project) => (
-          <li
-            key={project.title}
-            className="mb-4 flex justify-between items-center"
-          >
-            <span>
-              <Link
-                target="_blank"
-                href={project.link}
-                className="no-underline! hover:underline!"
-              >
+          <li key={project.title} className="mb-8">
+            <h3 className="mb-1 text-lg">
+              <Link target="_blank" href={project.link}>
                 {project.title}
               </Link>
-            </span>
-            <span className="text-sm!">{project.date}</span>
+            </h3>
+            <p className="text-foreground">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum iusto
+              et enim fuga suscipit debitis sed tempore voluptates voluptatum
+              odio perspiciatis ad perferendis quos quisquam laborum, minima
+              cumque nobis laboriosam!
+            </p>
           </li>
         ))}
       </ul>
       <Link
-        href="/timeline"
-        className="py-4 px-6 text-title font-semibold inline-block bg-white/10 hover:bg-accent hover:text-black"
+        href="/projects"
+        className="text-accent font-bold inline-block hover:text-foreground font-inter-display"
       >
-        Timeline
+        See all {projects.length} projects →
       </Link>
     </section>
   );

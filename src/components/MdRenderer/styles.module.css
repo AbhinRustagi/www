@@ -17,13 +17,13 @@
   font-size: 0.875rem;
   overflow: auto;
   background-color: #303030;
-  font-family: var(--font-google-sans-code);
+  font-family: monospace;
 }
 
 .renderer pre code {
   overflow: auto;
   color: #f0f0f0;
-  font-family: var(--font-google-sans-code);
+  font-family: monospace;
 }
 
 .renderer p code {
@@ -33,7 +33,7 @@
   padding: 0.25rem;
   font-size: 0.875rem;
   overflow: auto;
-  font-family: var(--font-google-sans-code);
+  font-family: monospace;
 }
 
 .renderer blockquote {

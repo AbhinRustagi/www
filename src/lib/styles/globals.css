@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@custom-variant light (&:where(.light, .light *));
+
+@theme {
+  --color-background: hsl(21 45% 3%);
+  --color-title: hsl(21 12% 100%);
+  --color-foreground: hsl(21 6% 67%);
+  --color-card: hsl(21 45% 4%);
+  --color-border: hsl(21 10% 12%);
+  --color-accent: hsl(21 90% 48%);
+  --font-inter-display: var(--font-inter-display);
+  --font-lora: var(--font-lora);
+}
+
+@layer theme {
+  .light {
+    --color-background: hsl(21 47% 98%);
+    --color-title: hsl(21 53% 0%);
+    --color-foreground: hsl(21 6% 33%);
+    --color-card: hsl(21 47% 97%);
+    --color-border: hsl(21 10% 91%);
+    --color-accent: hsl(21 90% 48%);
+  }
+
+  .blue-dark {
+    --color-background: hsl(270 10% 3.92%);
+    --color-title: hsl(0 0% 98%);
+    --color-foreground: hsl(240 5% 64.9%);
+    --color-accent: hsl(211.06 100% 50%);
+    --color-card: hsl(0 0% 7.84%);
+    --color-border: hsl(240 3.7% 15.9%);
+  }
+
+  .blue-light {
+    --color-background: hsl(210 20% 98.04%);
+    --color-title: hsl(220 60% 0.98%);
+    --color-foreground: hsl(0 0% 25.88%);
+    --color-card: hsl(0 0% 100%);
+    --color-border: hsl(216 14.29% 93.14%);
+    --color-accent: hsl(211.06 100% 50%);
+  }
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply relative text-title leading-relaxed bg-background;
+}
+
+h1,
+h2,
+h3 {
+  @apply font-semibold font-inter-display;
+  letter-spacing: -0.05rem;
+}
+
+p,
+ul,
+li {
+  @apply font-medium leading-relaxed tracking-tight;
+}
+
+a.link {
+  @apply text-title decoration-border decoration-dotted underline-offset-4 decoration-1 hover:decoration-title transition-all;
+}

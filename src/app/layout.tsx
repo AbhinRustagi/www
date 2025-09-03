@@ -2,9 +2,11 @@ import Footer from "@/components/Footer";
 import Socials from "@/components/Socials";
 import generateMetadata from "@/lib/metadata";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Lora } from "next/font/google";
 import localFont from "next/font/local";
 import "react-tooltip/dist/react-tooltip.css";
-import "./globals.css";
+import "@/lib/styles/globals.css";
+import Navbar from "@/components/Navbar";
 
 const interDisplay = localFont({
   src: [
@@ -33,6 +35,12 @@ const interDisplay = localFont({
   preload: true,
 });
 
+const lora = Lora({
+  subsets: ["latin"],
+  variable: "--font-lora",
+  preload: true,
+});
+
 export const metadata = generateMetadata();
 
 export default function RootLayout({
@@ -41,10 +49,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${interDisplay.className} antialiased`}>
-        <div className="mx-auto max-w-7xl px-8 md:px-16 lg:px-40 lg:py-36 md:py-12 py-8 pb-20 min-h-screen border-x border-zinc-800/50 relative bg-[#191919]">
-          <main>{children}</main>
+    <html lang="en" className="">
+      <body
+        className={`${lora.className} ${interDisplay.variable} antialiased`}
+      >
+        <div className="mx-auto max-w-5xl px-10 md:px-16 lg:px-48 lg:py-28 md:py-12 py-16 pb-20 min-h-screen relative bg-card border-x border-border">
+          <main>
+            <Navbar />
+            {children}
+          </main>
           <Socials />
           <Footer />
         </div>
