@@ -1,12 +1,6 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-} from "./ui/navigation-menu";
 
 const navItems = [
   {
@@ -37,7 +31,7 @@ export default function Navbar() {
 
   return (
     <header className="mb-16 pb-8 border-b border-border flex gap-4 items-center justify-center md:justify-start flex-wrap">
-      <NavigationMenu>
+      {/* <NavigationMenu>
         <NavigationMenuList>
           {navItems.map((item) => (
             <NavigationMenuItem key={item.title}>
@@ -54,7 +48,7 @@ export default function Navbar() {
             </NavigationMenuItem>
           ))}
         </NavigationMenuList>
-      </NavigationMenu>
+      </NavigationMenu> */}
     </header>
   );
 }

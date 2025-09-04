@@ -2,35 +2,20 @@ import Footer from "@/components/Footer";
 import Socials from "@/components/Socials";
 import generateMetadata from "@/lib/metadata";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import localFont from "next/font/local";
+import { Geist_Mono, Inter_Tight } from "next/font/google";
 import "react-tooltip/dist/react-tooltip.css";
-import "@/lib/styles/globals.css";
-import Navbar from "@/components/Navbar";
+import "@/styles/globals.css";
+import Header from "@/components/Header";
 
-const satoshi = localFont({
-  src: [
-    {
-      path: "../fonts/Satoshi-Regular.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../fonts/Satoshi-Medium.otf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../fonts/Satoshi-Bold.otf",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../fonts/Satoshi-Light.otf",
-      weight: "300",
-      style: "normal",
-    },
-  ],
-  variable: "--satoshi",
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  variable: "--font-inter-tight",
+  preload: true,
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
   preload: true,
 });
 
@@ -43,13 +28,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${satoshi.className} antialiased`}>
-        <div className="mx-auto max-w-xl px-4 md:px-0 lg:px-0 lg:py-14 md:py-12 py-8 pb-20 min-h-screen">
+      <body
+        className={`${interTight.className} ${geistMono.variable} antialiased`}
+      >
+        <div className="mx-auto max-w-2xl px-6 md:px-0 lg:px-0 lg:py-14 md:py-12 py-8 pb-20 min-h-screen">
           <main>
-            <Navbar />
+            <Header />
             {children}
           </main>
-          <Socials />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <Socials />
+          </div>
           <Footer />
         </div>
       </body>

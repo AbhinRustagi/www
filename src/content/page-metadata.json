@@ -1,0 +1,16 @@
+{
+  "blog": {
+    "pathname": "/blog",
+    "title": "Blog",
+    "description": "Thoughts, ideas and opinions on software development and more."
+  },
+  "projects": {
+    "pathname": "/projects",
+    "title": "Projects",
+    "description": "Passion projects and fun little experiments."
+  },
+  "about": {
+    "pathname": "/about",
+    "title": "About"
+  }
+}

@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-background: #101010;
+  --color-foreground: #f0f0f0;
+  --color-muted-foreground: #808080;
+  --color-border: #202020;
+  --color-card: #1a1a1a;
+  --font-geist-mono: var(--font-geist-mono);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-foreground;
+}
