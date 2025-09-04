@@ -5,6 +5,9 @@
   --color-background: #101010;
   --color-foreground: #f0f0f0;
   --color-muted-foreground: #808080;
+  --color-border: #202020;
+  --color-card: #1a1a1a;
+  --font-geist-mono: var(--font-geist-mono);
 }
 
 * {
@@ -13,13 +16,6 @@
 
 body {
   @apply bg-background text-foreground;
-}
-
-h1,
-h2,
-h3 {
-  @apply font-semibold;
-  letter-spacing: -0.05rem;
 }
 
 p,

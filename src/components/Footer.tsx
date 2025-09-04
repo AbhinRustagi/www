@@ -18,9 +18,9 @@ const buildDate = new Date(
 
 export default function Footer() {
   return (
-    <footer className="my-16 border-t border-border pt-12">
-      <p className="text-sm font-medium">
-        Last updated {buildDate}.{" "}
+    <footer className="my-16 flex justify-center">
+      <p className="text-sm text-muted-foreground">
+        Made with ☕️ by Abhin. Last updated {buildDate}.{" "}
         <Link className="underline underline-offset-4" href="/about#colophon">
           Colophon
         </Link>

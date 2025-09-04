@@ -1,9 +1,5 @@
 import { getAllPosts } from "@/lib/blog";
 
-export function Hero() {
-  
-}
-
 export function About() {
   return (
     <></>
