@@ -3,6 +3,8 @@ import { getAllPosts } from "@/lib/blog";
 import generateMetadata from "@/lib/metadata";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = generateMetadata({
   title: "Blog",
   description: "Thoughts, ideas and opinions",
