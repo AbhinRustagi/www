@@ -2,21 +2,25 @@
   {
     "title": "Zeus",
     "link": "https://zeus.abhin.dev/",
-    "date": "April 2025"
+    "date": "April 2025",
+    "description": ""
   },
   {
     "title": "Eats",
     "link": "https://eats.abhin.dev/",
-    "date": "February 2025"
+    "date": "February 2025",
+    "description": ""
   },
   {
     "title": "Photos",
     "link": "https://potd.abhin.dev/",
-    "date": "February 2025"
+    "date": "February 2025",
+    "description": ""
   },
   {
     "title": "IRTL",
     "link": "https://irtl.abhin.dev/",
-    "date": "February 2025"
+    "date": "February 2025",
+    "description": ""
   }
 ]

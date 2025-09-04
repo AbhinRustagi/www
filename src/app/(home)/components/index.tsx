@@ -69,10 +69,8 @@ export async function Writing() {
                   </Link>
                 </h3>
                 <p className="text-muted-foreground">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Molestias impedit modi ad dolorum quidem facere vero voluptate
-                  saepe quasi similique deserunt excepturi nam hic, vel culpa ea
-                  veniam accusantium voluptates.{" • "}
+                  {post.metadata.description}
+                  {" • "}
                   <span className="text-muted-foreground">
                     {(post.metadata.date as Date).toLocaleDateString("en-US", {
                       year: "numeric",
@@ -110,12 +108,7 @@ export function Projects() {
                   {project.title}
                 </Link>
               </h3>
-              <p className="text-muted-foreground">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                iusto et enim fuga suscipit debitis sed tempore voluptates
-                voluptatum odio perspiciatis ad perferendis quos quisquam
-                laborum, minima cumque nobis laboriosam!
-              </p>
+              <p className="text-muted-foreground">{project.description}</p>
             </li>
           ))}
         </ul>
