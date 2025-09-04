@@ -3,24 +3,21 @@
     "title": "Zeus",
     "link": "https://zeus.abhin.dev/",
     "date": "April 2025",
-    "description": ""
+    "image": "/zeus.png",
+    "description": "The all in one system for everything I do online."
   },
   {
     "title": "Eats",
     "link": "https://eats.abhin.dev/",
     "date": "February 2025",
-    "description": ""
+    "image": "/eats.png",
+    "description": "An ongoing project to record all the places I've eaten at."
   },
   {
     "title": "Photos",
     "link": "https://potd.abhin.dev/",
     "date": "February 2025",
-    "description": ""
-  },
-  {
-    "title": "IRTL",
-    "link": "https://irtl.abhin.dev/",
-    "date": "February 2025",
-    "description": ""
+    "image": "/potd.png",
+    "description": "A daily photo of the day."
   }
 ]

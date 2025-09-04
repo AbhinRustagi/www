@@ -1,6 +1,7 @@
 import Card from "@/components/Card";
-import { getAllPosts } from "@/lib/blog";
 import projects from "@/content/projects.json";
+import { getAllPosts } from "@/lib/blog";
+import Image from "next/image";
 
 export default async function Home() {
   const posts = await getAllPosts();
@@ -39,13 +40,19 @@ export default async function Home() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
         {/* Projects */}
         <Card title="Projects" link="/projects">
-          <ul className="list-disc list-inside md:list-outside">
+          <ul className="grid grid-cols-3 gap-4">
             {projects.map((project) => (
-              <li className="my-2" key={project.title}>
-                <span className="font-semibold">{project.title}</span>
-                <span className="text-muted-foreground">
-                  {project.description}
-                </span>
+              <li
+                className="rounded border border-neutral-700"
+                key={project.title}
+              >
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={100}
+                  height={100}
+                  className="w-full h-full object-cover aspect-square"
+                />
               </li>
             ))}
           </ul>
