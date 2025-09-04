@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-background: #101010;
+  --color-foreground: #f0f0f0;
+  --color-muted-foreground: #808080;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-foreground;
+}
+
+h1,
+h2,
+h3 {
+  @apply font-semibold;
+  letter-spacing: -0.05rem;
+}
+
+p,
+ul,
+li {
+  @apply font-medium leading-relaxed tracking-tight;
+}

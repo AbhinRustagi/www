@@ -1,11 +1,9 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Link from "next/link";
 import React from "react";
 
 export default function About() {
   return (
     <React.Fragment>
-      <Card className="mb-8">
+      {/* <Card className="mb-8">
         <CardHeader>
           <CardTitle className="text-3xl font-bold!">Namaste!</CardTitle>
         </CardHeader>
@@ -62,7 +60,7 @@ export default function About() {
             or planning my next travel.
           </p>
         </CardContent>
-      </Card>
+      </Card> */}
       {/* TODO: Redesign */}
       {/* <section id="testimonials" className="my-16">
         <h2 className="text-2xl font-bold!">Kind words from good folks</h2>
@@ -81,7 +79,7 @@ export default function About() {
           </li>
         </ul>
       </section> */}
-      <Card id="colophon" className="my-8">
+      {/* <Card id="colophon" className="my-8">
         <CardHeader>
           <CardTitle className="text-2xl font-bold!">This Website</CardTitle>
         </CardHeader>
@@ -94,7 +92,7 @@ export default function About() {
             <li>Built with love, and a bit of borrowing.</li>
           </ul>
         </CardContent>
-      </Card>
+      </Card> */}
     </React.Fragment>
   );
 }

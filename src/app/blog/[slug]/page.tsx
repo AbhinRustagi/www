@@ -1,16 +1,6 @@
-import MdRenderer from "@/components/MdRenderer/MdRenderer";
-import {
-  Card,
-  CardTitle,
-  CardHeader,
-  CardContent,
-  CardDescription,
-} from "@/components/ui/card";
 import { getAllPosts, getPostBySlug, IPost } from "@/lib/blog";
 import _generateMetadata from "@/lib/metadata";
 import { Metadata } from "next";
-import Link from "next/link";
-import { PiArrowLeftBold } from "react-icons/pi";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -33,7 +23,7 @@ export default async function BlogPost({ params }: Props) {
 
   return (
     <>
-      <Card className="mb-8">
+      {/* <Card className="mb-8">
         <CardHeader>
           <CardTitle className="text-neutral-100 mb-8 text-3xl font-bold">
             {data.metadata.title}
@@ -52,7 +42,7 @@ export default async function BlogPost({ params }: Props) {
         <CardContent>
           <MdRenderer content={data.content} />
         </CardContent>
-      </Card>
+      </Card> */}
     </>
   );
 }
