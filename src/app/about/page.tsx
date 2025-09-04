@@ -1,20 +1,26 @@
+import Card from "@/components/Card";
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function About() {
   return (
     <React.Fragment>
-      {/* <Card className="mb-8">
-        <CardHeader>
-          <CardTitle className="text-3xl font-bold!">Namaste!</CardTitle>
-        </CardHeader>
-        <CardContent>
+      <section className="my-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <Image src="" alt="Abhin Rustagi" />
+        </div>
+        <div>
+          <h2 className="font-semibold mb-5 text-lg">
+            Hi, my name is Abhin, a software engineer who loves a good
+            challenge.
+          </h2>
           <p className="mb-5">
-            Hi, my name is Abhin, and I'm a software engineer who loves a good
-            challenge. In the past, I've had the opportunity to develop software
-            across a variety of settings — from an innovative{" "}
+            In the past, I've had the opportunity to develop software across a
+            variety of settings — from an innovative{" "}
             <Link
               href="https://www.openhouse.study/"
-              className="underline underline-offset-4 !text-muted-foreground !hover:text-muted-foreground/80"
+              className="underline underline-offset-4  !hover:text-muted-foreground/80"
               target="_blank"
             >
               EdTech platform
@@ -22,7 +28,7 @@ export default function About() {
             , or a creative{" "}
             <Link
               href="https://www.virtetic.com.au/"
-              className="underline underline-offset-4 !text-muted-foreground !hover:text-muted-foreground/80"
+              className="underline underline-offset-4  !hover:text-muted-foreground/80"
               target="_blank"
             >
               MedTech solution
@@ -36,7 +42,7 @@ export default function About() {
             Dreaming up cool automative yet productivity and user-first ideas
             and making them come true is where my passion lies. You can find my
             full projects list{" "}
-            <Link href="/#projects" className="underline underline-offset-4">
+            <Link href="/projects" className="underline underline-offset-4">
               here
             </Link>
             .
@@ -53,46 +59,23 @@ export default function About() {
             <Link
               href="https://eats.abhin.dev/"
               target="_blank"
-              className="underline underline-offset-4 !text-muted-foreground !hover:text-muted-foreground/80"
+              className="underline underline-offset-4 !hover:text-muted-foreground/80"
             >
               new places to eat at
             </Link>{" "}
             or planning my next travel.
           </p>
-        </CardContent>
-      </Card> */}
-      {/* TODO: Redesign */}
-      {/* <section id="testimonials" className="my-16">
-        <h2 className="text-2xl font-bold!">Kind words from good folks</h2>
-        <ul className="list-disc list-inside my-5">
-          <li className="mb-1 font-medium">
-            Abhin is reliable, with strong ownership and passion. He is calm and
-            can work under high pressure with crazy deadlines.
-          </li>
-          <li className="mb-1">
-            Abhin has a flawless work ethic, he is an amazing team member, and
-            his work is of the upmost quality.
-          </li>
-          <li>
-            He is extremely motivated and has a strong sense of ownership of his
-            work.
-          </li>
+        </div>
+      </section>
+      <Card as="section" title="Colophon">
+        <ul className="list-disc list-inside marker:text-muted-foreground md:list-outside">
+          <li>Built with Next.js, Tailwind CSS, and TypeScript</li>
+          <li>Hosted on Vercel.</li>
+          <li>Typeset in Inter Tight.</li>
+          <li>Google Analytics for insights.</li>
+          <li>Built with love, and a bit of borrowing.</li>
         </ul>
-      </section> */}
-      {/* <Card id="colophon" className="my-8">
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold!">This Website</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <ul className="list-disc list-inside">
-            <li>Built with Next.js, Tailwind CSS, and TypeScript</li>
-            <li>Hosted on Vercel.</li>
-            <li>Typeset in Satoshi.</li>
-            <li>Google Analytics for insights.</li>
-            <li>Built with love, and a bit of borrowing.</li>
-          </ul>
-        </CardContent>
-      </Card> */}
+      </Card>
     </React.Fragment>
   );
 }

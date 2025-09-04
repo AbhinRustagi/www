@@ -1,3 +1,4 @@
+import MdRenderer from "@/components/MdRenderer/MdRenderer";
 import { getAllPosts, getPostBySlug, IPost } from "@/lib/blog";
 import _generateMetadata from "@/lib/metadata";
 import { Metadata } from "next";
@@ -23,26 +24,16 @@ export default async function BlogPost({ params }: Props) {
 
   return (
     <>
-      {/* <Card className="mb-8">
-        <CardHeader>
-          <CardTitle className="text-neutral-100 mb-8 text-3xl font-bold">
-            {data.metadata.title}
-          </CardTitle>
-          <CardDescription>
-            <p className="text-muted-foreground/80 font-medium text-sm">
-              {data.metadata.date.toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}{" "}
-              • {data.metadata.reading_time} minutes
-            </p>
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <MdRenderer content={data.content} />
-        </CardContent>
-      </Card> */}
+      <h1 className="text-xl font-semibold">{data.metadata.title}</h1>
+      <p className="text-muted-foreground font-medium text-sm my-4 font-geist-mono">
+        {data.metadata.date.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}{" "}
+        • {data.metadata.reading_time} minutes
+      </p>
+      <MdRenderer content={data.content} />
     </>
   );
 }

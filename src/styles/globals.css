@@ -17,9 +17,3 @@
 body {
   @apply bg-background text-foreground;
 }
-
-p,
-ul,
-li {
-  @apply font-medium leading-relaxed tracking-tight;
-}

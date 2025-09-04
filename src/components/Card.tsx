@@ -17,7 +17,7 @@ export default function Card({
   className,
 }: CardProps) {
   return (
-    <Component className={`relative group ${className}`}>
+    <Component className={`relative group h-max ${className}`}>
       {link && (
         <React.Fragment>
           <div className="absolute -top-6 -left-6 -bottom-6 -right-6 rounded-lg bg-transparent group-hover:bg-card pointer-events-none -z-10 transition-all duration-300"></div>
