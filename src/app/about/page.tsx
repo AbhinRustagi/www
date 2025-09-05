@@ -7,8 +7,19 @@ export default function About() {
   return (
     <React.Fragment>
       <section className="my-16 grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div>
-          <Image src="" alt="Abhin Rustagi" />
+        <div className="overflow-hidden relative h-max">
+          <figure className="rounded-lg overflow-hidden relative w-full h-max">
+            <Image
+              src="/about.jpg"
+              alt="Abhin Rustagi"
+              width={1000}
+              height={1000}
+              className="object-cover rounded-lg md:aspect-auto aspect-square mb-2"
+            />
+            <figcaption className="text-xs text-muted-foreground text-center">
+              📍 Cape Schanck, Victoria, Australia
+            </figcaption>
+          </figure>
         </div>
         <div>
           <h2 className="font-semibold mb-5 text-lg">
@@ -20,7 +31,7 @@ export default function About() {
             variety of settings — from an innovative{" "}
             <Link
               href="https://www.openhouse.study/"
-              className="underline underline-offset-4  !hover:text-muted-foreground/80"
+              className="underline underline-offset-4 decoration-1"
               target="_blank"
             >
               EdTech platform
@@ -28,7 +39,7 @@ export default function About() {
             , or a creative{" "}
             <Link
               href="https://www.virtetic.com.au/"
-              className="underline underline-offset-4  !hover:text-muted-foreground/80"
+              className="underline underline-offset-4 decoration-1"
               target="_blank"
             >
               MedTech solution
@@ -42,7 +53,10 @@ export default function About() {
             Dreaming up cool automative yet productivity and user-first ideas
             and making them come true is where my passion lies. You can find my
             full projects list{" "}
-            <Link href="/projects" className="underline underline-offset-4">
+            <Link
+              href="/projects"
+              className="underline underline-offset-4 decoration-1"
+            >
               here
             </Link>
             .
@@ -59,7 +73,7 @@ export default function About() {
             <Link
               href="https://eats.abhin.dev/"
               target="_blank"
-              className="underline underline-offset-4 !hover:text-muted-foreground/80"
+              className="underline underline-offset-4 decoration-1"
             >
               new places to eat at
             </Link>{" "}

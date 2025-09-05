@@ -41,7 +41,7 @@ export default async function Home() {
         {/* Projects */}
         <Card title="Projects" link="/projects">
           <ul className="grid grid-cols-3 gap-4">
-            {projects.map((project) => (
+            {projects.slice(0, 6).map((project) => (
               <li
                 className="rounded border border-neutral-700"
                 key={project.title}
@@ -56,6 +56,10 @@ export default async function Home() {
               </li>
             ))}
           </ul>
+          <br />
+          <p className="font-bold text-sm inline-block">
+            See all {projects.length} projects →
+          </p>
         </Card>
         <Card title="Writing" link="/blog">
           <ul className="list-disc list-inside md:list-outside">

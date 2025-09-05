@@ -19,5 +19,33 @@
     "date": "February 2025",
     "image": "/potd.png",
     "description": "A daily photo of the day."
+  },
+  {
+    "title": "Internship Fair Portal",
+    "link": "https://internshipfair.unimelb.edu.au/",
+    "date": "February 2025",
+    "image": "/internshipfair.png",
+    "description": "The portal for the University of Melbourne's Internship Fair."
+  },
+  {
+    "title": "Splendor AI",
+    "link": "https://splendorai.com/",
+    "date": "February 2025",
+    "image": "/splendorai.png",
+    "description": "The AI powered platform for Splendor."
+  },
+  {
+    "title": "Pub/Sub CLI",
+    "link": "https://github.com/AbhinRustagi/pubsub-cli",
+    "date": "February 2025",
+    "image": "/pubsubcli.png",
+    "description": "The CLI for the Pub/Sub system."
+  },
+  {
+    "title": "Pacman - Berkeley Challenge",
+    "link": "https://github.com/AbhinRustagi/pacman-berkeley-challenge",
+    "date": "February 2025",
+    "image": "/pacman.png",
+    "description": "The Pacman game for the Berkeley Challenge."
   }
 ]
