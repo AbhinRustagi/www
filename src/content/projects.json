@@ -1,51 +1,97 @@
 [
   {
     "title": "Zeus",
-    "link": "https://zeus.abhin.dev/",
+    "slug": "zeus",
     "date": "April 2025",
     "image": "/zeus.png",
+    "links": [
+      {
+        "type": "website",
+        "url": "https://zeus.abhin.dev/"
+      },
+      {
+        "type": "github",
+        "url": "https://github.com/AbhinRustagi/zeus"
+      }
+    ],
     "description": "The all in one system for everything I do online."
   },
   {
     "title": "Eats",
-    "link": "https://eats.abhin.dev/",
+    "slug": "eats",
     "date": "February 2025",
     "image": "/eats.png",
+    "links": [
+      {
+        "type": "website",
+        "url": "https://eats.abhin.dev/"
+      }
+    ],
     "description": "An ongoing project to record all the places I've eaten at."
   },
   {
     "title": "Photos",
-    "link": "https://potd.abhin.dev/",
+    "slug": "photos",
     "date": "February 2025",
     "image": "/potd.png",
+    "links": [
+      {
+        "type": "website",
+        "url": "https://potd.abhin.dev/"
+      }
+    ],
     "description": "A daily photo of the day."
   },
   {
     "title": "Internship Fair Portal",
-    "link": "https://internshipfair.com/",
+    "slug": "internship-fair-portal",
     "date": "February 2025",
     "image": "/internshipfair.png",
+    "links": [
+      {
+        "type": "website",
+        "url": "https://internshipfair.com/"
+      }
+    ],
     "description": "The portal for the Sri Venkateswara College's Internship Fair."
   },
   {
     "title": "Splendor AI",
-    "link": "https://splendorai.com/",
+    "slug": "splendor-ai",
     "date": "February 2025",
     "image": "/splendorai.png",
+    "links": [
+      {
+        "type": "website",
+        "url": "https://splendorai.com/"
+      }
+    ],
     "description": "The AI powered platform for Splendor."
   },
   {
     "title": "Pub/Sub CLI",
-    "link": "https://github.com/AbhinRustagi/pubsub-cli",
+    "slug": "pubsub-cli",
     "date": "February 2025",
     "image": "/pubsubcli.png",
+    "links": [
+      {
+        "type": "github",
+        "url": "https://github.com/AbhinRustagi/pubsub-cli"
+      }
+    ],
     "description": "The CLI for the Pub/Sub system."
   },
   {
     "title": "Pacman - Berkeley Challenge",
-    "link": "https://github.com/AbhinRustagi/pacman-berkeley-challenge",
+    "slug": "pacman-berkeley-challenge",
     "date": "February 2025",
     "image": "/pacman.png",
+    "links": [
+      {
+        "type": "github",
+        "url": "https://github.com/AbhinRustagi/pacman-berkeley-challenge"
+      }
+    ],
     "description": "The Pacman game for the Berkeley Challenge."
   }
 ]

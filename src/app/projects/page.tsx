@@ -8,7 +8,7 @@ export default function Projects() {
       {projects.map((project) => (
         <div key={project.title} className="relative">
           <Link
-            href={project.link}
+            href={`/projects/${project.slug}`}
             className="absolute w-full h-full z-10 block top-0 left-0 right-0 bottom-0"
           ></Link>
           <div>

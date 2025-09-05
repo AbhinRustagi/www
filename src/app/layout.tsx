@@ -1,16 +1,16 @@
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import Socials from "@/components/Socials";
 import generateMetadata from "@/lib/metadata";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { Geist_Mono, Inter_Tight } from "next/font/google";
-import "react-tooltip/dist/react-tooltip.css";
 import "@/styles/globals.css";
-import Header from "@/components/Header";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
+import { Geist_Mono, Inter } from "next/font/google";
+import "react-tooltip/dist/react-tooltip.css";
 
-const interTight = Inter_Tight({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter-tight",
+  variable: "--font-inter",
   preload: true,
 });
 
@@ -29,9 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body
-        className={`${interTight.className} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${inter.className} ${geistMono.variable} antialiased`}>
         <div className="mx-auto max-w-2xl px-6 md:px-0 lg:px-0 lg:py-14 md:py-12 py-8 pb-20 min-h-screen">
           <main>
             <Header />
