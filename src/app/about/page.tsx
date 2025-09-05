@@ -2,6 +2,7 @@ import Card from "@/components/Card";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import PortraitImage from "@/lib/assets/images/about.jpg";
 
 export default function About() {
   return (
@@ -10,7 +11,7 @@ export default function About() {
         <div className="overflow-hidden relative h-max">
           <figure className="rounded-lg overflow-hidden relative w-full h-max">
             <Image
-              src="/about.jpg"
+              src={PortraitImage}
               alt="Abhin Rustagi"
               width={1000}
               height={1000}
