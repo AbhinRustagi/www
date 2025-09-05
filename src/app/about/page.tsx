@@ -87,7 +87,7 @@ export default function About() {
           <li>Built with Next.js, Tailwind CSS, and TypeScript</li>
           <li>Hosted on Vercel.</li>
           <li>Typeset in Inter Tight.</li>
-          <li>Google Analytics for insights.</li>
+          <li>Vercel & Google Analytics for insights.</li>
           <li>Built with love, and a bit of borrowing.</li>
         </ul>
       </Card>

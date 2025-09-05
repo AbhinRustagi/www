@@ -6,6 +6,7 @@ import { Geist_Mono, Inter_Tight } from "next/font/google";
 import "react-tooltip/dist/react-tooltip.css";
 import "@/styles/globals.css";
 import Header from "@/components/Header";
+import { Analytics } from "@vercel/analytics/next";
 
 const interTight = Inter_Tight({
   subsets: ["latin"],
@@ -41,10 +42,11 @@ export default function RootLayout({
           </div>
           <Footer />
         </div>
+        <Analytics />
+        {process.env?.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
-      {process.env?.NEXT_PUBLIC_GA_ID && (
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-      )}
     </html>
   );
 }
