@@ -16,7 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
     },
     {
-      url: "https://abhin.dev/timeline",
+      url: "https://abhin.dev/projects",
       lastModified: new Date(),
     },
   ];

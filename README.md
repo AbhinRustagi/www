@@ -9,8 +9,7 @@ This website is powered by Nextjs 14, Typescript & TailwindCSS and deployed on V
 ## Content
 
 - **Local**: localised content such as metadata, timeline and other is sourced from the [content](/src/content) folder.
-- **Blog**: fetched from my [blog](https://www.github.com/AbhinRustagi/blog) repository, which is the root for all posts for this website and publishing on different platforms. On each post published, the website is re-built and deployed via Vercel webhooks.
-- **Projects**: sourced from my source-of-truth [projects](https://www.github.com/AbhinRustagi/projects) repository. On each project added, the website is re-built and deployed via Vercel webhooks.
+- **Blog**: fetched from my [blog](https://www.github.com/AbhinRustagi/blog) repository, which is the root for all posts for this website and publishing on different platforms. On each post published, the website is re-built and deployed.
 
 ## Development
 
@@ -29,14 +28,15 @@ src/
   |   |- about/
   |   |- blog/
   |       |- [slug]/
-  |   |- timeline/
+  |   |- projects/
   |   |- favicon.ico
-  |   |- globals.css
   |   |- layout.tsx
   |   |- sitemap.ts
   |- components/
   |- content/
   |- lib/
+  |- styles/
+      |- globals.css
 ```
 
 ## License
