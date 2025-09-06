@@ -5,10 +5,10 @@ import generateMetadata from "@/lib/metadata";
 import "@/styles/globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
-import { Geist_Mono, Inter } from "next/font/google";
+import { Geist_Mono, Geist } from "next/font/google";
 import "react-tooltip/dist/react-tooltip.css";
 
-const inter = Inter({
+const inter = Geist({
   subsets: ["latin"],
   variable: "--font-inter",
   preload: true,

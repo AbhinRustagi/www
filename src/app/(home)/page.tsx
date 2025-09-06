@@ -19,15 +19,15 @@ export default async function Home() {
           </p>
         </Card>
         <Card title="Now">
-          <ul className="list-disc list-inside md:list-outside mb-4 marker:text-muted-foreground">
-            <li className="my-2">Open to new opportunities</li>
+          <ul className="">
+            <li className="my-2">📥 Open to new opportunities</li>
             <li className="my-2">
-              Building SemiReal, a new age content creation platform
+              ⚒️ Building SemiReal, a new age content creation platform
             </li>
           </ul>
-          <ul className="list-disc list-inside md:list-outside marker:text-muted-foreground">
+          <ul className="">
             <li className="my-2">
-              Currently in Melbourne, Australia
+              📍 Currently in Melbourne, Australia
               {/*<br />
                <span className="text-muted-foreground text-sm">
                 It is 3:41 AM here (UTC+10).

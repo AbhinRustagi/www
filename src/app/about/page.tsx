@@ -82,6 +82,30 @@ export default function About() {
           </p>
         </div>
       </section>
+      <section className="my-16">
+        <h2 className="text-lg font-bold">Kind words from good folks</h2>
+        <div className="my-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="flex flex-col justify-between">
+            <p className="mb-2">
+              What I appreciate most about Abhin is his commitment. He's not
+              just ticking boxes and doing tasks, he wants his work to mean
+              something, to make a real impact.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Prudhvi Dharmana, Co-Founder ReWorld Earth
+            </p>
+          </div>
+          <div className="flex flex-col justify-between">
+            <p className="mb-2">
+              Abhin has flawless work ethic, he is an amazing team member, and
+              his work is of the upmost quality.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Ricardo Garcia Rosas, Co-Founder Virtetic
+            </p>
+          </div>
+        </div>
+      </section>
       <Card as="section" title="Colophon">
         <ul className="list-disc list-inside marker:text-muted-foreground md:list-outside">
           <li>Built with Next.js, Tailwind CSS, and TypeScript</li>

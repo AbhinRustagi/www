@@ -2,11 +2,11 @@
 @import "tw-animate-css";
 
 @theme {
-  --color-background: #101010;
+  --color-background: #010101;
   --color-foreground: #f0f0f0;
   --color-muted-foreground: #808080;
   --color-border: #202020;
-  --color-card: #1a1a1a;
+  --color-card: #101010;
   --font-geist-mono: var(--font-geist-mono);
 }
 
@@ -16,4 +16,9 @@
 
 body {
   @apply bg-background text-foreground;
+}
+
+p,
+li {
+  @apply leading-relaxed;
 }

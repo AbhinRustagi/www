@@ -42,7 +42,7 @@ export default function Header() {
         </div>
         <div>
           <h1 className="text-xl md:text-2xl font-bold font-geist-mono">
-            Abhin Rustagi{" "}
+            <Link href="/">Abhin Rustagi </Link>
             {!isHome && metadata ? (
               <span className="text-muted-foreground">
                 <Link href={metadata.pathname}>/ {metadata.title}</Link>
