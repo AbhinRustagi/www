@@ -1,7 +1,7 @@
 "use client";
 
 import pageMetadata from "@/content/page-metadata.json";
-import Headshot from "@/lib/assets/images/headshot.png";
+import Headshot from "@/lib/assets/images/Group 3.png";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -29,19 +29,19 @@ export default function Header() {
 
   return (
     <header className="mb-16 flex gap-2 justify-center flex-wrap flex-col">
-      <div className="flex gap-4 items-center">
-        <div className="w-24 h-24 rounded-full overflow-hidden relative">
+      <div className="flex gap-0 items-center">
+        <div className="w-20 h-20 relative">
           <Link href="/" className="absolute z-20 block w-full h-full"></Link>
           <Image
             src={Headshot}
             alt="Abhin Rustagi"
-            width={96}
-            height={96}
-            className="object-cover w-full h-full absolute"
+            width={80}
+            height={80}
+            className="object-contain w-full h-full absolute"
           />
         </div>
         <div>
-          <h1 className="text-xl md:text-2xl font-bold font-geist-mono">
+          <h1 className="text-xl md:text-2xl font-bold font-fira-mono">
             <Link href="/">Abhin Rustagi </Link>
             {!isHome && metadata ? (
               <span className="text-muted-foreground">

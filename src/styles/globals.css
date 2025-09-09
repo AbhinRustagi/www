@@ -7,7 +7,7 @@
   --color-muted-foreground: #808080;
   --color-border: #202020;
   --color-card: #101010;
-  --font-geist-mono: var(--font-geist-mono);
+  --font-fira-mono: var(--font-fira-mono);
 }
 
 * {

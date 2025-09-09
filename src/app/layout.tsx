@@ -5,7 +5,7 @@ import generateMetadata from "@/lib/metadata";
 import "@/styles/globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
-import { Geist_Mono, Geist } from "next/font/google";
+import { Fira_Mono, Geist } from "next/font/google";
 import "react-tooltip/dist/react-tooltip.css";
 
 const inter = Geist({
@@ -14,10 +14,11 @@ const inter = Geist({
   preload: true,
 });
 
-const geistMono = Geist_Mono({
+const firaMono = Fira_Mono({
   subsets: ["latin"],
-  variable: "--font-geist-mono",
+  variable: "--font-fira-mono",
   preload: true,
+  weight: ["400", "500", "700"],
 });
 
 export const metadata = generateMetadata();
@@ -29,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} ${geistMono.variable} antialiased`}>
+      <body className={`${inter.className} ${firaMono.variable} antialiased`}>
         <div className="mx-auto max-w-2xl px-6 md:px-0 lg:px-0 lg:py-14 md:py-12 py-8 pb-20 min-h-screen">
           <main>
             <Header />

@@ -27,7 +27,7 @@ export default function Card({
           ></Link>
         </React.Fragment>
       )}
-      <h2 className="text-xs font-medium font-geist-mono mb-4 uppercase text-muted-foreground tracking-widest">
+      <h2 className="text-xs font-semibold font-fira-mono mb-4 uppercase text-muted-foreground tracking-widest">
         /{title}
       </h2>
       {children}

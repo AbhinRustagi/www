@@ -22,7 +22,7 @@ export default async function Blog() {
               {post.metadata.title}
             </Link>
           </h3>
-          <p className="mb-1 text-muted-foreground text-sm font-geist-mono">
+          <p className="mb-1 text-muted-foreground text-sm font-fira-mono">
             <span>
               {(post.metadata.date as Date).toLocaleDateString("en-US", {
                 year: "numeric",

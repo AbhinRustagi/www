@@ -106,15 +106,6 @@ export default function About() {
           </div>
         </div>
       </section>
-      <Card as="section" title="Colophon">
-        <ul className="list-disc list-inside marker:text-muted-foreground md:list-outside">
-          <li>Built with Next.js, Tailwind CSS, and TypeScript</li>
-          <li>Hosted on Vercel.</li>
-          <li>Typeset in Inter Tight.</li>
-          <li>Vercel & Google Analytics for insights.</li>
-          <li>Built with love, and a bit of borrowing.</li>
-        </ul>
-      </Card>
     </React.Fragment>
   );
 }
