@@ -43,7 +43,7 @@ export default async function Home() {
           <ul className="grid grid-cols-3 gap-4">
             {projects.slice(0, 6).map((project) => (
               <li
-                className="rounded border border-neutral-700"
+                className="rounded-lg overflow-hidden border border-neutral-700"
                 key={project.title}
               >
                 <Image

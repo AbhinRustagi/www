@@ -19,13 +19,15 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <div>
       <h1 className="text-2xl font-semibold">{project.title}</h1>
-      <Image
-        src={project.image}
-        alt={project.title}
-        width={1000}
-        height={400}
-        className="my-6 border border-neutral-700 rounded-lg object-cover aspect-video"
-      />
+      <div className="overflow-hidden rounded-lg">
+        <Image
+          src={project.image}
+          alt={project.title}
+          width={1000}
+          height={400}
+          className="my-6 border border-neutral-700 rounded-lg object-cover aspect-video overflow-hidden"
+        />
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 text-sm text-muted-foreground">
         {project.links.map((link) => {
           let icon = null;

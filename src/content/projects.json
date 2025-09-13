@@ -3,7 +3,7 @@
     "title": "Zeus",
     "slug": "zeus",
     "date": "April 2025",
-    "image": "/zeus.png",
+    "image": "/zeus.jpg",
     "links": [
       {
         "type": "website",
@@ -55,7 +55,7 @@
     "title": "Internship Fair Portal",
     "slug": "internship-fair-portal",
     "date": "February 2025",
-    "image": "/internshipfair.png",
+    "image": "/internship-fair.jpg",
     "highlights": ["Internship Fair", "Internship Fair Portal"],
     "links": [
       {
@@ -70,7 +70,7 @@
     "title": "Splendor AI",
     "slug": "splendor-ai",
     "date": "February 2025",
-    "image": "/splendorai.png",
+    "image": "/splendor.webp",
     "highlights": ["Splendor AI", "Splendor AI Platform"],
     "links": [
       {
@@ -85,7 +85,7 @@
     "title": "Pub/Sub CLI",
     "slug": "pubsub-cli",
     "date": "February 2025",
-    "image": "/pubsubcli.png",
+    "image": "/pubsub.jpg",
     "highlights": ["Pub/Sub CLI", "Pub/Sub CLI Platform"],
     "links": [
       {

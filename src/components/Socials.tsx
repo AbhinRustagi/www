@@ -8,7 +8,7 @@ export default function Socials() {
         I'm always on the lookout for new opportunities and collaborations. Feel
         free to reach out to me.
       </p>
-      <ul className="list-disc list-inside md:list-outside marker:text-muted-foreground">
+      <ul className="mt-6 list-disc list-inside md:list-outside marker:text-muted-foreground">
         <li className="my-2">
           <span className="font-bold">hi [at] abhin [dot] dev</span> for emails
         </li>
