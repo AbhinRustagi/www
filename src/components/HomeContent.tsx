@@ -6,6 +6,7 @@ import Image from "next/image";
 import Clock from "react-live-clock";
 import { GithubActivity } from "@/lib/github";
 import { WakatimeActivity } from "@/lib/wakatime";
+import Link from "next/link";
 
 interface Post {
   metadata: {
@@ -35,31 +36,11 @@ export default function HomeContent({
             about interfaces that automate, infrastructure that scales, products
             that delight.
             <br />
-            <p className="mt-4 font-bold text-sm inline-block">About Me →</p>
+            <span className="mt-4 font-bold text-sm inline-block">
+              About Me →
+            </span>
           </p>
         </Card>
-        <Card title="Now">
-          <ul className="">
-            <li className="my-2">📥 Open to new opportunities</li>
-            <li className="my-2">
-              ⚒️ Building SemiReal, a new age content creation platform
-            </li>
-          </ul>
-          <ul className="">
-            <li className="my-2">
-              📍 Currently in Melbourne, Australia
-              {/*<br />
-               <span className="text-muted-foreground text-sm">
-                It is 3:41 AM here (UTC+10).
-              </span> */}
-            </li>
-            {/* <li>// Wakatime Stats</li> */}
-            {/* Github Stats */}
-          </ul>
-        </Card>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
-        {/* Projects */}
         <Card title="Projects" link="/projects">
           <ul className="grid grid-cols-3 gap-4">
             {projects.slice(0, 6).map((project) => (
@@ -82,6 +63,71 @@ export default function HomeContent({
             See all {projects.length} projects →
           </p>
         </Card>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
+        <Card title="Now">
+          <ul className="list-none">
+            <li className="my-4 flex gap-2 items-center">
+              <span className="flex">💬</span>
+              <div className="flex flex-col">
+                <span className="text-sm">Open to new opportunities</span>
+              </div>
+            </li>
+            <li className="my-4 flex gap-2">
+              <span className="flex">⚒️</span>
+              <div className="flex flex-col">
+                <span className="text-sm mb-1">
+                  Building SemiReal, a new age content creation platform
+                </span>
+                <span className="text-muted-foreground text-sm">
+                  <Link
+                    href="https://semireal.app"
+                    className="underline underline-offset-2 decoration-1"
+                  >
+                    semireal.app
+                  </Link>
+                </span>
+              </div>
+            </li>
+            <li className="my-4 flex gap-2">
+              <span className="flex">📍</span>
+              <div className="flex flex-col">
+                <span className="text-sm mb-1">Melbourne, Australia</span>
+                <span className="text-muted-foreground text-sm">
+                  It is{" "}
+                  <Clock
+                    format="h:mm:ss A"
+                    timezone="Australia/Melbourne"
+                    ticking
+                  />{" "}
+                  here (UTC+10).
+                </span>
+              </div>
+            </li>
+            <li className="my-4 flex gap-2">
+              <span className="flex">💻</span>
+              <div className="flex flex-col">
+                <span className="text-sm mb-1">
+                  {wakatimeActivity.last7DaysCoding} hours
+                </span>
+                <span className="text-muted-foreground text-sm">
+                  of coding in last 7 days
+                </span>
+              </div>
+            </li>
+            <li className="my-4 flex gap-2">
+              <span className="flex">🟢</span>
+              <div className="flex flex-col">
+                <span className="text-sm mb-1">
+                  {githubActivity.contributions} contributions
+                </span>
+                <span className="text-muted-foreground text-sm">
+                  on GitHub in last 365 days
+                </span>
+              </div>
+            </li>
+          </ul>
+        </Card>
         {/* Writing */}
         <Card title="Writing" link="/blog">
           <ul className="list-disc list-inside md:list-outside">
@@ -103,42 +149,6 @@ export default function HomeContent({
           <p className="font-bold text-sm inline-block">
             Browse all {posts.length} posts →
           </p>
-        </Card>
-        <Card title="Currently">
-          <ul className="list-none">
-            <li className="my-4 flex gap-2">
-              <span className="flex">📍</span>
-              <div className="flex flex-col">
-                <span className="text-sm mb-1">Melbourne, Australia</span>
-                <span className="text-muted-foreground text-sm">
-                  It is <Clock format="h:mm A" timezone="Australia/Melbourne" />{" "}
-                  here (UTC+10).
-                </span>
-              </div>
-            </li>
-            <li className="my-4 flex gap-2">
-              <span className="flex">💻</span>
-              <div className="flex flex-col">
-                <span className="text-sm mb-1">
-                  {wakatimeActivity.last7DaysCoding} hours
-                </span>
-                <span className="text-muted-foreground text-sm">
-                  of in last 7 days
-                </span>
-              </div>
-            </li>
-            <li className="my-4 flex gap-2">
-              <span className="flex">🟢</span>
-              <div className="flex flex-col">
-                <span className="text-sm mb-1">
-                  {githubActivity.contributions} contributions
-                </span>
-                <span className="text-muted-foreground text-sm">
-                  on GitHub this year
-                </span>
-              </div>
-            </li>
-          </ul>
         </Card>
       </div>
     </>
