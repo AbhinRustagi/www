@@ -4,6 +4,8 @@ import Card from "@/components/Card";
 import projects from "@/content/projects.json";
 import Image from "next/image";
 import Clock from "react-live-clock";
+import { GithubActivity } from "@/lib/github";
+import { WakatimeActivity } from "@/lib/wakatime";
 
 interface Post {
   metadata: {
@@ -15,9 +17,15 @@ interface Post {
 
 interface HomeContentProps {
   posts: Post[];
+  githubActivity: GithubActivity;
+  wakatimeActivity: WakatimeActivity;
 }
 
-export default function HomeContent({ posts }: HomeContentProps) {
+export default function HomeContent({
+  posts,
+  githubActivity,
+  wakatimeActivity,
+}: HomeContentProps) {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -112,17 +120,19 @@ export default function HomeContent({ posts }: HomeContentProps) {
               <span className="flex">💻</span>
               <div className="flex flex-col">
                 <span className="text-sm mb-1">
-                  3 hours of coding yesterday
+                  {wakatimeActivity.last7DaysCoding} hours
                 </span>
                 <span className="text-muted-foreground text-sm">
-                  27 hours in last 14 days
+                  of in last 7 days
                 </span>
               </div>
             </li>
             <li className="my-4 flex gap-2">
               <span className="flex">🟢</span>
               <div className="flex flex-col">
-                <span className="text-sm mb-1">106 contributions</span>
+                <span className="text-sm mb-1">
+                  {githubActivity.contributions} contributions
+                </span>
                 <span className="text-muted-foreground text-sm">
                   on GitHub this year
                 </span>
