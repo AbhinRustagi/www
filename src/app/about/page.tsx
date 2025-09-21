@@ -1,8 +1,7 @@
-import Card from "@/components/Card";
+import PortraitImage from "@/lib/assets/images/about.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import PortraitImage from "@/lib/assets/images/about.jpg";
 
 export default function About() {
   return (

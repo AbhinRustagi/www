@@ -3,6 +3,8 @@ import HomeContent from "@/components/HomeContent";
 import { getGithubActivity } from "@/lib/github";
 import { getWakatimeActivity } from "@/lib/wakatime";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const posts = await getAllPosts();
   const githubActivity = await getGithubActivity();
