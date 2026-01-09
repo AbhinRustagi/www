@@ -1,0 +1,128 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const BLOG_REPO = 'AbhinRustagi/blog';
+
+interface PostMeta {
+  title: string;
+  date: string;
+  slug: string;
+  path: string;
+  description?: string;
+  tags: string[];
+  reading_time: number;
+  published: boolean;
+}
+
+// Fetch blog posts from GitHub
+const res = await fetch(`https://raw.githubusercontent.com/${BLOG_REPO}/main/index.json`);
+const index: PostMeta[] = await res.json();
+
+const posts = index
+  .filter(p => p.published)
+  .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
+  .slice(0, 3);
+
+const featuredWork = (await getCollection('work', ({ data }) => data.featured && !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+
+<Base title="Abhin Rustagi - Full-Stack Developer">
+  <section>
+    <div class="container section-wrapper border-dashed-b">
+      <h2 class="section-title">/Whoami</h2>
+      <p class="intro animate-in">
+        Full-stack developer building thoughtful, performant web experiences.
+        Currently freelancing and helping startups ship faster.
+      </p>
+    </div>
+  </section>
+  
+  <section>
+      <div class="container section-wrapper border-dashed-b">
+        <h2 class="section-title">/Now</h2>
+        <p class="intro animate-in">
+          Full-stack developer building thoughtful, performant web experiences.
+          Currently freelancing and helping startups ship faster.
+        </p>
+      </div>
+  </section>
+ 
+<!--  {featuredWork.length > 0 && (
+    <section>
+      <div class="container section-wrapper border-dashed-b">
+        <h2 class="section-title">Work</h2>
+        <div class="timeline">
+          {featuredWork.map((project) => (
+            <div class="timeline-item">
+              <span class="timeline-date">{project.data.date.getFullYear()}</span>
+              <div class="timeline-content">
+                <a href={`/work/${project.slug}`} class="work-link">{project.data.title}</a>
+                <p class="work-desc">{project.data.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <a href="/work" class="see-all">View all work</a>
+      </div>
+    </section>
+  )} -->
+
+  {posts.length > 0 && (
+    <section>
+      <div class="container section-wrapper">
+        <h2 class="section-title">/Writing</h2>
+        <div class="timeline">
+          {posts.map((post) => (
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <a href={`/blog/${post.slug}`} class="post-link">{post.title}</a>
+              </div>
+              <span class="timeline-date">
+                {new Date(post.date).toLocaleDateString('en-US', { month: 'short', year: '2-digit' })}
+              </span>
+            </div>
+          ))}
+        </div>
+        <a href="/blog" class="see-all">Read all posts</a>
+      </div>
+    </section>
+  )}
+</Base>
+
+<style>
+  .intro {
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 0.9375rem;
+  }
+
+  .post-link {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .post-link:hover {
+    color: var(--accent);
+  }
+
+  .see-all {
+    display: inline-block;
+    margin-top: var(--space-lg);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .see-all:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 640px) {
+    .see-all {
+      margin-left: 0;
+    }
+  }
+</style>

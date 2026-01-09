@@ -1,0 +1,54 @@
+---
+import { Github, Linkedin, Twitter } from 'lucide-astro';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-dashed-y">
+  <div class="footer-content container border-dashed-x">
+    <div class="links">
+      <a href="https://linkedin.com/in/abhinrustagi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <Linkedin size={18} />
+      </a>
+      <a href="https://twitter.com/abhinrustagi" target="_blank" rel="noopener noreferrer" aria-label="X/Twitter">
+        <Twitter size={18} />
+      </a>
+      <a href="https://github.com/abhinrustagi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <Github size={18} />
+      </a>
+    </div>
+    <p class="copyright text-muted text-sm">&copy; {currentYear} Abhin Rustagi</p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    margin: var(--space-lg) 0;
+  }
+
+  .footer-content {
+    padding: var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .links {
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  .links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .links a:hover {
+    color: var(--text);
+  }
+
+  .copyright {
+    margin: 0;
+  }
+</style>

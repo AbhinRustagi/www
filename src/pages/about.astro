@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="About - Abhin Rustagi" description="Full-stack developer with a passion for building thoughtful web experiences.">
+  <section>
+    <div class="container section-wrapper">
+      <h1 class="section-title">About</h1>
+
+      <div class="content text-muted">
+        <div class="bio animate-in animate-in-delay-1">
+          <p>
+            Hi, my name is Abhin, a software engineer who loves a good challenge. In the past, I've had the opportunity to develop software across a variety of settings — from an innovative EdTech platform, or a creative MedTech solution, to just as a freelance agent for startups trying to find their feet making it big. Additionally, I also volunteer my time and engineering skills to help organisations fight the climate change battle.
+          </p>
+          <p>
+            Dreaming up cool automative yet productivity and user-first ideas and making them come true is where my passion lies. I started programming in 2017, and made it my career in 2021. My roles have spanned the entire stack, from frontend to backend, and from AI to DevOps, and I have enjoyed almost every minute of it.
+          </p>
+          <p>
+            In my spare time, I'm usually at the gym, climbing, enjoying cricket, researching new places to eat at or planning my next travel.
+          </p>
+        </div>
+
+        <div class="skills animate-in animate-in-delay-2">
+          <h2 class="section-title">Stack</h2>
+          <p>Some technologies where I've spend most of my coding hours, but not limited to:</p>
+          <p class="skill-list">
+            React, Next.js, TypeScript, Node.js, Python, PostgreSQL, Redis,
+            Tailwind CSS, Astro, Docker, AWS, Vercel
+          </p>
+        </div>
+
+        <div class="contact animate-in animate-in-delay-3">
+          <h2 class="section-title">Contact</h2>
+          <p>
+            I'm always open to interesting projects and collaborations.
+            <a href="mailto:hello@abhin.dev">hello@abhin.dev</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .bio p {
+    margin-bottom: var(--space-md);
+  }
+
+  .bio p:last-child {
+    margin-bottom: 0;
+  }
+
+  .skill-list {
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .contact p {
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .contact a {
+    color: var(--text);
+  }
+</style>

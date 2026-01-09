@@ -1,0 +1,85 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('work');
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<Base title={`${project.data.title} - Abhin Rustagi`} description={project.data.description}>
+  <article class="section">
+    <div class="container">
+      <header class="project-header animate-in">
+        <div class="meta text-muted text-sm">
+          <span class="year">{project.data.date.getFullYear()}</span>
+          {project.data.client && <span class="client">/ {project.data.client}</span>}
+        </div>
+        <h1>{project.data.title}</h1>
+        <p class="description">{project.data.description}</p>
+        {project.data.tech && project.data.tech.length > 0 && (
+          <p class="tech-list">{project.data.tech.join(' / ')}</p>
+        )}
+      </header>
+      <div class="prose animate-in animate-in-delay-1">
+        <Content />
+      </div>
+      <footer class="project-footer">
+        <a href="/work" class="back-link">&larr; Back to all work</a>
+      </footer>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .project-header {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .meta {
+    display: flex;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
+
+  .project-header h1 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .description {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .tech-list {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .project-footer {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-lg);
+    border-top: 1px dashed var(--border);
+  }
+
+  .back-link {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+</style>

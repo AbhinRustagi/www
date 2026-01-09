@@ -1,0 +1,87 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const BLOG_REPO = 'AbhinRustagi/blog';
+
+interface PostMeta {
+  title: string;
+  date: string;
+  slug: string;
+  path: string;
+  description?: string;
+  tags: string[];
+  reading_time: number;
+  published: boolean;
+}
+
+const res = await fetch(`https://raw.githubusercontent.com/${BLOG_REPO}/main/index.json`);
+const index: PostMeta[] = await res.json();
+
+const posts = index
+  .filter(p => p.published)
+  .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+---
+
+<Base title="Writing - Abhin Rustagi" description="Thoughts on web development, freelancing, and building products.">
+  <section>
+    <div class="container section-wrapper">
+      <h1 class="section-title">Writing</h1>
+      <p class="text-muted desc">Thoughts on web development, freelancing, and building products.</p>
+
+      {posts.length === 0 ? (
+        <p class="empty text-muted">No posts yet. Check back soon.</p>
+      ) : (
+        <div class="timeline">
+          {posts.map((post, i) => (
+            <div class={`timeline-item animate-in animate-in-delay-${Math.min(i + 1, 4)}`}>
+              <div class="timeline-content">
+                <a href={`/blog/${post.slug}`} class="post-link">{post.title}</a>
+                {post.description && (
+                  <p class="post-desc">{post.description}</p>
+                )}
+              </div>
+              <span class="timeline-date">
+                {new Date(post.date).toLocaleDateString('en-US', { month: 'short', year: '2-digit' })}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .desc {
+    margin-bottom: var(--space-xl);
+  }
+  
+  .page-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .empty {
+    padding: var(--space-xl) 0;
+  }
+
+  .post-link {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    color: var(--text);
+  }
+
+  .post-link:hover {
+    color: var(--accent);
+  }
+
+  .post-desc {
+    margin: var(--space-xs) 0 0;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+</style>
