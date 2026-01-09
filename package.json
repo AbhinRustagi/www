@@ -8,8 +8,12 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/node": "^8.3.4",
     "astro": "^4.16.0",
     "lucide-astro": "^0.556.0",
     "marked": "^15.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3"
   }
 }

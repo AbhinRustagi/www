@@ -2,7 +2,10 @@
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
+export const prerender = false;
+
 const BLOG_REPO = 'AbhinRustagi/blog';
+const GITHUB_USERNAME = 'AbhinRustagi';
 
 interface PostMeta {
   title: string;
@@ -27,6 +30,61 @@ const posts = index
 const featuredWork = (await getCollection('work', ({ data }) => data.featured && !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
+
+// Fetch Wakatime stats (hours coded in last week)
+let codingHours = 0;
+try {
+  const wakatimeKey = import.meta.env.WAKATIME_API_KEY;
+  if (wakatimeKey) {
+    const wakatimeRes = await fetch('https://wakatime.com/api/v1/users/current/stats/last_7_days', {
+      headers: {
+        Authorization: `Basic ${Buffer.from(wakatimeKey).toString('base64')}`,
+      },
+    });
+    if (wakatimeRes.ok) {
+      const wakatimeData = await wakatimeRes.json();
+      codingHours = Math.round(wakatimeData.data.total_seconds / 3600);
+    }
+  }
+} catch (e) {
+  console.error('Failed to fetch Wakatime stats:', e);
+}
+
+// Fetch GitHub contributions (last year)
+let contributions = 0;
+try {
+  const githubToken = import.meta.env.GITHUB_TOKEN;
+  if (githubToken) {
+    const query = `
+      query($username: String!) {
+        user(login: $username) {
+          contributionsCollection {
+            contributionCalendar {
+              totalContributions
+            }
+          }
+        }
+      }
+    `;
+    const githubRes = await fetch('https://api.github.com/graphql', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${githubToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query,
+        variables: { username: GITHUB_USERNAME },
+      }),
+    });
+    if (githubRes.ok) {
+      const githubData = await githubRes.json();
+      contributions = githubData.data?.user?.contributionsCollection?.contributionCalendar?.totalContributions ?? 0;
+    }
+  }
+} catch (e) {
+  console.error('Failed to fetch GitHub contributions:', e);
+}
 ---
 
 <Base title="Abhin Rustagi - Full-Stack Developer">
@@ -45,33 +103,13 @@ const featuredWork = (await getCollection('work', ({ data }) => data.featured &&
         <h2 class="section-title">/Now</h2>
         <ul class="text-muted now-list">
           <li>Open to full-time roles</li>
-          <li>Melbourne, Australia</li>
-          <li>x hours of coding in the last week</li>
-          <li>y contributions in the last year</li>
+          <li>Currently in Melbourne, Australia</li>
+          <li>{codingHours} hours of coding in the last week</li>
+          <li>{contributions} contributions in the last year</li>
         </ul>
       </div>
   </section>
  
-<!--  {featuredWork.length > 0 && (
-    <section>
-      <div class="container section-wrapper border-dashed-b">
-        <h2 class="section-title">Work</h2>
-        <div class="timeline">
-          {featuredWork.map((project) => (
-            <div class="timeline-item">
-              <span class="timeline-date">{project.data.date.getFullYear()}</span>
-              <div class="timeline-content">
-                <a href={`/work/${project.slug}`} class="work-link">{project.data.title}</a>
-                <p class="work-desc">{project.data.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <a href="/work" class="see-all">View all work</a>
-      </div>
-    </section>
-  )} -->
-
   {posts.length > 0 && (
     <section>
       <div class="container section-wrapper">
