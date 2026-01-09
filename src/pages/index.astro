@@ -43,10 +43,12 @@ const featuredWork = (await getCollection('work', ({ data }) => data.featured &&
   <section>
       <div class="container section-wrapper border-dashed-b">
         <h2 class="section-title">/Now</h2>
-        <p class="intro animate-in">
-          Full-stack developer building thoughtful, performant web experiences.
-          Currently freelancing and helping startups ship faster.
-        </p>
+        <ul class="text-muted now-list">
+          <li>Open to full-time roles</li>
+          <li>Melbourne, Australia</li>
+          <li>x hours of coding in the last week</li>
+          <li>y contributions in the last year</li>
+        </ul>
       </div>
   </section>
  
@@ -96,7 +98,10 @@ const featuredWork = (await getCollection('work', ({ data }) => data.featured &&
   .intro {
     color: var(--text-muted);
     line-height: 1.8;
-    font-size: 0.9375rem;
+  }
+
+  .now-list {
+    padding-left: var(--space-lg);
   }
 
   .post-link {
@@ -112,7 +117,7 @@ const featuredWork = (await getCollection('work', ({ data }) => data.featured &&
   .see-all {
     display: inline-block;
     margin-top: var(--space-lg);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     color: var(--text-muted);
   }
 

@@ -38,7 +38,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 15px;
   scroll-behavior: smooth;
 }
 
@@ -244,7 +244,7 @@ h3 {
   flex-shrink: 0;
   text-align: right;
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
 }
 
 .timeline-content {

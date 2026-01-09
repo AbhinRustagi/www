@@ -1,5 +1,5 @@
 ---
-import { Github, Linkedin, Twitter } from 'lucide-astro';
+import { Mail, Github, Linkedin, Twitter } from 'lucide-astro';
 
 const currentYear = new Date().getFullYear();
 ---
@@ -7,6 +7,9 @@ const currentYear = new Date().getFullYear();
 <footer class="border-dashed-y">
   <div class="footer-content container border-dashed-x">
     <div class="links">
+      <a href="mailto:hi@abhin.dev" target="_blank" rel="noopener noreferrer" aria-label="Email">
+        <Mail size={18} />
+      </a>
       <a href="https://linkedin.com/in/abhinrustagi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
         <Linkedin size={18} />
       </a>
@@ -42,10 +45,13 @@ const currentYear = new Date().getFullYear();
     color: var(--text-muted);
     text-decoration: none;
     transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .links a:hover {
-    color: var(--text);
+    color: var(--accent);
   }
 
   .copyright {
