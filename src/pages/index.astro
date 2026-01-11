@@ -1,6 +1,6 @@
 ---
-import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
 
 export const prerender = false;
 
@@ -36,14 +36,15 @@ let codingHours = 0;
 try {
   const wakatimeKey = import.meta.env.WAKATIME_API_KEY;
   if (wakatimeKey) {
-    const wakatimeRes = await fetch('https://wakatime.com/api/v1/users/current/stats/last_7_days', {
+    const wakatimeRes = await fetch('https://wakatime.com/api/v1/users/AbhinRustagi/stats/last_7_days', {
       headers: {
         Authorization: `Basic ${Buffer.from(wakatimeKey).toString('base64')}`,
       },
     });
     if (wakatimeRes.ok) {
       const wakatimeData = await wakatimeRes.json();
-      codingHours = Math.round(wakatimeData.data.total_seconds / 3600);
+      const totalSeconds7Days = wakatimeData.data?.total_seconds || 0;
+      codingHours = Math.round((totalSeconds7Days / 3600) * 100) / 100; // Round to 2 decimal 
     }
   }
 } catch (e) {
@@ -103,9 +104,10 @@ try {
         <h2 class="section-title">/Now</h2>
         <ul class="text-muted now-list">
           <li>Open to full-time roles</li>
+          <li>Building & breaking with AI</li>
           <li>Currently in Melbourne, Australia</li>
-          <li>{codingHours} hours of coding in the last week</li>
-          <li>{contributions} contributions in the last year</li>
+          <li><a class="text-muted" href="https://wakatime.com/AbhinRustagi" target="_blank">{codingHours} hours of coding</a> in the last week</li>
+          <li><a class="text-muted" href="https://github.com/AbhinRustagi" target="_blank">{contributions} contributions</a> in the last year</li>
         </ul>
       </div>
   </section>

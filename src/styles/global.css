@@ -81,7 +81,7 @@ h3 {
 a {
   color: var(--text);
   text-decoration: underline;
-  text-decoration-style: dotted;
+  text-decoration-style: dashed;
   text-decoration-color: var(--text-muted);
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
