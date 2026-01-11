@@ -1,5 +1,5 @@
 ---
-import { Mail, Github, Linkedin, Twitter } from 'lucide-astro';
+import { Mail, Github, Linkedin, Twitter } from "lucide-astro";
 
 const currentYear = new Date().getFullYear();
 ---
@@ -7,20 +7,42 @@ const currentYear = new Date().getFullYear();
 <footer class="border-dashed-y">
   <div class="footer-content container border-dashed-x">
     <div class="links">
-      <a href="mailto:hi@abhin.dev" target="_blank" rel="noopener noreferrer" aria-label="Email">
+      <a
+        href="mailto:hi@abhin.dev"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Email"
+      >
         <Mail size={18} />
       </a>
-      <a href="https://linkedin.com/in/abhinrustagi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <a
+        href="https://linkedin.com/in/abhinrustagi"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      >
         <Linkedin size={18} />
       </a>
-      <a href="https://twitter.com/abhinrustagi" target="_blank" rel="noopener noreferrer" aria-label="X/Twitter">
+      <a
+        href="https://twitter.com/abhinrustagi"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="X/Twitter"
+      >
         <Twitter size={18} />
       </a>
-      <a href="https://github.com/abhinrustagi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+      <a
+        href="https://github.com/abhinrustagi"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+      >
         <Github size={18} />
       </a>
     </div>
-    <p class="copyright text-muted text-sm">&copy; {currentYear} Abhin Rustagi</p>
+    <p class="copyright text-muted text-sm">
+      &copy; {currentYear} Abhin Rustagi
+    </p>
   </div>
 </footer>
 

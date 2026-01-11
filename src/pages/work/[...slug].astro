@@ -1,9 +1,9 @@
 ---
-import Base from '../../layouts/Base.astro';
-import { getCollection } from 'astro:content';
+import Base from "../../layouts/Base.astro";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const projects = await getCollection('work');
+  const projects = await getCollection("work");
   return projects.map((project) => ({
     params: { slug: project.slug },
     props: { project },
@@ -14,19 +14,28 @@ const { project } = Astro.props;
 const { Content } = await project.render();
 ---
 
-<Base title={`${project.data.title} - Abhin Rustagi`} description={project.data.description}>
+<Base
+  title={`${project.data.title} - Abhin Rustagi`}
+  description={project.data.description}
+>
   <article class="section">
     <div class="container">
       <header class="project-header animate-in">
         <div class="meta text-muted text-sm">
           <span class="year">{project.data.date.getFullYear()}</span>
-          {project.data.client && <span class="client">/ {project.data.client}</span>}
+          {
+            project.data.client && (
+              <span class="client">/ {project.data.client}</span>
+            )
+          }
         </div>
         <h1>{project.data.title}</h1>
         <p class="description">{project.data.description}</p>
-        {project.data.tech && project.data.tech.length > 0 && (
-          <p class="tech-list">{project.data.tech.join(' / ')}</p>
-        )}
+        {
+          project.data.tech && project.data.tech.length > 0 && (
+            <p class="tech-list">{project.data.tech.join(" / ")}</p>
+          )
+        }
       </header>
       <div class="prose animate-in animate-in-delay-1">
         <Content />

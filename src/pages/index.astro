@@ -1,12 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
-import Base from '../layouts/Base.astro';
-import { Clock, NotebookText, PencilRuler, User } from 'lucide-astro';
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { Clock, NotebookText, PencilRuler, User } from "lucide-astro";
 
 export const prerender = false;
 
-const BLOG_REPO = 'AbhinRustagi/blog';
-const GITHUB_USERNAME = 'AbhinRustagi';
+const BLOG_REPO = "AbhinRustagi/blog";
+const GITHUB_USERNAME = "AbhinRustagi";
 
 interface PostMeta {
   title: string;
@@ -20,15 +20,19 @@ interface PostMeta {
 }
 
 // Fetch blog posts from GitHub
-const res = await fetch(`https://raw.githubusercontent.com/${BLOG_REPO}/main/index.json`);
+const res = await fetch(
+  `https://raw.githubusercontent.com/${BLOG_REPO}/main/index.json`
+);
 const index: PostMeta[] = await res.json();
 
 const posts = index
-  .filter(p => p.published)
+  .filter((p) => p.published)
   .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
   .slice(0, 3);
 
-const featuredWork = (await getCollection('work', ({ data }) => data.featured && !data.draft))
+const featuredWork = (
+  await getCollection("work", ({ data }) => data.featured && !data.draft)
+)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
 
@@ -37,19 +41,22 @@ let codingHours = 0;
 try {
   const wakatimeKey = import.meta.env.WAKATIME_API_KEY;
   if (wakatimeKey) {
-    const wakatimeRes = await fetch('https://wakatime.com/api/v1/users/AbhinRustagi/stats/last_7_days', {
-      headers: {
-        Authorization: `Basic ${Buffer.from(wakatimeKey).toString('base64')}`,
-      },
-    });
+    const wakatimeRes = await fetch(
+      "https://wakatime.com/api/v1/users/AbhinRustagi/stats/last_7_days",
+      {
+        headers: {
+          Authorization: `Basic ${Buffer.from(wakatimeKey).toString("base64")}`,
+        },
+      }
+    );
     if (wakatimeRes.ok) {
       const wakatimeData = await wakatimeRes.json();
       const totalSeconds7Days = wakatimeData.data?.total_seconds || 0;
-      codingHours = Math.round((totalSeconds7Days / 3600) * 100) / 100; // Round to 2 decimal 
+      codingHours = Math.round((totalSeconds7Days / 3600) * 100) / 100; // Round to 2 decimal
     }
   }
 } catch (e) {
-  console.error('Failed to fetch Wakatime stats:', e);
+  console.error("Failed to fetch Wakatime stats:", e);
 }
 
 // Fetch GitHub contributions (last year)
@@ -68,11 +75,11 @@ try {
         }
       }
     `;
-    const githubRes = await fetch('https://api.github.com/graphql', {
-      method: 'POST',
+    const githubRes = await fetch("https://api.github.com/graphql", {
+      method: "POST",
       headers: {
         Authorization: `Bearer ${githubToken}`,
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         query,
@@ -81,11 +88,13 @@ try {
     });
     if (githubRes.ok) {
       const githubData = await githubRes.json();
-      contributions = githubData.data?.user?.contributionsCollection?.contributionCalendar?.totalContributions ?? 0;
+      contributions =
+        githubData.data?.user?.contributionsCollection?.contributionCalendar
+          ?.totalContributions ?? 0;
     }
   }
 } catch (e) {
-  console.error('Failed to fetch GitHub contributions:', e);
+  console.error("Failed to fetch GitHub contributions:", e);
 }
 ---
 
@@ -99,20 +108,32 @@ try {
       </p>
     </div>
   </section>
-  
+
   <section>
-      <div class="container section-wrapper border-dashed-b animate-in">
-        <h2 class="section-title"><Clock class="section-title-icon" />Now</h2>
-        <ul class="text-muted now-list">
-          <li>Looking for a full-time role</li>
-          <li>Building & breaking with AI</li>
-          <li>In Melbourne, Australia</li>
-          <li><a class="text-muted" href="https://wakatime.com/AbhinRustagi" target="_blank">{codingHours} hours of coding</a> in the last week</li>
-          <li><a class="text-muted" href="https://github.com/AbhinRustagi" target="_blank">{contributions} contributions</a> in the last year</li>
-        </ul>
-      </div>
+    <div class="container section-wrapper border-dashed-b animate-in">
+      <h2 class="section-title"><Clock class="section-title-icon" />Now</h2>
+      <ul class="text-muted now-list">
+        <li>Looking for a full-time role</li>
+        <li>Building & breaking with AI</li>
+        <li>In Melbourne, Australia</li>
+        <li>
+          <a
+            class="text-muted"
+            href="https://wakatime.com/AbhinRustagi"
+            target="_blank">{codingHours} hours of coding</a
+          > in the last week
+        </li>
+        <li>
+          <a
+            class="text-muted"
+            href="https://github.com/AbhinRustagi"
+            target="_blank">{contributions} contributions</a
+          > in the last year
+        </li>
+      </ul>
+    </div>
   </section>
- 
+
   <!-- {featuredWork.length > 0 && (
     <section>
       <div class="container section-wrapper border-dashed-b">
@@ -135,27 +156,38 @@ try {
     </section>
   )} -->
 
-  {posts.length > 0 && (
-    <section>
-      <div class="container section-wrapper animate-in">
-        <h2 class="section-title">
-          <NotebookText class="section-title-icon" />Writing</h2>
-        <div class="timeline">
-          {posts.map((post) => (
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <a href={`/blog/${post.slug}`} class="post-link">{post.title}</a>
+  {
+    posts.length > 0 && (
+      <section>
+        <div class="container section-wrapper animate-in">
+          <h2 class="section-title">
+            <NotebookText class="section-title-icon" />
+            Writing
+          </h2>
+          <div class="timeline">
+            {posts.map((post) => (
+              <div class="timeline-item">
+                <div class="timeline-content">
+                  <a href={`/blog/${post.slug}`} class="post-link">
+                    {post.title}
+                  </a>
+                </div>
+                <span class="timeline-date">
+                  {new Date(post.date).toLocaleDateString("en-US", {
+                    month: "short",
+                    year: "2-digit",
+                  })}
+                </span>
               </div>
-              <span class="timeline-date">
-                {new Date(post.date).toLocaleDateString('en-US', { month: 'short', year: '2-digit' })}
-              </span>
-            </div>
-          ))}
+            ))}
+          </div>
+          <a href="/blog" class="see-all">
+            Read all posts
+          </a>
         </div>
-        <a href="/blog" class="see-all">Read all posts</a>
-      </div>
-    </section>
-  )}
+      </section>
+    )
+  }
 </Base>
 
 <style>
