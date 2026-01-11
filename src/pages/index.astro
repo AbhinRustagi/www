@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { Clock, NotebookText, User } from 'lucide-astro';
+import { Clock, NotebookText, PencilRuler, User } from 'lucide-astro';
 
 export const prerender = false;
 
@@ -28,9 +28,9 @@ const posts = index
   .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
   .slice(0, 3);
 
-// const featuredWork = (await getCollection('work', ({ data }) => data.featured && !data.draft))
-//   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-//   .slice(0, 3);
+const featuredWork = (await getCollection('work', ({ data }) => data.featured && !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
 
 // Fetch Wakatime stats (hours coded in last week)
 let codingHours = 0;
@@ -91,9 +91,9 @@ try {
 
 <Base title="Abhin Rustagi - Full-Stack Developer">
   <section>
-    <div class="container section-wrapper border-dashed-b">
+    <div class="container section-wrapper border-dashed-b animate-in">
       <h2 class="section-title"><User class="section-title-icon" />Whoami</h2>
-      <p class="intro animate-in">
+      <p class="intro">
         Full-stack developer building thoughtful, performant web experiences.
         Currently freelancing and helping startups ship faster.
       </p>
@@ -101,7 +101,7 @@ try {
   </section>
   
   <section>
-      <div class="container section-wrapper border-dashed-b">
+      <div class="container section-wrapper border-dashed-b animate-in">
         <h2 class="section-title"><Clock class="section-title-icon" />Now</h2>
         <ul class="text-muted now-list">
           <li>Looking for a full-time role</li>
@@ -113,9 +113,31 @@ try {
       </div>
   </section>
  
+  <!-- {featuredWork.length > 0 && (
+    <section>
+      <div class="container section-wrapper border-dashed-b">
+        <h2 class="section-title">
+          <PencilRuler class="section-title-icon" />Work Case Studies</h2>
+        <div class="timeline">
+          {featuredWork.map((work) => (
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <a href={`/work/${work.slug}`} class="post-link">{work.data.title}</a>
+              </div>
+              <span class="timeline-date">
+                {new Date(work.data.date).toLocaleDateString('en-US', { month: 'short', year: '2-digit' })}
+              </span>
+            </div>
+          ))}
+        </div>
+        <a href="/work" class="see-all">Explore all</a>
+      </div>
+    </section>
+  )} -->
+
   {posts.length > 0 && (
     <section>
-      <div class="container section-wrapper">
+      <div class="container section-wrapper animate-in">
         <h2 class="section-title">
           <NotebookText class="section-title-icon" />Writing</h2>
         <div class="timeline">

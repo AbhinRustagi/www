@@ -18,14 +18,11 @@ const projects = (await getCollection('work', ({ data }) => !data.draft))
         <div class="timeline">
           {projects.map((project, i) => (
             <div class={`timeline-item animate-in animate-in-delay-${Math.min(i + 1, 4)}`}>
-              <span class="timeline-date">{project.data.date.getFullYear()}</span>
               <div class="timeline-content">
                 <a href={`/work/${project.slug}`} class="work-link">{project.data.title}</a>
                 <p class="work-desc">{project.data.description}</p>
-                {project.data.tech && project.data.tech.length > 0 && (
-                  <p class="work-tech">{project.data.tech.join(' / ')}</p>
-                )}
               </div>
+                <span class="timeline-date">{project.data.date.getFullYear()}</span>
             </div>
           ))}
         </div>
@@ -35,6 +32,11 @@ const projects = (await getCollection('work', ({ data }) => !data.draft))
 </Base>
 
 <style>
+
+  .desc {
+    margin-bottom: var(--space-xl);
+  }
+
   .page-header {
     margin-bottom: var(--space-xl);
   }
