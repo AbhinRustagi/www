@@ -5,14 +5,14 @@
 :root {
   --font-mono: "Cascadia Mono", monospace;
 
-  /* Dark theme */
-  --bg: #0f0f0f;
-  --bg-secondary: #1a1a1a;
-  --text: #ededed;
-  --text-muted: #888888;
-  --accent: #818cf8;
-  --accent-hover: #a5b4fc;
-  --border: #393939;
+  /* Light theme (default) */
+  --bg: #fafafa;
+  --bg-secondary: #f0f0f0;
+  --text: #1a1a1a;
+  --text-muted: #666666;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --border: #d4d4d4;
 
   /* Spacing */
   --space-xs: 4px;
@@ -26,6 +26,16 @@
   /* Layout */
   --max-width: 640px;
   --header-height: 56px;
+}
+
+[data-theme="dark"] {
+  --bg: #0f0f0f;
+  --bg-secondary: #1a1a1a;
+  --text: #ededed;
+  --text-muted: #888888;
+  --accent: #818cf8;
+  --accent-hover: #a5b4fc;
+  --border: #393939;
 }
 
 /* Reset */
@@ -296,6 +306,9 @@ h3 {
   letter-spacing: 0.1em;
   color: var(--text);
   margin-bottom: var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
 }
 
 .border-dashed-x {
@@ -314,4 +327,10 @@ h3 {
 
 .section-wrapper {
   padding: var(--space-lg);
+}
+
+.section-title-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: var(--space-xs);
 }

@@ -35,6 +35,23 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
+    <!-- Theme script (inline to prevent flash) -->
+    <script is:inline>
+      const getTheme = () => {
+        const stored = localStorage.getItem('theme');
+        if (stored) return stored;
+        // Default to dark unless user explicitly prefers light
+        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      };
+      document.documentElement.dataset.theme = getTheme();
+
+      // Preserve theme during View Transitions
+      document.addEventListener('astro:before-swap', (e) => {
+        const theme = document.documentElement.dataset.theme;
+        e.newDocument.documentElement.dataset.theme = theme;
+      });
+    </script>
+
     <ViewTransitions />
   </head>
   <body>

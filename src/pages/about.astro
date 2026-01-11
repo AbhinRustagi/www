@@ -1,11 +1,13 @@
 ---
+import { Layers2, Mail, MessageCircleHeart, User } from 'lucide-astro';
 import Base from '../layouts/Base.astro';
 ---
 
 <Base title="About - Abhin Rustagi" description="Full-stack developer with a passion for building thoughtful web experiences.">
   <section>
     <div class="container section-wrapper border-dashed-b">
-      <h1 class="section-title">About</h1>
+      <h1 class="section-title">
+        <User class="section-title-icon" />About</h1>
         <div class="bio animate-in animate-in-delay-1 text-muted">
           <p>
             Hi, my name is Abhin, a software engineer who loves a good challenge. In the past, I've had the opportunity to develop software across a variety of settings — from an innovative EdTech platform, or a creative MedTech solution, to just as a freelance agent for startups trying to find their feet making it big. Additionally, I also volunteer my time and engineering skills to help organisations fight the climate change battle.
@@ -21,7 +23,7 @@ import Base from '../layouts/Base.astro';
   </section>
   <section class="skills animate-in animate-in-delay-2">
     <div class="container section-wrapper border-dashed-b">
-          <h2 class="section-title">Stack</h2>
+          <h2 class="section-title"><Layers2 class="section-title-icon" />Stack</h2>
           <p>Some technologies where I've spend most of my coding hours, but not limited to:
           <span class="skill-list">
             React, Next.js, TypeScript, Node.js, Python, PostgreSQL, Redis,
@@ -30,7 +32,7 @@ import Base from '../layouts/Base.astro';
         </section>
 
         <section><div class="container section-wrapper border-dashed-b">
-          <h2 class="section-title">Good words</h2>
+          <h2 class="section-title"><MessageCircleHeart class="section-title-icon" />Good words</h2>
           <div class="testimony">
           <p class="text-muted">
             What I appreciate most about Abhin is his commitment. He's not just ticking boxes and doing tasks, he wants his work to mean something, to make a real impact.
@@ -48,10 +50,10 @@ import Base from '../layouts/Base.astro';
 
         <section class="contact animate-in animate-in-delay-3">
           <div class="container section-wrapper">
-          <h2 class="section-title">Contact</h2>
+          <h2 class="section-title"><Mail class="section-title-icon" />Contact</h2>
             <p>
-              I'm always open to interesting projects and collaborations.
-              <a href="mailto:hello@abhin.dev">hello@abhin.dev</a>
+              I'm always open to interesting projects and collaborations via email at
+              <span>hi[at]abhin[dot]dev</span>
             </p>
           </div>
         </section>

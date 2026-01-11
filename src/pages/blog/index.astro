@@ -1,4 +1,5 @@
 ---
+import { NotebookText } from 'lucide-astro';
 import Base from '../../layouts/Base.astro';
 
 const BLOG_REPO = 'AbhinRustagi/blog';
@@ -25,7 +26,8 @@ const posts = index
 <Base title="Writing - Abhin Rustagi" description="Thoughts on web development, freelancing, and building products.">
   <section>
     <div class="container section-wrapper">
-      <h1 class="section-title">Writing</h1>
+      <h1 class="section-title">
+        <NotebookText class="section-title-icon" />Writing</h1>
       <p class="text-muted desc">Thoughts on web development, freelancing, and building products.</p>
 
       {posts.length === 0 ? (

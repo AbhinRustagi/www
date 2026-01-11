@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import { Clock, NotebookText, User } from 'lucide-astro';
 
 export const prerender = false;
 
@@ -27,9 +28,9 @@ const posts = index
   .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
   .slice(0, 3);
 
-const featuredWork = (await getCollection('work', ({ data }) => data.featured && !data.draft))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
+// const featuredWork = (await getCollection('work', ({ data }) => data.featured && !data.draft))
+//   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+//   .slice(0, 3);
 
 // Fetch Wakatime stats (hours coded in last week)
 let codingHours = 0;
@@ -91,7 +92,7 @@ try {
 <Base title="Abhin Rustagi - Full-Stack Developer">
   <section>
     <div class="container section-wrapper border-dashed-b">
-      <h2 class="section-title">/Whoami</h2>
+      <h2 class="section-title"><User class="section-title-icon" />Whoami</h2>
       <p class="intro animate-in">
         Full-stack developer building thoughtful, performant web experiences.
         Currently freelancing and helping startups ship faster.
@@ -101,11 +102,11 @@ try {
   
   <section>
       <div class="container section-wrapper border-dashed-b">
-        <h2 class="section-title">/Now</h2>
+        <h2 class="section-title"><Clock class="section-title-icon" />Now</h2>
         <ul class="text-muted now-list">
-          <li>Open to full-time roles</li>
+          <li>Looking for a full-time role</li>
           <li>Building & breaking with AI</li>
-          <li>Currently in Melbourne, Australia</li>
+          <li>In Melbourne, Australia</li>
           <li><a class="text-muted" href="https://wakatime.com/AbhinRustagi" target="_blank">{codingHours} hours of coding</a> in the last week</li>
           <li><a class="text-muted" href="https://github.com/AbhinRustagi" target="_blank">{contributions} contributions</a> in the last year</li>
         </ul>
@@ -115,7 +116,8 @@ try {
   {posts.length > 0 && (
     <section>
       <div class="container section-wrapper">
-        <h2 class="section-title">/Writing</h2>
+        <h2 class="section-title">
+          <NotebookText class="section-title-icon" />Writing</h2>
         <div class="timeline">
           {posts.map((post) => (
             <div class="timeline-item">
