@@ -1,15 +1,16 @@
 ---
-import '../styles/global.css';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from "astro:transitions";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = 'Full-stack developer crafting web experiences' } = Astro.props;
+const { title, description = "Full-stack developer crafting web experiences" } =
+  Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -20,6 +21,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&display=swap"
+      rel="stylesheet"
+    />
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -38,15 +46,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- Theme script (inline to prevent flash) -->
     <script is:inline>
       const getTheme = () => {
-        const stored = localStorage.getItem('theme');
+        const stored = localStorage.getItem("theme");
         if (stored) return stored;
         // Default to dark unless user explicitly prefers light
-        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        return window.matchMedia("(prefers-color-scheme: light)").matches
+          ? "light"
+          : "dark";
       };
       document.documentElement.dataset.theme = getTheme();
 
       // Preserve theme during View Transitions
-      document.addEventListener('astro:before-swap', (e) => {
+      document.addEventListener("astro:before-swap", (e) => {
         const theme = document.documentElement.dataset.theme;
         e.newDocument.documentElement.dataset.theme = theme;
       });

@@ -1,8 +1,8 @@
 ---
-title: Supercharging Fashion Retail with AI
+title: Limb-loss recovery through VR
 description: FOO
-date: 2026-01-01
-client: SeeStone
+date: 2024-10-01
+client: Virtetic
 tech:
   - Nextjs
   - AWS

@@ -1,7 +1,13 @@
 ---
 import { getCollection } from "astro:content";
+import {
+  Clock,
+  FlaskConical,
+  NotebookText,
+  PencilRuler,
+  User,
+} from "lucide-astro";
 import Base from "../layouts/Base.astro";
-import { Clock, NotebookText, PencilRuler, User } from "lucide-astro";
 
 export const prerender = false;
 
@@ -32,6 +38,12 @@ const posts = index
 
 const featuredWork = (
   await getCollection("work", ({ data }) => data.featured && !data.draft)
+)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const featuredProjects = (
+  await getCollection("projects", ({ data }) => data.featured)
 )
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
@@ -134,27 +146,62 @@ try {
     </div>
   </section>
 
-  <!-- {featuredWork.length > 0 && (
-    <section>
-      <div class="container section-wrapper border-dashed-b">
-        <h2 class="section-title">
-          <PencilRuler class="section-title-icon" />Work Case Studies</h2>
-        <div class="timeline">
-          {featuredWork.map((work) => (
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <a href={`/work/${work.slug}`} class="post-link">{work.data.title}</a>
+  {
+    featuredProjects.length > 0 && (
+      <section>
+        <div class="container section-wrapper border-dashed-b">
+          <h2 class="section-title">
+            <FlaskConical class="section-title-icon" />
+            Projects
+          </h2>
+          <div class="timeline">
+            {featuredProjects.map((project) => (
+              <div class="timeline-item">
+                <div class="timeline-content">
+                  <a href={`/projects/${project.id}`} class="post-link">
+                    {project.data.title}
+                  </a>
+                </div>
               </div>
-              <span class="timeline-date">
-                {new Date(work.data.date).toLocaleDateString('en-US', { month: 'short', year: '2-digit' })}
-              </span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-        <a href="/work" class="see-all">Explore all</a>
-      </div>
-    </section>
-  )} -->
+      </section>
+    )
+  }
+
+  {
+    featuredWork.length > 0 && (
+      <section>
+        <div class="container section-wrapper border-dashed-b">
+          <h2 class="section-title">
+            <PencilRuler class="section-title-icon" />
+            Work Case Studies
+          </h2>
+          <div class="timeline">
+            {featuredWork.map((work) => (
+              <div class="timeline-item">
+                <div class="timeline-content">
+                  <a href={`/work/${work.slug}`} class="post-link">
+                    {work.data.title}
+                  </a>
+                </div>
+                <span class="timeline-date">
+                  {new Date(work.data.date).toLocaleDateString("en-US", {
+                    month: "short",
+                    year: "2-digit",
+                  })}
+                </span>
+              </div>
+            ))}
+          </div>
+          <a href="/work" class="see-all">
+            Explore all
+          </a>
+        </div>
+      </section>
+    )
+  }
 
   {
     posts.length > 0 && (

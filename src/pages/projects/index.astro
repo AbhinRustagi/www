@@ -1,22 +1,21 @@
 ---
-import Base from "../../layouts/Base.astro";
 import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
 
-const projects = (await getCollection("work", ({ data }) => !data.draft)).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-);
+const projects = (
+  await getCollection("projects", ({ data }) => !data.draft)
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <Base
-  title="Work - Abhin Rustagi"
-  description="Selected projects and case studies from my freelance work."
+  title="Projects - Abhin Rustagi"
+  description="Selected projects and case studies from my work over the years with different startups."
 >
   <section>
     <div class="container section-wrapper">
-      <h2 class="section-title">Work</h2>
+      <h2 class="section-title">Projects</h2>
       <p class="text-muted desc">
-        Selected projects and case studies from my work over the years with
-        different startups.
+        Projects I've worked on for fun or as a side hustle.
       </p>
 
       {
@@ -29,7 +28,7 @@ const projects = (await getCollection("work", ({ data }) => !data.draft)).sort(
                 class={`timeline-item animate-in animate-in-delay-${Math.min(i + 1, 4)}`}
               >
                 <div class="timeline-content">
-                  <a href={`/work/${project.slug}`} class="work-link">
+                  <a href={`/projects/${project.id}`} class="work-link">
                     {project.data.title}
                   </a>
                   <p class="work-desc">

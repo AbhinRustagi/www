@@ -1,8 +1,8 @@
 ---
-title: Supercharging Fashion Retail with AI
+title: Gamifying Video Content for creators
 description: FOO
-date: 2026-01-01
-client: SeeStone
+date: 2025-10-01
+client: SemiReal
 tech:
   - Nextjs
   - AWS

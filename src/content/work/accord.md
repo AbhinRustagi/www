@@ -1,8 +1,8 @@
 ---
-title: Supercharging Fashion Retail with AI
+title: Multi-Player Games improved via Discord
 description: FOO
-date: 2026-01-01
-client: SeeStone
+date: 2025-07-01
+client: Layer Licensing
 tech:
   - Nextjs
   - AWS

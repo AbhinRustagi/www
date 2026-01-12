@@ -1,8 +1,8 @@
 ---
-title: Supercharging Fashion Retail with AI
+title: After-school learning for the energetic
 description: FOO
-date: 2026-01-01
-client: SeeStone
+date: 2023-07-01
+client: Openhouse
 tech:
   - Nextjs
   - AWS

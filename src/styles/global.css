@@ -1,6 +1,3 @@
-/* Fonts */
-@import url("https://cdn.jsdelivr.net/npm/@fontsource/cascadia-mono@latest/index.css");
-
 /* CSS Variables */
 :root {
   --font-mono: "Cascadia Mono", monospace;
