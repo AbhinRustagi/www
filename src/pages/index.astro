@@ -36,17 +36,17 @@ const posts = index
   .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
   .slice(0, 3);
 
-// const featuredWork = (
-//   await getCollection("work", ({ data }) => data.featured && !data.draft)
-// )
-//   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-//   .slice(0, 3);
+const featuredWork = (
+  await getCollection("work", ({ data }) => data.featured && !data.draft)
+)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
 
-// const featuredProjects = (
-//   await getCollection("projects", ({ data }) => data.featured)
-// )
-//   .sort((a, b) => b.data.title.localeCompare(a.data.title))
-//   .slice(0, 3);
+const featuredProjects = (
+  await getCollection("projects", ({ data }) => data.featured)
+)
+  .sort((a, b) => b.data.title.localeCompare(a.data.title))
+  .slice(0, 3);
 
 // Fetch Wakatime stats (hours coded in last week)
 let codingHours = 0;
@@ -170,7 +170,7 @@ try {
     )
   } -->
 
-  <!-- {
+  {
     featuredWork.length > 0 && (
       <section>
         <div class="container section-wrapper border-dashed-b">
@@ -201,7 +201,7 @@ try {
         </div>
       </section>
     )
-  } -->
+  }
 
   {
     posts.length > 0 && (
