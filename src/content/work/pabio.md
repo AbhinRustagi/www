@@ -16,7 +16,7 @@ draft: false
 
 My first professional coding experience lasted exactly one week. But that week of diving into a massive Next.js codebase taught me more about real-world development than months of tutorials ever could.
 
-## How It Started
+## Full Version
 
 Second year of college. A friend messages me: "Hey, my batchmate works at this startup from Switzerland called Pabio as a JavaScript engineer. Want an intro?" I jumped at it. After talking with the founder, he offered me a week-long trial. The catch? They had their launch coming up in a few weeks, and they needed to move fast. I joined in the mid of May 2021.
 
