@@ -7,7 +7,7 @@ tech:
   - Nextjs
   - AWS
 featured: true
-draft: false
+draft: true
 ---
 
 ## TL;DR
