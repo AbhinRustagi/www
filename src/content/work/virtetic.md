@@ -10,7 +10,7 @@ tech:
   - Firestore
   - BigQuery
   - Python
-featured: false
+featured: true
 draft: false
 ---
 

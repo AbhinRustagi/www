@@ -11,7 +11,7 @@ tech:
   - Gemini
   - Amazon Bedrock
   - AWS
-featured: false
+featured: true
 draft: false
 ---
 

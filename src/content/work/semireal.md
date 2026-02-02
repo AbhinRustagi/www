@@ -10,7 +10,7 @@ tech:
   - Bun
   - Google Cloud
   - Cloudflare
-featured: false
+featured: true
 draft: false
 ---
 
