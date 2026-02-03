@@ -282,7 +282,7 @@ h3 {
 
   .timeline-item {
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: var(--space-md);
   }
 
   .timeline-date {
