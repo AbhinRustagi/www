@@ -12,6 +12,7 @@ import Base from "../layouts/Base.astro";
 export const prerender = false;
 
 const BLOG_REPO = "AbhinRustagi/blog";
+const PROJECTS_REPO = "AbhinRustagi/projects";
 const GITHUB_USERNAME = "AbhinRustagi";
 
 interface PostMeta {
@@ -22,6 +23,17 @@ interface PostMeta {
   description?: string;
   tags: string[];
   reading_time: number;
+  published: boolean;
+}
+
+interface ProjectMeta {
+  title: string;
+  date: string;
+  slug: string;
+  path: string;
+  description?: string;
+  tags: string[];
+  thumbnail?: string;
   published: boolean;
 }
 
@@ -36,16 +48,27 @@ const posts = index
   .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
   .slice(0, 3);
 
+// Fetch projects from GitHub
+let featuredProjects: ProjectMeta[] = [];
+try {
+  const projectsRes = await fetch(
+    `https://raw.githubusercontent.com/${PROJECTS_REPO}/main/index.json`
+  );
+  if (projectsRes.ok) {
+    const projectsIndex: ProjectMeta[] = await projectsRes.json();
+    featuredProjects = projectsIndex
+      .filter((p) => p.published)
+      .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
+      .slice(0, 3);
+  }
+} catch (e) {
+  console.error("Failed to fetch projects:", e);
+}
+
 const featuredWork = (
   await getCollection("work", ({ data }) => data.featured && !data.draft)
 )
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
-
-const featuredProjects = (
-  await getCollection("projects", ({ data }) => data.featured)
-)
-  .sort((a, b) => b.data.title.localeCompare(a.data.title))
   .slice(0, 3);
 
 // Fetch Wakatime stats (hours coded in last week)
@@ -146,7 +169,7 @@ try {
     </div>
   </section>
 
-  <!-- {
+  {
     featuredProjects.length > 0 && (
       <section>
         <div class="container section-wrapper border-dashed-b">
@@ -158,17 +181,33 @@ try {
             {featuredProjects.map((project) => (
               <div class="timeline-item">
                 <div class="timeline-content">
-                  <a href={`/projects/${project.id}`} class="post-link">
-                    {project.data.title}
+                  <a href={`/projects/${project.slug}`} class="post-link">
+                    {project.title}
                   </a>
+                  {project.description && (
+                    <p class="post-desc">
+                      {project.description.length > 150
+                        ? project.description.slice(0, 150) + "..."
+                        : project.description}
+                    </p>
+                  )}
                 </div>
+                <span class="timeline-date">
+                  {new Date(project.date).toLocaleDateString("en-US", {
+                    month: "short",
+                    year: "2-digit",
+                  })}
+                </span>
               </div>
             ))}
           </div>
+          <a href="/projects" class="see-all">
+            Explore all
+          </a>
         </div>
       </section>
     )
-  } -->
+  }
 
   {
     featuredWork.length > 0 && (
@@ -256,6 +295,12 @@ try {
 
   .post-link:hover {
     color: var(--accent);
+  }
+
+  .post-desc {
+    margin: var(--space-xs) 0 0;
+    font-size: 0.875rem;
+    color: var(--text-muted);
   }
 
   .see-all {

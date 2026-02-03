@@ -2,6 +2,8 @@
 import Base from "../../layouts/Base.astro";
 import { marked } from "marked";
 
+export const prerender = true;
+
 interface PostMeta {
   title: string;
   date: string;

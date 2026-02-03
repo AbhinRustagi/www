@@ -1,10 +1,30 @@
 ---
-import { getCollection } from "astro:content";
+import { Briefcase } from "lucide-astro";
 import Base from "../../layouts/Base.astro";
 
-const projects = (
-  await getCollection("projects", ({ data }) => !data.draft)
-).sort((a, b) => b.data.title.localeCompare(a.data.title));
+export const prerender = true;
+
+const PROJECTS_REPO = "AbhinRustagi/projects";
+
+interface ProjectMeta {
+  title: string;
+  date: string;
+  slug: string;
+  path: string;
+  description?: string;
+  tags: string[];
+  thumbnail?: string;
+  published: boolean;
+}
+
+const res = await fetch(
+  `https://raw.githubusercontent.com/${PROJECTS_REPO}/main/index.json`
+);
+const index: ProjectMeta[] = await res.json();
+
+const projects = index
+  .filter((p) => p.published)
+  .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
 ---
 
 <Base
@@ -13,9 +33,14 @@ const projects = (
 >
   <section>
     <div class="container section-wrapper">
-      <h2 class="section-title">Projects</h2>
+      <h1 class="section-title">
+        <Briefcase class="section-title-icon" />Projects
+      </h1>
       <p class="text-muted desc">
-        Projects I've worked on for fun or as a side hustle.
+        Projects I've worked on for fun or as a side hustle. Check out the
+        Github source for these writeups <a
+          href="https://github.com/AbhinRustagi/projects">here</a
+        >.
       </p>
 
       {
@@ -28,11 +53,20 @@ const projects = (
                 class={`timeline-item animate-in animate-in-delay-${Math.min(i + 1, 4)}`}
               >
                 <div class="timeline-content">
-                  <a href={project.data.link} class="work-link">
-                    {project.data.title}
+                  <a href={`/projects/${project.slug}`} class="work-link">
+                    {project.title}
                   </a>
-                  <p class="work-desc">{project.data.description}</p>
+                  {project.description && (
+                    <p class="work-desc">{project.description}</p>
+                  )}
                 </div>
+                <span class="timeline-date">
+                  {new Date(project.date).toLocaleDateString("en-US", {
+                    month: "short",
+                    year: "2-digit",
+                    day: "numeric",
+                  })}
+                </span>
               </div>
             ))}
           </div>

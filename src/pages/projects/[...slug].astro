@@ -1,0 +1,242 @@
+---
+import { Github, Globe } from "lucide-astro";
+import Base from "../../layouts/Base.astro";
+import { marked } from "marked";
+
+export const prerender = true;
+
+const PROJECTS_REPO = "AbhinRustagi/projects";
+
+interface ProjectMeta {
+  title: string;
+  date: string;
+  slug: string;
+  path: string;
+  description?: string;
+  tags: string[];
+  thumbnail?: string;
+  published: boolean;
+  canonical_url: string;
+  web_url: string | null;
+  github_url: string | null;
+}
+
+export async function getStaticPaths() {
+  const PROJECTS_REPO = "AbhinRustagi/projects";
+  const res = await fetch(
+    `https://raw.githubusercontent.com/${PROJECTS_REPO}/main/index.json`
+  );
+  const index: ProjectMeta[] = await res.json();
+
+  return index
+    .filter((p) => p.published)
+    .map((project) => ({
+      params: { slug: project.slug },
+      props: { project },
+    }));
+}
+
+const { project } = Astro.props;
+
+const markdownPath = project.path.replace("projects/", "");
+const markdownRes = await fetch(
+  `https://raw.githubusercontent.com/${PROJECTS_REPO}/main/projects/${markdownPath}`
+);
+const markdown = await markdownRes.text();
+
+const contentWithoutFrontmatter = markdown
+  .replace(/^---[\s\S]*?---/, "")
+  .trim();
+const html = marked(contentWithoutFrontmatter);
+---
+
+<Base
+  title={`${project.title} - Abhin Rustagi`}
+  description={project.description || `Read about ${project.title}`}
+>
+  <article>
+    <div class="container section-wrapper">
+      <header class="project-header">
+        <h1 class="section-title">{project.title}</h1>
+        <div class="project-meta">
+          <time class="project-date">
+            {
+              new Date(project.date).toLocaleDateString("en-US", {
+                month: "long",
+                year: "numeric",
+              })
+            }
+          </time>
+          {
+            project.description && (
+              <p class="text-muted text-sm">{project.description}</p>
+            )
+          }
+        </div>
+      </header>
+      {
+        (project.github_url || project.web_url) && (
+          <div class="project-links">
+            {project.web_url && (
+              <a class="project-link-button">
+                <Globe />
+                <span>View</span>
+              </a>
+            )}
+            {project.github_url && (
+              <a class="project-link-button">
+                <Github />
+                <span>Github</span>
+              </a>
+            )}
+          </div>
+        )
+      }
+      <div class="prose" set:html={html} />
+    </div>
+  </article>
+</Base>
+
+<style>
+  .project-header {
+    margin-bottom: var(--space-md);
+  }
+
+  .project-links {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+  }
+
+  .project-link-button {
+    display: flex;
+    align-items: center;
+    padding: var(--space-sm);
+    border-radius: var(--space-sm);
+    border: 1px solid var(--border);
+    gap: var(--space-sm);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .project-link-button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .project-link-button > svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .project-link-button > span {
+    font-size: 0.875rem;
+  }
+
+  .project-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    line-height: 1.2;
+  }
+
+  .project-description {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    align-items: center;
+  }
+
+  .project-date {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .tag {
+    font-size: 0.8125rem;
+    padding: 0.25rem 0.625rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    color: var(--text-muted);
+  }
+
+  .project-content {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .project-content :global(p) {
+    margin-bottom: var(--space-md);
+  }
+
+  .project-content :global(ul),
+  .project-content :global(ol) {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-lg);
+  }
+
+  .project-content :global(li) {
+    margin-bottom: var(--space-xs);
+  }
+
+  .project-content :global(a) {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  .project-content :global(a:hover) {
+    opacity: 0.8;
+  }
+
+  .project-content :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: var(--space-lg) 0;
+  }
+
+  .project-content :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    background: var(--surface);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+  }
+
+  .project-content :global(pre) {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: var(--space-md);
+    overflow-x: auto;
+    margin: var(--space-md) 0;
+  }
+
+  .project-content :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    .project-title {
+      font-size: 1.5rem;
+    }
+
+    .project-description {
+      font-size: 1rem;
+    }
+  }
+</style>
