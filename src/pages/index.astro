@@ -1,12 +1,10 @@
 ---
+import Book from "@/icons/book.astro";
+import Clock from "@/icons/clock.astro";
+import Flask from "@/icons/flask.astro";
+import SquarePen from "@/icons/square-pen.astro";
+import User from "@/icons/user.astro";
 import { getCollection } from "astro:content";
-import {
-  Clock,
-  FlaskConical,
-  NotebookText,
-  PencilRuler,
-  User,
-} from "lucide-astro";
 import Base from "../layouts/Base.astro";
 
 export const prerender = false;
@@ -136,7 +134,9 @@ try {
 <Base title="Abhin Rustagi - Full-Stack Developer">
   <section>
     <div class="container section-wrapper border-dashed-b animate-in">
-      <h2 class="section-title"><User class="section-title-icon" />Whoami</h2>
+      <h2 class="section-title">
+        <User size={20} class="section-title-icon" />Whoami
+      </h2>
       <p class="intro">
         Full-stack developer building thoughtful, performant web experiences.
         Currently freelancing and helping startups ship faster.
@@ -146,7 +146,9 @@ try {
 
   <section>
     <div class="container section-wrapper border-dashed-b animate-in">
-      <h2 class="section-title"><Clock class="section-title-icon" />Now</h2>
+      <h2 class="section-title">
+        <Clock size={20} class="section-title-icon" />Now
+      </h2>
       <ul class="text-muted now-list">
         <li>Looking for a full-time role</li>
         <li>Building & breaking with AI</li>
@@ -174,7 +176,7 @@ try {
       <section>
         <div class="container section-wrapper border-dashed-b">
           <h2 class="section-title">
-            <FlaskConical class="section-title-icon" />
+            <Flask class="section-title-icon" size={20} />
             Projects
           </h2>
           <div class="timeline">
@@ -214,7 +216,7 @@ try {
       <section>
         <div class="container section-wrapper border-dashed-b">
           <h2 class="section-title">
-            <PencilRuler class="section-title-icon" />
+            <SquarePen size={20} class="section-title-icon" />
             Work Case Studies
           </h2>
           <div class="timeline">
@@ -247,7 +249,7 @@ try {
       <section>
         <div class="container section-wrapper animate-in">
           <h2 class="section-title">
-            <NotebookText class="section-title-icon" />
+            <Book size={20} class="section-title-icon" />
             Writing
           </h2>
           <div class="timeline">

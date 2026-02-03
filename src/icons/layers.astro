@@ -1,0 +1,57 @@
+---
+interface Props {
+  size?: number;
+  class?: string;
+}
+
+const { size = 28, class: className } = Astro.props;
+---
+
+<div class:list={["layers-icon", className]}>
+  <svg
+    fill="none"
+    height={size}
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
+    viewBox="0 0 24 24"
+    width={size}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
+    <path class="layers-bottom" d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" />
+    <path class="layers-middle" d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />
+  </svg>
+</div>
+
+<style>
+  .layers-icon {
+    display: inline-flex;
+  }
+
+  .layers-bottom,
+  .layers-middle {
+    transition: transform 0.3s ease;
+  }
+
+  .layers-icon:hover .layers-bottom {
+    animation: bounce-bottom 0.6s ease;
+  }
+
+  .layers-icon:hover .layers-middle {
+    animation: bounce-middle 0.6s ease;
+  }
+
+  @keyframes bounce-bottom {
+    0% { transform: translateY(0); }
+    40% { transform: translateY(-9px); }
+    100% { transform: translateY(0); }
+  }
+
+  @keyframes bounce-middle {
+    0% { transform: translateY(0); }
+    40% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+  }
+</style>

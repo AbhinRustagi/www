@@ -1,5 +1,8 @@
 ---
-import { Layers2, Mail, MessageCircleHeart, User } from "lucide-astro";
+import Heart from "@/icons/heart.astro";
+import Layers from "@/icons/layers.astro";
+import Mail from "@/icons/mail.astro";
+import User from "@/icons/user.astro";
 import Base from "../layouts/Base.astro";
 ---
 
@@ -10,7 +13,7 @@ import Base from "../layouts/Base.astro";
   <section>
     <div class="container section-wrapper border-dashed-b">
       <h1 class="section-title">
-        <User class="section-title-icon" />About
+        <User size={20} class="section-title-icon" />About
       </h1>
       <div class="bio animate-in animate-in-delay-1 text-muted">
         <p>
@@ -38,7 +41,9 @@ import Base from "../layouts/Base.astro";
   </section>
   <section class="skills animate-in animate-in-delay-2">
     <div class="container section-wrapper border-dashed-b">
-      <h2 class="section-title"><Layers2 class="section-title-icon" />Stack</h2>
+      <h2 class="section-title">
+        <Layers size={20} class="section-title-icon" />Stack
+      </h2>
       <p>
         Some technologies where I've spend most of my coding hours, but not
         limited to:
@@ -55,7 +60,7 @@ import Base from "../layouts/Base.astro";
       class="container section-wrapper border-dashed-b animate-in animate-in-delay-3"
     >
       <h2 class="section-title">
-        <MessageCircleHeart class="section-title-icon" />Good words
+        <Heart size={20} class="section-title-icon" />Good words
       </h2>
       <div class="testimony">
         <p class="text-muted">
@@ -84,7 +89,9 @@ import Base from "../layouts/Base.astro";
 
   <section class="contact animate-in animate-in-delay-4">
     <div class="container section-wrapper">
-      <h2 class="section-title"><Mail class="section-title-icon" />Contact</h2>
+      <h2 class="section-title">
+        <Mail size={20} class="section-title-icon" />Contact
+      </h2>
       <p>
         I'm always open to interesting projects and collaborations via email at
         <span>hi[at]abhin[dot]dev</span>

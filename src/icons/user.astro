@@ -1,0 +1,60 @@
+---
+interface Props {
+  size?: number;
+  class?: string;
+}
+
+const { size = 28, class: className } = Astro.props;
+---
+
+<div class:list={["user-icon", className]}>
+  <svg
+    fill="none"
+    height={size}
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
+    viewBox="0 0 24 24"
+    width={size}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle class="user-head" cx="12" cy="8" r="5" pathLength="1" />
+    <path class="user-body" d="M20 21a8 8 0 0 0-16 0" pathLength="1" />
+  </svg>
+</div>
+
+<style>
+  .user-icon {
+    display: inline-flex;
+  }
+
+  .user-head,
+  .user-body {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .user-head {
+    transform-origin: 12px 8px;
+  }
+
+  .user-icon:hover .user-head {
+    animation: draw-head 0.4s ease both;
+  }
+
+  .user-icon:hover .user-body {
+    animation: draw-body 0.4s ease 0.2s both;
+  }
+
+  @keyframes draw-head {
+    0% { stroke-dashoffset: -1; opacity: 0; transform: scale(0.5); }
+    100% { stroke-dashoffset: 0; opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes draw-body {
+    0% { stroke-dashoffset: -1; opacity: 0; }
+    100% { stroke-dashoffset: 0; opacity: 1; }
+  }
+</style>

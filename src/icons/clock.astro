@@ -1,0 +1,56 @@
+---
+interface Props {
+  size?: number;
+  class?: string;
+}
+
+const { size = 28, class: className } = Astro.props;
+---
+
+<div class:list={["clock-icon", className]}>
+  <svg
+    fill="none"
+    height={size}
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
+    viewBox="0 0 24 24"
+    width={size}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle cx="12" cy="12" r="10" />
+    <line class="clock-hour" x1="12" x2="12" y1="12" y2="6" />
+    <line class="clock-minute" x1="12" x2="16" y1="12" y2="12" />
+  </svg>
+</div>
+
+<style>
+  .clock-icon {
+    display: inline-flex;
+  }
+
+  .clock-hour,
+  .clock-minute {
+    transform-origin: 12px 12px;
+    transition: transform 0.3s ease;
+  }
+
+  .clock-icon:hover .clock-hour {
+    animation: hour-spin 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .clock-icon:hover .clock-minute {
+    animation: minute-tick 0.5s ease-in-out forwards;
+  }
+
+  @keyframes hour-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes minute-tick {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(45deg); }
+  }
+</style>
