@@ -188,18 +188,12 @@ try {
                   </a>
                   {project.description && (
                     <p class="post-desc">
-                      {project.description.length > 150
-                        ? project.description.slice(0, 150) + "..."
+                      {project.description.length > 140
+                        ? project.description.slice(0, 140) + "..."
                         : project.description}
                     </p>
                   )}
                 </div>
-                <span class="timeline-date">
-                  {new Date(project.date).toLocaleDateString("en-US", {
-                    month: "short",
-                    year: "2-digit",
-                  })}
-                </span>
               </div>
             ))}
           </div>

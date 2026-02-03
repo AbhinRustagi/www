@@ -329,3 +329,7 @@ h3 {
 .section-title-icon {
   margin-right: var(--space-xs);
 }
+
+.text-accent {
+  color: var(--accent);
+}
