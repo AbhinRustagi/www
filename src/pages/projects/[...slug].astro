@@ -78,13 +78,13 @@ const html = marked(contentWithoutFrontmatter);
         (project.github_url || project.web_url) && (
           <div class="project-links">
             {project.web_url && (
-              <a class="project-link-button">
+              <a class="project-link-button" href={project.web_url}>
                 <Globe />
                 <span>View</span>
               </a>
             )}
             {project.github_url && (
-              <a class="project-link-button">
+              <a class="project-link-button" href={project.github_url}>
                 <Github />
                 <span>Github</span>
               </a>
