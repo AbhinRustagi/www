@@ -94,15 +94,19 @@ const date = new Date(meta.date);
   <section>
     <div class="container section-wrapper">
       <h1 class="section-title">{meta.title}</h1>
-      <time class="text-muted text-sm date">
-        {
-          date.toLocaleDateString("en-US", {
-            month: "long",
-            day: "numeric",
-            year: "numeric",
-          })
-        }
-      </time>
+      <div class="meta text-muted text-sm">
+        <time>
+          {
+            date.toLocaleDateString("en-US", {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            })
+          }
+        </time>
+        <span class="separator">&middot;</span>
+        <span id="view-count"></span>
+      </div>
       <div class="prose animate-in animate-in-delay-1" set:html={html} />
       <div class="footer">
         <a href="/blog" class="back-link">&larr; Back to all posts</a>
@@ -111,9 +115,39 @@ const date = new Date(meta.date);
   </section>
 </Base>
 
+<script>
+  const slug = window.location.pathname
+    .replace(/^\/blog\//, "")
+    .replace(/\/$/, "");
+  const el = document.getElementById("view-count");
+
+  fetch("/api/views", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ slug }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.views >= 15 && el) {
+        el.textContent = `${data.views} views`;
+      } else {
+        if (el) el.style.display = "none";
+        const sep = document.querySelector(".separator");
+        if (sep) (sep as HTMLElement).style.display = "none";
+      }
+    })
+    .catch(() => {
+      if (el) el.style.display = "none";
+      const sep = document.querySelector(".separator");
+      if (sep) (sep as HTMLElement).style.display = "none";
+    });
+</script>
+
 <style>
-  .date {
-    display: block;
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
     margin-bottom: var(--space-md);
   }
 

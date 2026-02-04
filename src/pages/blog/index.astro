@@ -59,6 +59,7 @@ const posts = index
                   {post.description && (
                     <p class="post-desc">{post.description}</p>
                   )}
+                  <p class="view-count text-muted" data-slug={post.slug} />
                 </div>
                 <span class="timeline-date">
                   {new Date(post.date).toLocaleDateString("en-US", {
@@ -75,6 +76,23 @@ const posts = index
     </div>
   </section>
 </Base>
+
+<script>
+  document
+    .querySelectorAll<HTMLElement>(".view-count[data-slug]")
+    .forEach((el) => {
+      const slug = el.dataset.slug;
+      if (!slug) return;
+
+      fetch(`/api/views?slug=${encodeURIComponent(slug)}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.views >= 15) {
+            el.textContent = `${data.views} views`;
+          }
+        });
+    });
+</script>
 
 <style>
   .desc {
@@ -108,5 +126,20 @@ const posts = index
     margin: var(--space-xs) 0 0;
     font-size: 0.875rem;
     color: var(--text-muted);
+  }
+
+  .timeline-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+  }
+
+  .view-count:empty {
+    display: none;
+  }
+
+  .view-count {
+    font-size: 0.75rem;
   }
 </style>
