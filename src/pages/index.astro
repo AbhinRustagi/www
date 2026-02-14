@@ -1,11 +1,12 @@
 ---
+import Pill from "@/components/Pill.astro";
 import Book from "@/icons/book.astro";
-import Clock from "@/icons/clock.astro";
-import Flask from "@/icons/flask.astro";
-import SquarePen from "@/icons/square-pen.astro";
-import User from "@/icons/user.astro";
 import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
+import Mail from "@/icons/mail.astro";
+import Linkedin from "@/icons/linkedin.astro";
+import Github from "@/icons/github.astro";
+import Twitter from "@/icons/twitter.astro";
 
 export const prerender = false;
 
@@ -132,25 +133,34 @@ try {
 ---
 
 <Base title="Abhin Rustagi - Full-Stack Developer">
-  <section>
-    <div class="container section-wrapper border-dashed-b animate-in">
-      <h2 class="section-title">
-        <User size={20} class="section-title-icon" />Whoami
-      </h2>
-      <p class="intro">
-        Full-stack developer building thoughtful, performant web experiences.
-        Currently freelancing and helping startups ship faster.
-      </p>
+  <section class="hero container">
+    <div class="hero-img-wrapper">
+      <img src="/avatar.jpg" class="hero-img" alt="">
+      <h1 class="hero-img-title">Abhin R.</h1>
+    </div>
+    <div class="hero-subtitle">Hello. I'm Abhin, a Software Engineer with a passion for building systems that blend product thinking and scalability.</div>
+    <div class="socials-wrapper">
+      <Pill link href="mailto:hi@abhin.dev">
+        <Mail size={14} /> Get in touch
+      </Pill>
+      <Pill link href="https://linkedin.com/in/abhinrustagi">
+        <Linkedin size={14} />
+      </Pill>
+      <Pill link href="https://www.github.com/AbhinRustagi">
+        <Github size={14}/>
+      </Pill>
+      <Pill link href="https">
+        <Twitter size={14} />
+      </Pill>
     </div>
   </section>
 
-  <section>
-    <div class="container section-wrapper border-dashed-b animate-in">
+  <section class="container animate-in">
       <h2 class="section-title">
-        <Clock size={20} class="section-title-icon" />Now
+        <!-- <Clock size={20} class="section-title-icon" /> -->
+        Now
       </h2>
       <ul class="text-muted now-list">
-        <li>Looking for a full-time role</li>
         <li>Building & breaking with AI</li>
         <li>In Melbourne, Australia</li>
         <li>
@@ -168,20 +178,18 @@ try {
           > in the last year
         </li>
       </ul>
-    </div>
   </section>
 
   {
     featuredProjects.length > 0 && (
-      <section>
-        <div class="container section-wrapper border-dashed-b animate-in">
+      <section class="container animate-in">
           <h2 class="section-title">
-            <Flask class="section-title-icon" size={20} />
+            {/* <Flask class="section-title-icon" size={20} /> */}
             Projects
           </h2>
-          <div class="timeline">
+          <ul class="timeline">
             {featuredProjects.map((project) => (
-              <div class="timeline-item">
+              <li class="timeline-item">
                 <div class="timeline-content">
                   <a href={`/projects/${project.slug}`} class="post-link">
                     {project.title}
@@ -194,54 +202,50 @@ try {
                     </p>
                   )}
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
           <a href="/projects" class="see-all">
             Explore all
           </a>
-        </div>
       </section>
     )
   }
 
   {
     featuredWork.length > 0 && (
-      <section>
-        <div class="container section-wrapper border-dashed-b animate-in">
+      <section class="container animate-in">
           <h2 class="section-title">
-            <SquarePen size={20} class="section-title-icon" />
+            {/* <SquarePen size={16} class="section-title-icon" /> */}
             Work Case Studies
           </h2>
-          <div class="timeline">
+          <ul class="timeline">
             {featuredWork.map((work) => (
-              <div class="timeline-item">
+              <li class="timeline-item">
                 <div class="timeline-content">
                   <a href={`/work/${work.slug}`} class="post-link">
                     {work.data.title}
                   </a>
-                </div>
                 <span class="timeline-date">
                   {new Date(work.data.date).toLocaleDateString("en-US", {
                     month: "short",
                     year: "2-digit",
                   })}
                 </span>
-              </div>
+                  </div>
+              </li>
             ))}
-          </div>
+          </ul>
           <a href="/work" class="see-all">
             Explore all
           </a>
-        </div>
       </section>
     )
   }
 
   {
     posts.length > 0 && (
-      <section>
-        <div class="container section-wrapper animate-in">
+      <section class="container animate-in">
           <h2 class="section-title">
             <Book size={20} class="section-title-icon" />
             Writing
@@ -253,7 +257,6 @@ try {
                   <a href={`/blog/${post.slug}`} class="post-link">
                     {post.title}
                   </a>
-                </div>
                 <span class="timeline-date">
                   {new Date(post.date).toLocaleDateString("en-US", {
                     month: "short",
@@ -261,22 +264,87 @@ try {
                     day: "numeric",
                   })}
                 </span>
+                </div>
               </div>
             ))}
           </div>
           <a href="/blog" class="see-all">
             Read all posts
           </a>
-        </div>
       </section>
     )
   }
 </Base>
 
 <style>
-  .intro {
-    color: var(--text-muted);
-    line-height: 1.8;
+  section {
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-img-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  .hero-img {
+    width: 64px;
+    height:64px;
+    object-fit: cover;
+    border-radius: var(--space-sm);
+  }
+
+  .hero-img-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--text);
+  }
+
+  .socials-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  .now-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+
+  .logo {
+    display: block;
+    color: var(--text);
+  }
+
+  .img-container {
+    display: flex;
+    position: relative;
+    gap: var(--space-md);
+  }
+
+  .img-container > img {
+    border-radius: 8px;
+    width: 96px;
+    height: 96px;
   }
 
   .now-list {
@@ -284,9 +352,9 @@ try {
   }
 
   .post-link {
-    font-family: var(--font-mono);
     font-weight: 500;
     color: var(--text);
+    text-decoration: none;
   }
 
   .post-link:hover {
@@ -313,6 +381,10 @@ try {
   @media (max-width: 640px) {
     .see-all {
       margin-left: 0;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
     }
   }
 </style>

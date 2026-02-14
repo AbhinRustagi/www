@@ -24,12 +24,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Inter+Tight:wght@100..900&display=swap" rel="stylesheet">
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <title>{title}</title>
@@ -75,30 +72,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </main>
     <Footer />
     <SpeedInsights />
-    <div class="body-content">
-      <div class="container body-content-inner"></div>
-    </div>
   </body>
 </html>
 
 <style>
   main {
     min-height: calc(100vh - var(--header-height) - 200px);
-  }
-
-  .body-content {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    margin: 0 auto;
-    z-index: -1;
-  }
-
-  .body-content-inner {
-    height: 100%;
-    border: 1px dashed var(--border);
-    border-top: none;
-    border-bottom: none;
   }
 </style>

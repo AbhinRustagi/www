@@ -7,8 +7,7 @@ import Twitter from "@/icons/twitter.astro";
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-dashed-y">
-  <div class="footer-content container border-dashed-x">
+<footer class="container footer-content">  
     <div class="links">
       <a
         href="mailto:hi@abhin.dev"
@@ -16,7 +15,7 @@ const currentYear = new Date().getFullYear();
         rel="noopener noreferrer"
         aria-label="Email"
       >
-        <Mail size={18} />
+        <Mail size={20} />
       </a>
       <a
         href="https://linkedin.com/in/abhinrustagi"
@@ -24,7 +23,7 @@ const currentYear = new Date().getFullYear();
         rel="noopener noreferrer"
         aria-label="LinkedIn"
       >
-        <Linkedin size={18} />
+        <Linkedin size={20} />
       </a>
       <a
         href="https://twitter.com/abhinrustagi"
@@ -32,7 +31,7 @@ const currentYear = new Date().getFullYear();
         rel="noopener noreferrer"
         aria-label="X/Twitter"
       >
-        <Twitter size={18} />
+        <Twitter size={20} />
       </a>
       <a
         href="https://github.com/abhinrustagi"
@@ -40,25 +39,26 @@ const currentYear = new Date().getFullYear();
         rel="noopener noreferrer"
         aria-label="GitHub"
       >
-        <Github size={18} />
+        <Github size={20} />
       </a>
     </div>
     <p class="copyright text-muted text-sm">
-      &copy; {currentYear} Abhin Rustagi
+      Made By Abhin Rustagi
     </p>
-  </div>
 </footer>
 
 <style>
   footer {
-    margin: var(--space-lg) 0;
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-xl);
   }
 
   .footer-content {
-    padding: var(--space-lg);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-direction: column;
+    gap: var(--space-md);
   }
 
   .links {
@@ -80,6 +80,8 @@ const currentYear = new Date().getFullYear();
   }
 
   .copyright {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
     margin: 0;
   }
 </style>
