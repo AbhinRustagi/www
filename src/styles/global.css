@@ -34,21 +34,6 @@
   --header-height: 56px;
 }
 
-/* [data-theme="dark"] {
-  --bg: #070707;
-  --bg-secondary: #1a1a1a;
-  --text: #ededed;
-  --text-muted: #b3b3b3;
-  --accent: #fb9b8f;
-  --accent-hover: #a5b4fc;
-  --border: #4a4a4a;
-
-  --list-item: #1d1d1d;
-  --list-item-hover: #2c2c2c;
-
-  --card: #121212;
-} */
-
 /* Reset */
 *,
 *::before,
@@ -100,8 +85,8 @@ a {
   color: var(--text);
 }
 
-.font-cooper {
-  font-family: var(--font-cooper);
+section {
+  margin-bottom: var(--space-xl);
 }
 
 a:hover {
@@ -136,7 +121,8 @@ pre code {
 /* Layout utilities */
 .container {
   max-width: var(--max-width);
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Animations */
@@ -181,6 +167,7 @@ pre code {
 
 .prose p {
   margin-bottom: var(--space-lg);
+  line-height: 1.75;
 }
 
 .prose h2 {
@@ -246,7 +233,7 @@ h3 {
 
 .timeline-item {
   display: flex;
-  gap: var(--space-lg);
+  gap: var(--space-sm);
   margin-bottom: var(--space-md);
   position: relative;
 }
@@ -267,14 +254,6 @@ h3 {
   flex: 1;
 }
 
-.card-list {
-  list-style: none;
-}
-
-.card-list > .list-item:not(:last-child) {
-  margin-bottom: var(--space-md);
-}
-
 .font-medium {
   font-weight: 500;
 }
@@ -284,7 +263,7 @@ h3 {
 }
 
 section {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl);
 }
 
 /* Responsive */
@@ -307,7 +286,7 @@ section {
 
   .timeline-item {
     flex-direction: column;
-    gap: var(--space-md);
+    gap: var(--space-xs);
   }
 
   .timeline-date {
@@ -327,33 +306,12 @@ section {
   display: flex;
   align-items: center;
   gap: var(--space-xs);
+  color: var(--text);
 }
 
 .section-title > svg {
   width: 16px;
   height: 16px;
-}
-
-.border-dashed-x {
-  border-left: 1px dashed var(--border);
-  border-right: 1px dashed var(--border);
-}
-
-.border-dashed-y {
-  border-top: 1px dashed var(--border);
-  border-bottom: 1px dashed var(--border);
-}
-
-.border-dashed-b {
-  border-bottom: 1px dashed var(--border);
-}
-
-.section-wrapper {
-  padding: var(--space-lg);
-}
-
-.section-title-icon {
-  margin-right: var(--space-xs);
 }
 
 .text-accent {

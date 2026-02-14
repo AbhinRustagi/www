@@ -10,8 +10,7 @@ import Base from "../layouts/Base.astro";
   title="About - Abhin Rustagi"
   description="Full-stack developer with a passion for building thoughtful web experiences."
 >
-  <section>
-    <div class="container section-wrapper border-dashed-b">
+  <section class="container">
       <h1 class="section-title">
         <User size={20} class="section-title-icon" />About
       </h1>
@@ -37,10 +36,8 @@ import Base from "../layouts/Base.astro";
           researching new places to eat at or planning my next travel.
         </p>
       </div>
-    </div>
   </section>
-  <section class="skills animate-in animate-in-delay-2">
-    <div class="container section-wrapper border-dashed-b">
+  <!-- <section class="container skills animate-in animate-in-delay-2">
       <h2 class="section-title">
         <Layers size={20} class="section-title-icon" />Stack
       </h2>
@@ -52,13 +49,10 @@ import Base from "../layouts/Base.astro";
           Tailwind CSS, Astro, Docker, AWS, Vercel
         </span>
       </p>
-    </div>
-  </section>
+  </section> -->
 
-  <section>
-    <div
-      class="container section-wrapper border-dashed-b animate-in animate-in-delay-3"
-    >
+  <section class="container animate-in animate-in-delay-3">
+    <div>
       <h2 class="section-title">
         <Heart size={20} class="section-title-icon" />Good words
       </h2>
@@ -67,7 +61,7 @@ import Base from "../layouts/Base.astro";
           Abhin is a complete package. His communication and understanding of
           startups made collaboration smooth and efficient.
         </p>
-        <p>Chris Illuk, Co-Founder Layer Licensing, Accord</p>
+        <p class="testimony-user">Chris Illuk, Co-Founder Layer Licensing, Accord</p>
       </div>
       <div class="testimony">
         <p class="text-muted">
@@ -75,20 +69,18 @@ import Base from "../layouts/Base.astro";
           ticking boxes and doing tasks, he wants his work to mean something, to
           make a real impact.
         </p>
-        <p>Prudhvi Dharmana, Founder ReWorld Earth</p>
+        <p class="testimony-user">Prudhvi Dharmana, Founder ReWorld Earth</p>
       </div>
       <div>
         <p class="text-muted">
           Abhin has flawless work ethic, he is an amazing team member, and his
           work is of the upmost quality.
         </p>
-        <p>Ricardo Rosas, Founder Virtetic</p>
+        <p class="testimony-user">Ricardo Rosas, Founder Virtetic</p>
       </div>
-    </div>
   </section>
 
-  <section class="contact animate-in animate-in-delay-4">
-    <div class="container section-wrapper">
+  <section class="contact container animate-in animate-in-delay-4">
       <h2 class="section-title">
         <Mail size={20} class="section-title-icon" />Contact
       </h2>
@@ -96,16 +88,12 @@ import Base from "../layouts/Base.astro";
         I'm always open to interesting projects and collaborations via email at
         <span>hi[at]abhin[dot]dev</span>
       </p>
-    </div>
   </section>
 </Base>
 
 <style>
-  .page-header {
-    margin-bottom: var(--space-xl);
-  }
-
   .bio p {
+    line-height: 1.75;
     margin-bottom: var(--space-md);
   }
 
@@ -118,16 +106,12 @@ import Base from "../layouts/Base.astro";
     line-height: 1.8;
   }
 
-  .contact p {
-    color: var(--text-muted);
-    margin: 0;
-  }
-
   .testimony {
     margin-bottom: var(--space-lg);
   }
 
-  .contact a {
+  .testimony-user {
     color: var(--text);
+    margin-top: var(--space-sm);
   }
 </style>

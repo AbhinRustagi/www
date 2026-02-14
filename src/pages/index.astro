@@ -7,6 +7,9 @@ import Mail from "@/icons/mail.astro";
 import Linkedin from "@/icons/linkedin.astro";
 import Github from "@/icons/github.astro";
 import Twitter from "@/icons/twitter.astro";
+import Clock from "@/icons/clock.astro";
+import Flask from "@/icons/flask.astro";
+import SquarePen from "@/icons/square-pen.astro";
 
 export const prerender = false;
 
@@ -157,7 +160,7 @@ try {
 
   <section class="container animate-in">
       <h2 class="section-title">
-        <!-- <Clock size={20} class="section-title-icon" /> -->
+        <Clock size={18} class="section-title-icon" />
         Now
       </h2>
       <ul class="text-muted now-list">
@@ -184,16 +187,17 @@ try {
     featuredProjects.length > 0 && (
       <section class="container animate-in">
           <h2 class="section-title">
-            {/* <Flask class="section-title-icon" size={20} /> */}
+            <Flask class="section-title-icon" size={18} />
             Projects
           </h2>
           <ul class="timeline">
             {featuredProjects.map((project) => (
-              <li class="timeline-item">
+              <li class="timeline-item flex-wrap">
                 <div class="timeline-content">
                   <a href={`/projects/${project.slug}`} class="post-link">
                     {project.title}
                   </a>
+                </div>
                   {project.description && (
                     <p class="post-desc">
                       {project.description.length > 140
@@ -201,7 +205,6 @@ try {
                         : project.description}
                     </p>
                   )}
-                </div>
               </li>
             ))}
           </ul>
@@ -216,7 +219,7 @@ try {
     featuredWork.length > 0 && (
       <section class="container animate-in">
           <h2 class="section-title">
-            {/* <SquarePen size={16} class="section-title-icon" /> */}
+            <SquarePen size={16} class="section-title-icon" />
             Work Case Studies
           </h2>
           <ul class="timeline">
@@ -226,13 +229,13 @@ try {
                   <a href={`/work/${work.slug}`} class="post-link">
                     {work.data.title}
                   </a>
+                  </div>
                 <span class="timeline-date">
                   {new Date(work.data.date).toLocaleDateString("en-US", {
                     month: "short",
                     year: "2-digit",
                   })}
                 </span>
-                  </div>
               </li>
             ))}
           </ul>
@@ -247,7 +250,7 @@ try {
     posts.length > 0 && (
       <section class="container animate-in">
           <h2 class="section-title">
-            <Book size={20} class="section-title-icon" />
+            <Book size={16} class="section-title-icon" />
             Writing
           </h2>
           <div class="timeline">
@@ -257,6 +260,7 @@ try {
                   <a href={`/blog/${post.slug}`} class="post-link">
                     {post.title}
                   </a>
+                </div>
                 <span class="timeline-date">
                   {new Date(post.date).toLocaleDateString("en-US", {
                     month: "short",
@@ -264,7 +268,6 @@ try {
                     day: "numeric",
                   })}
                 </span>
-                </div>
               </div>
             ))}
           </div>
@@ -277,9 +280,6 @@ try {
 </Base>
 
 <style>
-  section {
-    margin-bottom: var(--space-xl);
-  }
 
   .hero {
     display: flex;
@@ -372,6 +372,11 @@ try {
     margin-top: var(--space-lg);
     font-size: 0.9375rem;
     color: var(--text-muted);
+  }
+
+  .flex-wrap {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
   }
 
   .see-all:hover {

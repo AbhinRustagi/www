@@ -54,8 +54,7 @@ const html = marked(contentWithoutFrontmatter);
   title={`${project.title} - Abhin Rustagi`}
   description={project.description || `Read about ${project.title}`}
 >
-  <article>
-    <div class="container section-wrapper">
+  <article class="container">
       <header class="project-header">
         <h1 class="section-title">{project.title}</h1>
         <div class="project-meta">
@@ -93,7 +92,6 @@ const html = marked(contentWithoutFrontmatter);
         )
       }
       <div class="prose" set:html={html} />
-    </div>
   </article>
 </Base>
 
@@ -111,12 +109,13 @@ const html = marked(contentWithoutFrontmatter);
   .project-link-button {
     display: flex;
     align-items: center;
-    padding: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
     border-radius: var(--space-sm);
-    border: 1px solid var(--border);
     gap: var(--space-sm);
     text-decoration: none;
     cursor: pointer;
+    font-size: 0.75rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
 
   .project-link-button:hover {
@@ -125,8 +124,8 @@ const html = marked(contentWithoutFrontmatter);
   }
 
   .project-link-button > svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
   }
 
   .project-link-button > span {
