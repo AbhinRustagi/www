@@ -3,8 +3,8 @@
 @theme inline {
   --color-accent: #6f86d6;
   --color-accent-glow: #6f86d633;
-  --color-accent-ambient: #6f86d626;
-  --color-accent-ambient-soft: #48c6ef18;
+  --color-accent-ambient: #6f86d616;
+  --color-accent-ambient-soft: #48c6ef0c;
   --color-accent-gradient: linear-gradient(to top, #48c6ef, #6f86d6);
 
   --font-mono: "Geist Mono", monospace;
@@ -42,9 +42,9 @@ body::before {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, var(--color-accent-ambient), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 0%, var(--color-accent-ambient-soft), transparent),
-    radial-gradient(ellipse 50% 50% at 0% 80%, var(--color-accent-ambient-soft), transparent);
+    radial-gradient(ellipse 60% 40% at 50% -20%, var(--color-accent-ambient), transparent),
+    radial-gradient(ellipse 45% 30% at 100% 0%, var(--color-accent-ambient-soft), transparent),
+    radial-gradient(ellipse 40% 40% at 0% 80%, var(--color-accent-ambient-soft), transparent);
   pointer-events: none;
   animation: ambientDrift 12s ease-in-out infinite alternate;
 }
