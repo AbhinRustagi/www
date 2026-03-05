@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Archive } from "lucide-react";
 import { getProjects } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Projects",
   description:
     "Selected projects and case studies from my work over the years with different startups.",
+  alternates: { canonical: "/projects" },
 };
 
 export default async function ProjectsPage() {
@@ -14,42 +14,41 @@ export default async function ProjectsPage() {
 
   return (
     <section>
-      <div className="mx-auto max-w-240 px-4">
-        <h1 className="text-lg mb-6 flex items-center gap-1 ">
-          <Archive size={20} />
-          Projects
-        </h1>
-        <p className="mb-12">
+      <div className="mb-12">
+        <p className="label mb-2">Portfolio</p>
+        <h1 className="text-2xl mb-4">Projects</h1>
+        <div className="accent-line mb-6" />
+        <p className="text-text-secondary">
           Projects I&apos;ve worked on for fun or as a side hustle. Check out
           the Github source for these writeups{" "}
           <a href="https://github.com/AbhinRustagi/projects">here</a>.
         </p>
-
-        {projects.length === 0 ? (
-          <p className="py-12">No projects yet. Check back soon.</p>
-        ) : (
-          <div className="relative">
-            {projects.map((project, i) => (
-              <div
-                key={project.slug}
-                className={`flex gap-2 mb-4 animate-in animate-in-delay-${Math.min(i + 1, 4)}`}
-              >
-                <div className="flex-1">
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="font-serif font-medium no-underline hover:text-accent"
-                  >
-                    <span className="text-neutral-900">{project.title}</span>
-                  </Link>
-                  {project.description && (
-                    <p className="mt-1 text-sm">{project.description}</p>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
       </div>
+
+      {projects.length === 0 ? (
+        <p className="py-12 text-text-muted">
+          No projects yet. Check back soon.
+        </p>
+      ) : (
+        <div className="space-y-2">
+          {projects.map((project, i) => (
+            <Link
+              key={project.slug}
+              href={`/projects/${project.slug}`}
+              className={`glass-card p-5 block no-underline group animate-in animate-in-delay-${Math.min(i + 1, 4)}`}
+            >
+              <p className="text-white group-hover:text-accent transition-colors font-medium">
+                {project.title}
+              </p>
+              {project.description && (
+                <p className="mt-1 text-sm text-text-muted">
+                  {project.description}
+                </p>
+              )}
+            </Link>
+          ))}
+        </div>
+      )}
     </section>
   );
 }

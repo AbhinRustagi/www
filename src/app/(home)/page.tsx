@@ -1,4 +1,3 @@
-import { Clock } from "lucide-react";
 import Image from "next/image";
 import { Suspense } from "react";
 import {
@@ -11,14 +10,62 @@ import {
   ProjectsSkeleton,
   WorkSkeleton,
 } from "./components";
-import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Abhin Rustagi",
+  url: "https://abhin.dev",
+  image: "https://abhin.dev/avatar.jpg",
+  jobTitle: "Software Engineer",
+  description:
+    "Full-stack developer building systems that blend product thinking and scalability.",
+  sameAs: [
+    "https://github.com/AbhinRustagi",
+    "https://linkedin.com/in/abhinrustagi",
+    "https://wakatime.com/AbhinRustagi",
+  ],
+};
+
 export default function HomePage() {
   return (
-    <div className="flex gap-12 max-sm:flex-col">
-      <div>
+    <div className="space-y-4 md:space-y-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {/* Hero */}
+      <div className="glass-card-static p-5 md:p-8 animate-in animate-in-delay-1">
+        <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6">
+          <Image
+            src="/avatar.jpg"
+            alt="Abhin Rustagi"
+            width={64}
+            height={64}
+            className="rounded-xl object-cover shrink-0 avatar-glow"
+          />
+          <div>
+            <p className="label mb-2">Software Engineer</p>
+            <h1 className="text-xl md:text-2xl mb-3">Abhin Rustagi</h1>
+            <p className="text-text-secondary leading-relaxed text-sm md:text-base mb-4">
+              Building systems that blend product thinking and scalability.
+              Working with startups across a wide range of domains &amp;
+              products.
+            </p>
+            <span className="status-pill">Open to new roles</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats */}
+      {/* <Suspense fallback={<CodingStatsSkeleton />}>
+        <CodingStats />
+      </Suspense> */}
+
+      {/* Content grid */}
+      <div className="grid md:grid-cols-2 gap-4 md:gap-8">
         <Suspense fallback={<ProjectsSkeleton />}>
           <FeaturedProjects />
         </Suspense>
@@ -26,42 +73,11 @@ export default function HomePage() {
         <Suspense fallback={<WorkSkeleton />}>
           <FeaturedWork />
         </Suspense>
-
-        <Suspense fallback={<BlogSkeleton />}>
-          <BlogPosts />
-        </Suspense>
       </div>
 
-      <div className="flex-[0.2] min-w-[300px] space-y-8">
-        <section className="animate-in flex flex-col gap-4 items-center">
-          <div>
-            <h1 className="text-xl font-medium mb-6">About Me</h1>
-            <Image
-              src="/avatar.jpg"
-              alt="Abhin Rustagi"
-              width={64}
-              height={64}
-              className="rounded-lg float-left mr-4 mb-2 object-cover"
-            />
-            <p>
-              Hey, I&apos;m Abhin, a Software Engineer with a passion for
-              building systems that blend product thinking and scalability. I
-              have been working with various startups on a wide range of domains
-              &amp; products.
-            </p>
-          </div>
-        </section>
-
-        <section className="animate-in">
-          <h2 className="text-xl mb-2 flex items-center gap-1">Now</h2>
-          <ul className="pl-6 list-disc space-y-2">
-            <li>Open to full-time opportunities</li>
-            <Suspense fallback={<CodingStatsSkeleton />}>
-              <CodingStats />
-            </Suspense>
-          </ul>
-        </section>
-      </div>
+      <Suspense fallback={<BlogSkeleton />}>
+        <BlogPosts />
+      </Suspense>
     </div>
   );
 }

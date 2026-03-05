@@ -20,6 +20,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post?.title,
     description: post?.description || post?.title,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      title: post?.title,
+      description: post?.description || post?.title,
+      type: "article",
+      publishedTime: post?.date,
+      url: `/blog/${slug}`,
+    },
   };
 }
 
@@ -29,7 +37,7 @@ export default async function BlogPostPage({ params }: Props) {
   const post = posts.find((p) => p.slug === slug);
 
   if (!post) {
-    return <p className="mx-auto max-w-240 px-4 ">Post not found.</p>;
+    return <p className="text-text-muted">Post not found.</p>;
   }
 
   const { data, content } = await getBlogPostContent(post.path);
@@ -38,10 +46,9 @@ export default async function BlogPostPage({ params }: Props) {
   const date = new Date(meta.date);
 
   return (
-    <section>
-      <div className="mx-auto max-w-240 px-4">
-        <h1 className="text-lg mb-6 flex items-center gap-1 ">{meta.title}</h1>
-        <div className="flex items-center gap-1  text-sm mb-4">
+    <article>
+      <header className="mb-8 animate-in">
+        <p className="label mb-3">
           <time>
             {date.toLocaleDateString("en-US", {
               month: "long",
@@ -49,19 +56,21 @@ export default async function BlogPostPage({ params }: Props) {
               year: "numeric",
             })}
           </time>
-          <PostViewCounter slug={slug} />
-        </div>
-        {/* Content sourced from own GitHub repo (trusted markdown) */}
-        <div
-          className="prose animate-in animate-in-delay-1"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-        <div className="mt-12">
-          <Link href="/blog" className="text-sm  hover:text-accent">
-            &larr; Back to all posts
-          </Link>
-        </div>
+        </p>
+        <h1 className="text-2xl mb-3">{meta.title}</h1>
+        <div className="accent-line mb-4" />
+        <PostViewCounter slug={slug} />
+      </header>
+      {/* Content sourced from own GitHub repo (trusted markdown) */}
+      <div
+        className="prose animate-in animate-in-delay-1"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+      <div className="mt-12">
+        <Link href="/blog" className="link-button">
+          &larr; Back to all posts
+        </Link>
       </div>
-    </section>
+    </article>
   );
 }

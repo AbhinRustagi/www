@@ -5,7 +5,6 @@ import {
   getWakatimeHours,
   getWorkEntries,
 } from "@/lib/data";
-import { Book } from "lucide-react";
 import Link from "next/link";
 
 export async function BlogPosts() {
@@ -15,33 +14,29 @@ export async function BlogPosts() {
   if (recentPosts.length === 0) return null;
 
   return (
-    <section className="animate-in">
-      <h2 className="text-xl mb-6 flex items-center gap-1 ">
-        <Book size={16} />
-        Writing
-      </h2>
-      <div className="relative">
-        {recentPosts.map((post) => (
-          <div key={post.slug} className="flex gap-2 mb-4">
-            <div className="flex-1">
-              <Link
-                href={`/blog/${post.slug}`}
-                className="text-neutral-900 font-serif no-underline group"
-              >
-                <span className="text-neutral-900 group-hover:text-accent">
-                  {post.title}
-                </span>
-              </Link>
-            </div>
-          </div>
+    <section>
+      <div className="flex items-center justify-between mb-4 animate-in animate-in-delay-1">
+        <div>
+          <p className="label mb-1">Recent</p>
+          <h2 className="text-lg md:text-xl">Writing</h2>
+        </div>
+        <Link href="/blog" className="link-button">
+          Read all
+        </Link>
+      </div>
+      <div className="space-y-1">
+        {recentPosts.map((post, i) => (
+          <Link
+            key={post.slug}
+            href={`/blog/${post.slug}`}
+            className={`block no-underline group px-4 py-3 -mx-4 rounded-xl transition-colors hover:bg-white/3 animate-in animate-in-delay-${Math.min(i + 2, 4)}`}
+          >
+            <span className="text-text-primary group-hover:text-accent transition-colors">
+              {post.title}
+            </span>
+          </Link>
         ))}
       </div>
-      <Link
-        href="/blog"
-        className="border border-neutral-300 text-neutral-300 rounded-lg p-1 px-2 inline-block mt-6 text-sm hover:text-accent"
-      >
-        Read all posts
-      </Link>
     </section>
   );
 }
@@ -53,37 +48,36 @@ export async function FeaturedProjects() {
   if (featuredProjects.length === 0) return null;
 
   return (
-    <section className="animate-in">
-      <h2 className="text-xl mb-6 flex items-center gap-1 ">Projects</h2>
-      <ul className="relative space-y-6">
-        {featuredProjects.map((project) => (
-          <li key={project.slug} className="flex gap-2 flex-wrap">
-            <p className="flex-1">
-              <Link
-                href={`/projects/${project.slug}`}
-                className="no-underline group"
-              >
-                <p className="mb-2 font-serif text-neutral-900 group-hover:text-accent">
-                  {project.title}
-                </p>
-                {project.description && (
-                  <p className="text-sm basis-full">
-                    {project.description.length > 140
-                      ? project.description.slice(0, 140) + "..."
-                      : project.description}
-                  </p>
-                )}
-              </Link>
+    <section>
+      <div className="flex items-center justify-between mb-4 animate-in animate-in-delay-1">
+        <div>
+          <p className="label mb-1">Selected</p>
+          <h2 className="text-lg md:text-xl">Projects</h2>
+        </div>
+        <Link href="/projects" className="link-button">
+          View all
+        </Link>
+      </div>
+      <div className="space-y-2">
+        {featuredProjects.map((project, i) => (
+          <Link
+            key={project.slug}
+            href={`/projects/${project.slug}`}
+            className={`glass-card p-4 md:p-5 block no-underline group animate-in animate-in-delay-${Math.min(i + 2, 4)}`}
+          >
+            <p className="text-white font-medium group-hover:text-accent transition-colors mb-1">
+              {project.title}
             </p>
-          </li>
+            {project.description && (
+              <p className="text-sm text-text-muted">
+                {project.description.length > 100
+                  ? project.description.slice(0, 100) + "..."
+                  : project.description}
+              </p>
+            )}
+          </Link>
         ))}
-      </ul>
-      <Link
-        href="/projects"
-        className="border border-neutral-300 text-neutral-300 rounded-lg p-1 px-2 inline-block mt-6 text-sm hover:text-accent"
-      >
-        Explore all
-      </Link>
+      </div>
     </section>
   );
 }
@@ -96,30 +90,30 @@ export async function FeaturedWork() {
   if (featuredWork.length === 0) return null;
 
   return (
-    <section className="animate-in my-12">
-      <h2 className="text-xl mb-6 flex items-center gap-1 ">Work Projects</h2>
-      <ul className="relative space-y-6">
-        {featuredWork.map((work) => (
-          <li key={work.slug} className="flex gap-2">
-            <p className="flex-1">
-              <Link href={`/work/${work.slug}`} className="no-underline group">
-                <p className="mb-1 font-serif text-neutral-900 group-hover:text-accent">
-                  {work.title}
-                </p>
-                <p className="text-sm group-hover:text-accent">
-                  {work.description}
-                </p>
-              </Link>
+    <section>
+      <div className="flex items-center justify-between mb-4 animate-in animate-in-delay-1">
+        <div>
+          <p className="label mb-1">Experience</p>
+          <h2 className="text-lg md:text-xl">Work Projects</h2>
+        </div>
+        <Link href="/work" className="link-button">
+          View all
+        </Link>
+      </div>
+      <div className="space-y-2">
+        {featuredWork.map((work, i) => (
+          <Link
+            key={work.slug}
+            href={`/work/${work.slug}`}
+            className={`glass-card p-4 md:p-5 block no-underline group animate-in animate-in-delay-${Math.min(i + 2, 4)}`}
+          >
+            <p className="text-white font-medium group-hover:text-accent transition-colors mb-1">
+              {work.title}
             </p>
-          </li>
+            <p className="text-sm text-text-muted">{work.description}</p>
+          </Link>
         ))}
-      </ul>
-      <Link
-        href="/work"
-        className="border border-neutral-300 rounded-lg p-1 px-2 inline-block mt-6 text-sm hover:text-accent"
-      >
-        Explore all
-      </Link>
+      </div>
     </section>
   );
 }
@@ -131,78 +125,66 @@ export async function CodingStats() {
   ]);
 
   return (
-    <>
-      <li>
-        <Link
-          className="underline underline-offset-4"
-          href="https://wakatime.com/AbhinRustagi"
-          target="_blank"
-        >
-          {codingHours} hours of coding
-        </Link>{" "}
-        in the last week
-      </li>
-      <li>
-        <Link
-          className="underline underline-offset-4"
-          href="https://github.com/AbhinRustagi"
-          target="_blank"
-        >
-          {contributions} contributions
-        </Link>{" "}
-        in the last year
-      </li>
-    </>
+    <div className="glass-card-static p-4 md:p-5 animate-in animate-in-delay-2 flex items-center gap-6">
+      <Link
+        href="https://wakatime.com/AbhinRustagi"
+        target="_blank"
+        className="no-underline group"
+      >
+        <span className="text-xl font-semibold text-text-primary group-hover:text-accent transition-colors">
+          {codingHours}h
+        </span>
+        <span className="label ml-2">coded this week</span>
+      </Link>
+      <span className="text-surface-border">|</span>
+      <Link
+        href="https://github.com/AbhinRustagi"
+        target="_blank"
+        className="no-underline group"
+      >
+        <span className="text-xl font-semibold text-text-primary group-hover:text-accent transition-colors">
+          {contributions}
+        </span>
+        <span className="label ml-2">contributions this year</span>
+      </Link>
+    </div>
   );
 }
 
 export function CodingStatsSkeleton() {
   return (
-    <>
-      <li>
-        <span className="inline-block h-4 w-48 rounded bg-neutral-700/5 animate-pulse align-middle" />
-      </li>
-      <li>
-        <span className="inline-block h-4 w-44 rounded bg-neutral-700/5 animate-pulse align-middle" />
-      </li>
-    </>
+    <div className="glass-card-static p-4 md:p-5 flex items-center gap-6">
+      <div className="h-5 w-40 skeleton" />
+      <div className="h-5 w-40 skeleton" />
+    </div>
   );
 }
 
 function SkeletonLine({ width = "w-full" }: { width?: string }) {
   return (
-    <div className={`h-4 ${width} rounded bg-neutral-700/5 animate-pulse`} />
+    <div className={`h-4 ${width} skeleton`} />
   );
 }
 
-function SectionSkeleton({
-  rows,
-  showDate,
-}: {
-  rows: number;
-  showDate?: boolean;
-}) {
+function SectionSkeleton({ rows }: { rows: number }) {
   return (
-    <section>
-      <div className="h-5 w-32 rounded bg-neutral-700/5 animate-pulse mb-6" />
-      <div className="space-y-4">
+    <div>
+      <div className="flex items-center justify-between mb-4">
+        <div className="space-y-2">
+          <div className="h-3 w-16 skeleton" />
+          <div className="h-5 w-24 skeleton" />
+        </div>
+        <div className="h-8 w-16 skeleton" />
+      </div>
+      <div className="space-y-2">
         {Array.from({ length: rows }).map((_, i) => (
-          <div key={i} className="flex gap-2">
-            <div className="flex-1 space-y-2">
-              <SkeletonLine width="w-3/4" />
-            </div>
-            {showDate && (
-              <div className="w-20 shrink-0">
-                <SkeletonLine width="w-full" />
-              </div>
-            )}
+          <div key={i} className="glass-card-static p-4 md:p-5 space-y-2">
+            <SkeletonLine width="w-1/2" />
+            <SkeletonLine width="w-3/4" />
           </div>
         ))}
       </div>
-      <div className="mt-6">
-        <SkeletonLine width="w-24" />
-      </div>
-    </section>
+    </div>
   );
 }
 
@@ -211,9 +193,9 @@ export function ProjectsSkeleton() {
 }
 
 export function WorkSkeleton() {
-  return <SectionSkeleton rows={3} showDate />;
+  return <SectionSkeleton rows={3} />;
 }
 
 export function BlogSkeleton() {
-  return <SectionSkeleton rows={3} showDate />;
+  return <SectionSkeleton rows={3} />;
 }

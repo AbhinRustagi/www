@@ -18,6 +18,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: entry?.meta.title,
     description: entry?.meta.description,
+    alternates: { canonical: `/work/${slug}` },
+    openGraph: {
+      title: entry?.meta.title,
+      description: entry?.meta.description,
+      type: "article",
+      url: `/work/${slug}`,
+    },
   };
 }
 
@@ -26,7 +33,7 @@ export default async function WorkEntryPage({ params }: Props) {
   const entry = getWorkEntry(slug);
 
   if (!entry) {
-    return <p className="mx-auto max-w-240 px-4 ">Work entry not found.</p>;
+    return <p className="text-text-muted">Work entry not found.</p>;
   }
 
   const { meta, content } = entry;
@@ -34,23 +41,21 @@ export default async function WorkEntryPage({ params }: Props) {
 
   return (
     <article>
-      <div className="mx-auto max-w-240 px-4">
-        <div className="animate-in mb-6">
-          <div className="flex gap-2  text-sm mb-2">
-            <span>{new Date(meta.date).getFullYear()}</span>
-            {meta.client && <span>/ {meta.client}</span>}
-          </div>
-          <h1 className="text-neutral-900">{meta.title}</h1>
+      <header className="mb-8 animate-in">
+        <div className="flex gap-2 label mb-3">
+          <span>{new Date(meta.date).getFullYear()}</span>
+          {meta.client && <span>/ {meta.client}</span>}
         </div>
-        {/* Content from local markdown files (trusted) */}
-        <div
-          className="prose animate-in animate-in-delay-1"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-        <Link
-          href="/work"
-          className="inline-block mt-8 text-sm  hover:text-accent"
-        >
+        <h1 className="text-2xl mb-3">{meta.title}</h1>
+        <div className="accent-line" />
+      </header>
+      {/* Content from local markdown files (trusted) */}
+      <div
+        className="prose animate-in animate-in-delay-1"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+      <div className="mt-12">
+        <Link href="/work" className="link-button">
           &larr; Back to all work
         </Link>
       </div>

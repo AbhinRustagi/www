@@ -5,6 +5,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Work",
   description: "Selected projects and case studies from my freelance work.",
+  alternates: { canonical: "/work" },
 };
 
 export default function WorkPage() {
@@ -12,41 +13,43 @@ export default function WorkPage() {
 
   return (
     <section>
-      <div className="mx-auto max-w-240 px-4">
-        <h2 className="text-lg mb-6 ">Work</h2>
-        <p className="mb-12">
+      <div className="mb-12">
+        <p className="label mb-2">Experience</p>
+        <h1 className="text-2xl mb-4">Work</h1>
+        <div className="accent-line mb-6" />
+        <p className="text-text-secondary">
           Selected projects and case studies from my work over the years with
           different startups.
         </p>
-
-        {projects.length === 0 ? (
-          <p className="py-12">No projects yet. Check back soon.</p>
-        ) : (
-          <div className="relative">
-            {projects.map((project, i) => (
-              <div
-                key={project.slug}
-                className={`flex gap-2 mb-4 animate-in animate-in-delay-${Math.min(i + 1, 4)}`}
-              >
-                <div className="flex-1">
-                  <Link
-                    href={`/work/${project.slug}`}
-                    className="font-serif font-medium no-underline hover:text-accent"
-                  >
-                    <span className="text-neutral-900">
-                      {project.client} • {project.title}
-                    </span>
-                  </Link>
-                  <p className="mt-2 text-sm">{project.description}</p>
-                </div>
-                <span className="w-20 shrink-0 text-right text-sm">
-                  {new Date(project.date).getFullYear()}
-                </span>
-              </div>
-            ))}
-          </div>
-        )}
       </div>
+
+      {projects.length === 0 ? (
+        <p className="py-12 text-text-muted">
+          No projects yet. Check back soon.
+        </p>
+      ) : (
+        <div className="space-y-2">
+          {projects.map((project, i) => (
+            <Link
+              key={project.slug}
+              href={`/work/${project.slug}`}
+              className={`glass-card p-5 flex gap-4 items-start no-underline group animate-in animate-in-delay-${Math.min(i + 1, 4)}`}
+            >
+              <div className="flex-1">
+                <p className="text-white group-hover:text-accent transition-colors font-medium">
+                  {project.client} &middot; {project.title}
+                </p>
+                <p className="mt-1 text-sm text-text-muted">
+                  {project.description}
+                </p>
+              </div>
+              <span className="w-16 shrink-0 text-right text-sm text-text-muted">
+                {new Date(project.date).getFullYear()}
+              </span>
+            </Link>
+          ))}
+        </div>
+      )}
     </section>
   );
 }

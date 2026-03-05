@@ -1,10 +1,25 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-accent: #008bff;
+  --color-accent: #6f86d6;
+  --color-accent-glow: #6f86d633;
+  --color-accent-ambient: #6f86d626;
+  --color-accent-ambient-soft: #48c6ef18;
+  --color-accent-gradient: linear-gradient(to top, #48c6ef, #6f86d6);
 
   --font-mono: "Geist Mono", monospace;
   --font-serif: "Fraunces", serif;
+}
+
+:root {
+  --color-bg: #0a0a0b;
+  --color-surface: #141416;
+  --color-surface-raised: #1c1c1f;
+  --color-surface-raised-60: rgba(28, 28, 31, 0.6);
+  --color-surface-border: #2a2a2e;
+  --color-text-primary: #e8e8e8;
+  --color-text-secondary: #888888;
+  --color-text-muted: #7a7a7a;
 }
 
 html {
@@ -12,11 +27,44 @@ html {
 }
 
 body {
-  font-family:
-    var(--font-inter-tight), "Helvetica", "Helvetica Neue", sans-serif;
-  @apply bg-neutral-50 text-neutral-600 min-h-screen leading-snug;
+  font-family: var(--font-inter-tight), "Helvetica Neue", sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text-secondary);
+  @apply min-h-screen leading-snug;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Ambient background glow ─────────────────── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, var(--color-accent-ambient), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, var(--color-accent-ambient-soft), transparent),
+    radial-gradient(ellipse 50% 50% at 0% 80%, var(--color-accent-ambient-soft), transparent);
+  pointer-events: none;
+  animation: ambientDrift 12s ease-in-out infinite alternate;
+}
+
+@keyframes ambientDrift {
+  0% {
+    opacity: 0.6;
+    filter: blur(0px);
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(20px);
+    transform: scale(1.05) translateY(-2%);
+  }
+  100% {
+    opacity: 0.7;
+    filter: blur(10px);
+    transform: scale(0.98) translateY(1%);
+  }
 }
 
 a {
@@ -24,31 +72,265 @@ a {
 }
 
 a:hover {
-  @apply hover:text-accent;
+  color: var(--color-accent);
+}
+
+/* ── Focus ────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  @apply font-semibold text-neutral-900;
-  font-family: var(--font-fraunces), Georgia, serif;
+  color: var(--color-text-primary);
+  @apply font-semibold;
+  font-family: var(--font-inter-tight), "Helvetica Neue", sans-serif;
 }
 
-/* Code */
+/* ── Code ─────────────────────────────────────── */
 code {
-  @apply bg-neutral-200 text-xs font-mono p-2 rounded;
+  background-color: var(--color-surface-raised);
+  color: var(--color-text-primary);
+  @apply text-xs font-mono p-2 rounded;
 }
 
 pre {
-  @apply bg-neutral-200 font-mono text-xs p-4 rounded overflow-x-auto my-4;
+  background-color: var(--color-surface-raised);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-surface-border);
+  @apply font-mono text-xs p-4 rounded overflow-x-auto my-4;
 }
 
 pre code {
-  @apply bg-none p-0;
+  background: none;
+  @apply p-0;
 }
 
-/* Animations */
+/* ── Avatar hover glow ────────────────────────── */
+.avatar-glow {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.avatar-glow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--color-accent-glow), 0 0 40px rgba(111, 134, 214, 0.1);
+}
+
+/* ── Social icon hover ────────────────────────── */
+.social-icon {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px) scale(1.1);
+}
+
+.social-icon:hover svg {
+  stroke: var(--color-accent);
+}
+
+/* ── Skeleton shimmer ─────────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-surface-border) 0%,
+    var(--color-surface-raised) 40%,
+    var(--color-surface-border) 80%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+/* ── Status pill ──────────────────────────────── */
+.status-pill {
+  @apply inline-flex items-center gap-2 text-xs font-medium px-3 py-1 rounded-full;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent-glow);
+  background: rgba(111, 134, 214, 0.08);
+  box-shadow: 0 0 12px var(--color-accent-glow), inset 0 0 12px rgba(111, 134, 214, 0.04);
+  animation: pillGlow 3s ease-in-out infinite alternate;
+}
+
+.status-pill::before {
+  content: "";
+  @apply w-1.5 h-1.5 rounded-full;
+  background: var(--color-accent);
+  box-shadow: 0 0 6px var(--color-accent);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes pillGlow {
+  from { box-shadow: 0 0 12px var(--color-accent-glow), inset 0 0 12px rgba(111, 134, 214, 0.04); }
+  to { box-shadow: 0 0 20px var(--color-accent-glow), inset 0 0 16px rgba(111, 134, 214, 0.06); }
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ── Glass card ───────────────────────────────── */
+.glass-card {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  @apply rounded-2xl backdrop-blur-md;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--border-angle, 0deg),
+    transparent 60%,
+    #48c6ef 78%,
+    #6f86d6 92%,
+    transparent 100%
+  );
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+  animation: borderTravel 6s linear infinite;
+}
+
+@keyframes borderTravel {
+  to { --border-angle: 360deg; }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.glass-card:hover {
+  border-color: transparent;
+  box-shadow: 0 0 20px var(--color-accent-glow);
+  transform: translateY(-2px);
+}
+
+.glass-card-static {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  @apply rounded-2xl backdrop-blur-md;
+}
+
+/* ── Uppercase label ──────────────────────────── */
+.label {
+  color: var(--color-text-muted);
+  @apply text-xs uppercase tracking-widest font-medium;
+}
+
+/* ── Accent underline ─────────────────────────── */
+.accent-line {
+  background: var(--color-accent-gradient);
+  @apply w-6 h-0.5 rounded-full;
+  animation: accentPulse 3s ease-in-out infinite;
+}
+
+@keyframes accentPulse {
+  0%, 100% { opacity: 1; width: 1.5rem; }
+  50% { opacity: 0.6; width: 2.5rem; }
+}
+
+/* ── Link button ──────────────────────────────── */
+.link-button {
+  border: 1px solid var(--color-surface-border);
+  color: var(--color-text-muted);
+  @apply rounded-lg px-3 py-1.5 inline-block text-sm;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.link-button:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+/* ── Link underline slide-in ─────────────────── */
+.prose a {
+  position: relative;
+  text-decoration: none;
+}
+
+.prose a::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent-gradient);
+  transition: width 0.3s ease;
+}
+
+.prose a:hover::after {
+  width: 100%;
+}
+
+/* ── Scroll progress ──────────────────────────── */
+.scroll-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 50;
+  background: transparent;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: var(--color-accent-gradient);
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px var(--color-accent-glow);
+}
+
+/* ── Page transition ──────────────────────────── */
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: pageIn 0.4s ease-out;
+}
+
+/* ── Animations ───────────────────────────────── */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -80,7 +362,7 @@ pre code {
   opacity: 0;
 }
 
-/* Prose styles for markdown content */
+/* ── Prose ─────────────────────────────────────── */
 .prose {
   max-width: 960px;
 }
@@ -99,7 +381,7 @@ pre code {
 .prose h1,
 .prose h2,
 .prose h3 {
-  @apply text-neutral-900;
+  color: var(--color-text-primary);
 }
 
 .prose ul,
@@ -108,7 +390,9 @@ pre code {
 }
 
 .prose blockquote {
-  @apply border-l-2 border-l-neutral-500 pl-4 text-neutral-400 italic my-6;
+  border-left: 2px solid var(--color-accent);
+  color: var(--color-text-muted);
+  @apply pl-4 italic my-6;
 }
 
 .prose img {
@@ -119,13 +403,9 @@ pre code {
 }
 .prose hr {
   border: none;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-surface-border);
   margin: 48px 0;
 }
 .prose a {
   color: var(--color-accent);
-  text-decoration: underline;
-}
-.prose a:hover {
-  opacity: 0.8;
 }
