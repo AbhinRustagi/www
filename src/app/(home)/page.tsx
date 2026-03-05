@@ -11,12 +11,13 @@ import {
   ProjectsSkeleton,
   WorkSkeleton,
 } from "./components";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
 export default function HomePage() {
   return (
-    <div className="flex gap-12 max-sm:flex-col-reverse">
+    <div className="flex gap-12 max-sm:flex-col">
       <div>
         <Suspense fallback={<ProjectsSkeleton />}>
           <FeaturedProjects />
@@ -32,7 +33,7 @@ export default function HomePage() {
       </div>
 
       <div className="flex-[0.2] min-w-[300px] space-y-8">
-        <section className="flex flex-col gap-4 items-center">
+        <section className="animate-in flex flex-col gap-4 items-center">
           <div>
             <h1 className="text-xl font-medium mb-6">About Me</h1>
             <Image
@@ -60,8 +61,6 @@ export default function HomePage() {
             </Suspense>
           </ul>
         </section>
-
-        <hr />
       </div>
     </div>
   );

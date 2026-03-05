@@ -26,9 +26,11 @@ export async function BlogPosts() {
             <div className="flex-1">
               <Link
                 href={`/blog/${post.slug}`}
-                className="text-neutral-900 font-serif no-underline hover:text-accent"
+                className="text-neutral-900 font-serif no-underline group"
               >
-                <span className="text-neutral-900">{post.title}</span>
+                <span className="text-neutral-900 group-hover:text-accent">
+                  {post.title}
+                </span>
               </Link>
             </div>
           </div>
@@ -59,9 +61,9 @@ export async function FeaturedProjects() {
             <p className="flex-1">
               <Link
                 href={`/projects/${project.slug}`}
-                className="no-underline hover:text-accent"
+                className="no-underline group"
               >
-                <p className="mb-2 font-serif text-neutral-900">
+                <p className="mb-2 font-serif text-neutral-900 group-hover:text-accent">
                   {project.title}
                 </p>
                 {project.description && (
@@ -100,12 +102,13 @@ export async function FeaturedWork() {
         {featuredWork.map((work) => (
           <li key={work.slug} className="flex gap-2">
             <p className="flex-1">
-              <Link
-                href={`/work/${work.slug}`}
-                className="no-underline hover:text-accent"
-              >
-                <p className="mb-1 font-serif text-neutral-900">{work.title}</p>
-                <p className="text-sm">{work.description}</p>
+              <Link href={`/work/${work.slug}`} className="no-underline group">
+                <p className="mb-1 font-serif text-neutral-900 group-hover:text-accent">
+                  {work.title}
+                </p>
+                <p className="text-sm group-hover:text-accent">
+                  {work.description}
+                </p>
               </Link>
             </p>
           </li>
@@ -157,17 +160,19 @@ export function CodingStatsSkeleton() {
   return (
     <>
       <li>
-        <span className="inline-block h-4 w-48 rounded bg-white/5 animate-pulse align-middle" />
+        <span className="inline-block h-4 w-48 rounded bg-neutral-700/5 animate-pulse align-middle" />
       </li>
       <li>
-        <span className="inline-block h-4 w-44 rounded bg-white/5 animate-pulse align-middle" />
+        <span className="inline-block h-4 w-44 rounded bg-neutral-700/5 animate-pulse align-middle" />
       </li>
     </>
   );
 }
 
 function SkeletonLine({ width = "w-full" }: { width?: string }) {
-  return <div className={`h-4 ${width} rounded bg-white/5 animate-pulse`} />;
+  return (
+    <div className={`h-4 ${width} rounded bg-neutral-700/5 animate-pulse`} />
+  );
 }
 
 function SectionSkeleton({
@@ -179,7 +184,7 @@ function SectionSkeleton({
 }) {
   return (
     <section>
-      <div className="h-5 w-32 rounded bg-white/5 animate-pulse mb-6" />
+      <div className="h-5 w-32 rounded bg-neutral-700/5 animate-pulse mb-6" />
       <div className="space-y-4">
         {Array.from({ length: rows }).map((_, i) => (
           <div key={i} className="flex gap-2">

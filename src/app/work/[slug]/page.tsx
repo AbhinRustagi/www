@@ -40,7 +40,7 @@ export default async function WorkEntryPage({ params }: Props) {
             <span>{new Date(meta.date).getFullYear()}</span>
             {meta.client && <span>/ {meta.client}</span>}
           </div>
-          <h1>{meta.title}</h1>
+          <h1 className="text-neutral-900">{meta.title}</h1>
         </div>
         {/* Content from local markdown files (trusted) */}
         <div
