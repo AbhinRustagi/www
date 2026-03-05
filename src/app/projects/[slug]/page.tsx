@@ -28,11 +28,7 @@ export default async function ProjectPage({ params }: Props) {
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
-    return (
-      <p className="mx-auto max-w-240 px-4 text-text-muted">
-        Project not found.
-      </p>
-    );
+    return <p className="mx-auto max-w-240 px-4 ">Project not found.</p>;
   }
 
   const rawContent = await getProjectContent(project.path);
@@ -41,18 +37,18 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <article className="mx-auto max-w-240 px-4">
       <header className="mb-4">
-        <h1 className="text-lg mb-6 flex items-center gap-1 text-text">
+        <h1 className="text-lg mb-6 flex items-center gap-1 ">
           {project.title}
         </h1>
         <div className="flex flex-wrap gap-4 items-center">
-          <time className="text-sm text-text-muted">
+          <time className="text-sm ">
             {new Date(project.date).toLocaleDateString("en-US", {
               month: "long",
               year: "numeric",
             })}
           </time>
           {project.description && (
-            <p className="text-text-muted text-sm">{project.description}</p>
+            <p className=" text-sm">{project.description}</p>
           )}
         </div>
       </header>

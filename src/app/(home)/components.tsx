@@ -1,5 +1,11 @@
-import { getBlogPosts, getProjects, getWorkEntries } from "@/lib/data";
-import { Book, FlaskConical, SquarePen } from "lucide-react";
+import {
+  getBlogPosts,
+  getGithubContributions,
+  getProjects,
+  getWakatimeHours,
+  getWorkEntries,
+} from "@/lib/data";
+import { Book } from "lucide-react";
 import Link from "next/link";
 
 export async function BlogPosts() {
@@ -10,7 +16,7 @@ export async function BlogPosts() {
 
   return (
     <section className="animate-in">
-      <h2 className="text-lg mb-6 flex items-center gap-1 text-text">
+      <h2 className="text-xl mb-6 flex items-center gap-1 ">
         <Book size={16} />
         Writing
       </h2>
@@ -20,24 +26,17 @@ export async function BlogPosts() {
             <div className="flex-1">
               <Link
                 href={`/blog/${post.slug}`}
-                className="font-medium text-text no-underline hover:text-accent"
+                className="text-neutral-900 font-serif no-underline hover:text-accent"
               >
-                {post.title}
+                <span className="text-neutral-900">{post.title}</span>
               </Link>
             </div>
-            <span className="w-20 shrink-0 text-right text-text-muted text-sm">
-              {new Date(post.date).toLocaleDateString("en-US", {
-                month: "short",
-                year: "2-digit",
-                day: "numeric",
-              })}
-            </span>
           </div>
         ))}
       </div>
       <Link
         href="/blog"
-        className="inline-block mt-6 text-[0.9375rem] text-text-muted hover:text-accent"
+        className="border border-neutral-300 text-neutral-300 rounded-lg p-1 px-2 inline-block mt-6 text-sm hover:text-accent"
       >
         Read all posts
       </Link>
@@ -53,34 +52,33 @@ export async function FeaturedProjects() {
 
   return (
     <section className="animate-in">
-      <h2 className="text-lg mb-6 flex items-center gap-1 text-text">
-        <FlaskConical size={18} />
-        Projects
-      </h2>
-      <ul className="relative">
+      <h2 className="text-xl mb-6 flex items-center gap-1 ">Projects</h2>
+      <ul className="relative space-y-6">
         {featuredProjects.map((project) => (
-          <li key={project.slug} className="flex gap-2 mb-4 flex-wrap">
-            <div className="flex-1">
+          <li key={project.slug} className="flex gap-2 flex-wrap">
+            <p className="flex-1">
               <Link
                 href={`/projects/${project.slug}`}
-                className="font-medium text-text no-underline hover:text-accent"
+                className="no-underline hover:text-accent"
               >
-                {project.title}
+                <p className="mb-2 font-serif text-neutral-900">
+                  {project.title}
+                </p>
+                {project.description && (
+                  <p className="text-sm basis-full">
+                    {project.description.length > 140
+                      ? project.description.slice(0, 140) + "..."
+                      : project.description}
+                  </p>
+                )}
               </Link>
-            </div>
-            {project.description && (
-              <p className="text-sm text-text-muted mt-1 basis-full">
-                {project.description.length > 140
-                  ? project.description.slice(0, 140) + "..."
-                  : project.description}
-              </p>
-            )}
+            </p>
           </li>
         ))}
       </ul>
       <Link
         href="/projects"
-        className="inline-block mt-6 text-[0.9375rem] text-text-muted hover:text-accent"
+        className="border border-neutral-300 text-neutral-300 rounded-lg p-1 px-2 inline-block mt-6 text-sm hover:text-accent"
       >
         Explore all
       </Link>
@@ -96,38 +94,75 @@ export async function FeaturedWork() {
   if (featuredWork.length === 0) return null;
 
   return (
-    <section className="animate-in">
-      <h2 className="text-lg mb-6 flex items-center gap-1 text-text">
-        <SquarePen size={16} />
-        Work Case Studies
-      </h2>
-      <ul className="relative">
+    <section className="animate-in my-12">
+      <h2 className="text-xl mb-6 flex items-center gap-1 ">Work Projects</h2>
+      <ul className="relative space-y-6">
         {featuredWork.map((work) => (
-          <li key={work.slug} className="flex gap-2 mb-4">
-            <div className="flex-1">
+          <li key={work.slug} className="flex gap-2">
+            <p className="flex-1">
               <Link
                 href={`/work/${work.slug}`}
-                className="font-medium text-text no-underline hover:text-accent"
+                className="no-underline hover:text-accent"
               >
-                {work.title}
+                <p className="mb-1 font-serif text-neutral-900">{work.title}</p>
+                <p className="text-sm">{work.description}</p>
               </Link>
-            </div>
-            <span className="w-20 shrink-0 text-right text-text-muted text-sm">
-              {new Date(work.date).toLocaleDateString("en-US", {
-                month: "short",
-                year: "2-digit",
-              })}
-            </span>
+            </p>
           </li>
         ))}
       </ul>
       <Link
         href="/work"
-        className="inline-block mt-6 text-[0.9375rem] text-text-muted hover:text-accent"
+        className="border border-neutral-300 rounded-lg p-1 px-2 inline-block mt-6 text-sm hover:text-accent"
       >
         Explore all
       </Link>
     </section>
+  );
+}
+
+export async function CodingStats() {
+  const [codingHours, contributions] = await Promise.all([
+    getWakatimeHours(),
+    getGithubContributions(),
+  ]);
+
+  return (
+    <>
+      <li>
+        <Link
+          className="underline underline-offset-4"
+          href="https://wakatime.com/AbhinRustagi"
+          target="_blank"
+        >
+          {codingHours} hours of coding
+        </Link>{" "}
+        in the last week
+      </li>
+      <li>
+        <Link
+          className="underline underline-offset-4"
+          href="https://github.com/AbhinRustagi"
+          target="_blank"
+        >
+          {contributions} contributions
+        </Link>{" "}
+        in the last year
+      </li>
+    </>
+  );
+}
+
+export function CodingStatsSkeleton() {
+  return (
+    <>
+      <li>
+        <span className="inline-block h-4 w-48 rounded bg-white/5 animate-pulse align-middle" />
+      </li>
+      <li>
+        <span className="inline-block h-4 w-44 rounded bg-white/5 animate-pulse align-middle" />
+      </li>
+    </>
   );
 }
 

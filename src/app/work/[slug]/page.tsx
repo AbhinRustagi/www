@@ -26,11 +26,7 @@ export default async function WorkEntryPage({ params }: Props) {
   const entry = getWorkEntry(slug);
 
   if (!entry) {
-    return (
-      <p className="mx-auto max-w-240 px-4 text-text-muted">
-        Work entry not found.
-      </p>
-    );
+    return <p className="mx-auto max-w-240 px-4 ">Work entry not found.</p>;
   }
 
   const { meta, content } = entry;
@@ -40,7 +36,7 @@ export default async function WorkEntryPage({ params }: Props) {
     <article>
       <div className="mx-auto max-w-240 px-4">
         <div className="animate-in mb-6">
-          <div className="flex gap-2 text-text-muted text-sm mb-2">
+          <div className="flex gap-2  text-sm mb-2">
             <span>{new Date(meta.date).getFullYear()}</span>
             {meta.client && <span>/ {meta.client}</span>}
           </div>
@@ -53,7 +49,7 @@ export default async function WorkEntryPage({ params }: Props) {
         />
         <Link
           href="/work"
-          className="inline-block mt-8 text-sm text-text-muted hover:text-accent"
+          className="inline-block mt-8 text-sm  hover:text-accent"
         >
           &larr; Back to all work
         </Link>

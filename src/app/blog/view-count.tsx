@@ -16,7 +16,7 @@ export function ViewCount({ slug }: { slug: string }) {
 
   if (views === null) return null;
 
-  return <p className="text-xs text-text-muted">{views} views</p>;
+  return <p className="text-xs ">{views} views</p>;
 }
 
 export function PostViewCounter({ slug }: { slug: string }) {

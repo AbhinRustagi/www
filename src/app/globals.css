@@ -1,44 +1,10 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Fraunces";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url("https://fonts.gstatic.com/s/fraunces/v31/6NUh8FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0K7iN7hzFUPJH58nk.woff2")
-    format("woff2");
-}
-
-@font-face {
-  font-family: "Inter Tight";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url("https://fonts.gstatic.com/s/intertight/v7/NGSnv5HMAFg6IuGlBNMjxJEL2VmU3NS7Z2mjDQ6qXCRToK8EPg.woff2")
-    format("woff2");
-}
-
 @theme inline {
-  --color-bg: #111;
-  --color-bg-secondary: #fbfbfb;
-  --color-text: #eeeeee;
-  --color-text-muted: #666666;
   --color-accent: #008bff;
-  --color-accent-hover: #008cff38;
-  --color-border: #9f9f9f;
 
-  --font-sans: "Inter Tight", "Helvetica", "Helvetica Neue", sans-serif;
-  --font-serif: "Fraunces", Georgia, serif;
   --font-mono: "Geist Mono", monospace;
-}
-
-/* Reset */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  --font-serif: "Fraunces", serif;
 }
 
 html {
@@ -46,46 +12,27 @@ html {
 }
 
 body {
-  font-family: var(--font-sans);
-  background: var(--color-bg);
-  color: var(--color-text-muted);
-  line-height: 1.5;
-  min-height: 100vh;
+  font-family:
+    var(--font-inter-tight), "Helvetica", "Helvetica Neue", sans-serif;
+  @apply bg-neutral-50 text-neutral-600 min-h-screen leading-snug;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography */
+a {
+  color: inherit;
+}
+
+a:hover {
+  @apply hover:text-accent;
+}
+
 h1,
 h2,
 h3,
 h4 {
-  font-weight: 500;
-  line-height: 1.3;
-  font-family: var(--font-serif);
-  color: var(--color-text);
-}
-
-h1 {
-  font-size: 1.5rem;
-}
-h2 {
-  font-size: 1.25rem;
-}
-h3 {
-  font-size: 1.125rem;
-}
-
-a {
-  color: var(--color-text);
-}
-a:hover {
-  color: var(--color-accent);
-  text-decoration-color: var(--color-accent);
-}
-
-section {
-  margin-bottom: 48px;
+  @apply font-semibold text-neutral-900;
+  font-family: var(--font-fraunces), Georgia, serif;
 }
 
 /* Code */
@@ -198,14 +145,4 @@ pre code {
 }
 .prose a:hover {
   opacity: 0.8;
-}
-
-/* Responsive */
-@media (max-width: 640px) {
-  html {
-    font-size: 16px;
-  }
-  h1 {
-    font-size: 2rem;
-  }
 }

@@ -20,20 +20,26 @@ export function Header() {
   }
 
   return (
-    <header className="bg-bg mb-12">
-      <div className="mx-auto max-w-[960px] flex items-center justify-center flex-wrap gap-4 p-6">
-        <nav className="flex items-center gap-4">
+    <header className="mb-12">
+      <div className="mx-auto max-w-4xl flex items-center justify-center flex-wrap gap-4 p-6">
+        <nav className="flex flex-wrap items-center gap-4">
           {NAV_ITEMS.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              className={`text-xs no-underline font-mono uppercase px-4 py-1 rounded-2xl transition-colors ${
-                isActive(href)
-                  ? "text-white font-bold bg-accent"
-                  : "text-text-muted hover:text-white hover:font-bold hover:bg-accent"
+              className={`group text-sm no-underline font-serif px-4 py-1 rounded-2xl transition-colors ${
+                isActive(href) ? "bg-accent" : "hover:bg-accent"
               }`}
             >
-              {label}
+              <span
+                className={
+                  isActive(href)
+                    ? "text-neutral-100 font-bold"
+                    : " group-hover:text-white group-hover:font-bold"
+                }
+              >
+                {label}
+              </span>
             </Link>
           ))}
         </nav>

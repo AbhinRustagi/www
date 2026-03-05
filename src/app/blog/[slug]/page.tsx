@@ -29,9 +29,7 @@ export default async function BlogPostPage({ params }: Props) {
   const post = posts.find((p) => p.slug === slug);
 
   if (!post) {
-    return (
-      <p className="mx-auto max-w-240 px-4 text-text-muted">Post not found.</p>
-    );
+    return <p className="mx-auto max-w-240 px-4 ">Post not found.</p>;
   }
 
   const { data, content } = await getBlogPostContent(post.path);
@@ -42,10 +40,8 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <section>
       <div className="mx-auto max-w-240 px-4">
-        <h1 className="text-lg mb-6 flex items-center gap-1 text-text">
-          {meta.title}
-        </h1>
-        <div className="flex items-center gap-1 text-text-muted text-sm mb-4">
+        <h1 className="text-lg mb-6 flex items-center gap-1 ">{meta.title}</h1>
+        <div className="flex items-center gap-1  text-sm mb-4">
           <time>
             {date.toLocaleDateString("en-US", {
               month: "long",
@@ -61,10 +57,7 @@ export default async function BlogPostPage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: html }}
         />
         <div className="mt-12">
-          <Link
-            href="/blog"
-            className="text-sm text-text-muted hover:text-accent"
-          >
+          <Link href="/blog" className="text-sm  hover:text-accent">
             &larr; Back to all posts
           </Link>
         </div>
