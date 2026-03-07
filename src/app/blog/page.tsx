@@ -34,7 +34,7 @@ export default async function BlogPage() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className={`block no-underline group px-4 py-3 -mx-4 rounded-xl transition-colors hover:bg-white/3 animate-in animate-in-delay-${Math.min(i + 1, 4)}`}
+              className={`block no-underline group px-4 py-3 -mx-4 rounded-xl transition-colors hover:bg-surface-raised animate-in animate-in-delay-${Math.min(i + 1, 4)}`}
             >
               <div className="flex items-baseline justify-between gap-4">
                 <span className="text-text-primary group-hover:text-accent transition-colors">

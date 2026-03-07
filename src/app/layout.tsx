@@ -1,5 +1,6 @@
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
@@ -44,21 +45,31 @@ export const metadata: Metadata = {
   ],
 };
 
+// Static string — no user input, safe to inline.
+const THEME_INIT_SCRIPT = `(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t)}else if(matchMedia("(prefers-color-scheme:light)").matches){document.documentElement.setAttribute("data-theme","light")}}catch(e){}})()`;
+
+function ThemeScript() {
+  return <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />;
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="sitemap" href="/sitemap.xml" />
+        <ThemeScript />
       </head>
       <body className={interTight.variable}>
-        <Header />
-        <main className="mx-auto max-w-3xl md:px-0 px-4">{children}</main>
-        <Footer />
+        <ThemeProvider>
+          <Header />
+          <main className="mx-auto max-w-3xl md:px-0 px-4">{children}</main>
+          <Footer />
+        </ThemeProvider>
         <Analytics />
         <SpeedInsights />
       </body>

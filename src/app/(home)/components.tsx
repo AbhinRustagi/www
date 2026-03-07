@@ -29,7 +29,7 @@ export async function BlogPosts() {
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className={`block no-underline group px-4 py-3 -mx-4 rounded-xl transition-colors hover:bg-white/3 animate-in animate-in-delay-${Math.min(i + 2, 4)}`}
+            className={`block no-underline group px-4 py-3 -mx-4 rounded-xl transition-colors hover:bg-surface-raised animate-in animate-in-delay-${Math.min(i + 2, 4)}`}
           >
             <span className="text-text-primary group-hover:text-accent transition-colors">
               {post.title}
@@ -65,7 +65,7 @@ export async function FeaturedProjects() {
             href={`/projects/${project.slug}`}
             className={`glass-card p-4 md:p-5 block no-underline group animate-in animate-in-delay-${Math.min(i + 2, 4)}`}
           >
-            <p className="text-white font-medium group-hover:text-accent transition-colors mb-1">
+            <p className="text-text-primary font-medium group-hover:text-accent transition-colors mb-1">
               {project.title}
             </p>
             {project.description && (
@@ -107,7 +107,7 @@ export async function FeaturedWork() {
             href={`/work/${work.slug}`}
             className={`glass-card p-4 md:p-5 block no-underline group animate-in animate-in-delay-${Math.min(i + 2, 4)}`}
           >
-            <p className="text-white font-medium group-hover:text-accent transition-colors mb-1">
+            <p className="text-text-primary font-medium group-hover:text-accent transition-colors mb-1">
               {work.title}
             </p>
             <p className="text-sm text-text-muted">{work.description}</p>

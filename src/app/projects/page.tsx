@@ -37,7 +37,7 @@ export default async function ProjectsPage() {
               href={`/projects/${project.slug}`}
               className={`glass-card p-5 block no-underline group animate-in animate-in-delay-${Math.min(i + 1, 4)}`}
             >
-              <p className="text-white group-hover:text-accent transition-colors font-medium">
+              <p className="text-text-primary group-hover:text-accent transition-colors font-medium">
                 {project.title}
               </p>
               {project.description && (

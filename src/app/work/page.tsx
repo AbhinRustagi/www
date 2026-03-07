@@ -36,7 +36,7 @@ export default function WorkPage() {
               className={`glass-card p-5 flex gap-4 items-start no-underline group animate-in animate-in-delay-${Math.min(i + 1, 4)}`}
             >
               <div className="flex-1">
-                <p className="text-white group-hover:text-accent transition-colors font-medium">
+                <p className="text-text-primary group-hover:text-accent transition-colors font-medium">
                   {project.client} &middot; {project.title}
                 </p>
                 <p className="mt-1 text-sm text-text-muted">
