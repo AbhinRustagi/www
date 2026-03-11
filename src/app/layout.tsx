@@ -4,12 +4,23 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { Inter_Tight } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const interTight = Inter_Tight({
-  variable: "--font-inter-tight",
-  subsets: ["latin"],
+const satoshi = localFont({
+  src: [
+    {
+      path: "../fonts/Satoshi-Variable.ttf",
+      style: "normal",
+      weight: "100 900",
+    },
+    {
+      path: "../fonts/Satoshi-VariableItalic.ttf",
+      style: "italic",
+      weight: "100 900",
+    },
+  ],
+  variable: "--font-satoshi",
 });
 
 export const metadata: Metadata = {
@@ -64,10 +75,10 @@ export default function RootLayout({
         <link rel="sitemap" href="/sitemap.xml" />
         <ThemeScript />
       </head>
-      <body className={interTight.variable}>
+      <body className={satoshi.className}>
         <ThemeProvider>
           <Header />
-          <main className="mx-auto max-w-3xl md:px-0 px-4">{children}</main>
+          <main className="mx-auto max-w-xl md:px-0 px-4">{children}</main>
           <Footer />
         </ThemeProvider>
         <Analytics />

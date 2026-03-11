@@ -20,7 +20,11 @@
   --color-text-primary: #e8e8e8;
   --color-text-secondary: #888888;
   --color-text-muted: #7a7a7a;
-  --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  --glass-bg: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
   --glass-border: rgba(255, 255, 255, 0.06);
 }
 
@@ -33,7 +37,11 @@
   --color-text-primary: #1a1a1b;
   --color-text-secondary: #555555;
   --color-text-muted: #888888;
-  --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.4) 100%);
+  --glass-bg: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
   --glass-border: rgba(0, 0, 0, 0.08);
 }
 
@@ -57,9 +65,21 @@ body::before {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(ellipse 60% 40% at 50% -20%, var(--color-accent-ambient), transparent),
-    radial-gradient(ellipse 45% 30% at 100% 0%, var(--color-accent-ambient-soft), transparent),
-    radial-gradient(ellipse 40% 40% at 0% 80%, var(--color-accent-ambient-soft), transparent);
+    radial-gradient(
+      ellipse 60% 40% at 50% -20%,
+      var(--color-accent-ambient),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 45% 30% at 100% 0%,
+      var(--color-accent-ambient-soft),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 40% 40% at 0% 80%,
+      var(--color-accent-ambient-soft),
+      transparent
+    );
   pointer-events: none;
   animation: ambientDrift 12s ease-in-out infinite alternate;
 }
@@ -105,8 +125,8 @@ h1,
 h2,
 h3,
 h4 {
+  @apply font-bold;
   color: var(--color-text-primary);
-  @apply font-semibold;
   font-family: var(--font-inter-tight), "Helvetica Neue", sans-serif;
 }
 
@@ -131,17 +151,23 @@ pre code {
 
 /* ── Avatar hover glow ────────────────────────── */
 .avatar-glow {
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
 .avatar-glow:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px var(--color-accent-glow), 0 0 40px rgba(111, 134, 214, 0.1);
+  box-shadow:
+    0 0 20px var(--color-accent-glow),
+    0 0 40px rgba(111, 134, 214, 0.1);
 }
 
 /* ── Social icon hover ────────────────────────── */
 .social-icon {
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
 }
 
 .social-icon:hover {
@@ -154,8 +180,12 @@ pre code {
 
 /* ── Skeleton shimmer ─────────────────────────── */
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 .skeleton {
@@ -176,7 +206,9 @@ pre code {
   color: var(--color-accent);
   border: 1px solid var(--color-accent-glow);
   background: rgba(111, 134, 214, 0.08);
-  box-shadow: 0 0 12px var(--color-accent-glow), inset 0 0 12px rgba(111, 134, 214, 0.04);
+  box-shadow:
+    0 0 12px var(--color-accent-glow),
+    inset 0 0 12px rgba(111, 134, 214, 0.04);
   animation: pillGlow 3s ease-in-out infinite alternate;
 }
 
@@ -189,13 +221,26 @@ pre code {
 }
 
 @keyframes pillGlow {
-  from { box-shadow: 0 0 12px var(--color-accent-glow), inset 0 0 12px rgba(111, 134, 214, 0.04); }
-  to { box-shadow: 0 0 20px var(--color-accent-glow), inset 0 0 16px rgba(111, 134, 214, 0.06); }
+  from {
+    box-shadow:
+      0 0 12px var(--color-accent-glow),
+      inset 0 0 12px rgba(111, 134, 214, 0.04);
+  }
+  to {
+    box-shadow:
+      0 0 20px var(--color-accent-glow),
+      inset 0 0 16px rgba(111, 134, 214, 0.06);
+  }
 }
 
 @keyframes dotPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }
 
 /* ── Glass card ───────────────────────────────── */
@@ -204,7 +249,10 @@ pre code {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   @apply rounded-2xl backdrop-blur-md;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .glass-card::before {
@@ -220,7 +268,9 @@ pre code {
     #6f86d6 92%,
     transparent 100%
   );
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
   mask-composite: exclude;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -233,7 +283,9 @@ pre code {
 }
 
 @keyframes borderTravel {
-  to { --border-angle: 360deg; }
+  to {
+    --border-angle: 360deg;
+  }
 }
 
 @property --border-angle {
@@ -268,8 +320,15 @@ pre code {
 }
 
 @keyframes accentPulse {
-  0%, 100% { opacity: 1; width: 1.5rem; }
-  50% { opacity: 0.6; width: 2.5rem; }
+  0%,
+  100% {
+    opacity: 1;
+    width: 1.5rem;
+  }
+  50% {
+    opacity: 0.6;
+    width: 2.5rem;
+  }
 }
 
 /* ── Link button ──────────────────────────────── */
@@ -277,7 +336,10 @@ pre code {
   border: 1px solid var(--color-surface-border);
   color: var(--color-text-muted);
   @apply rounded-lg px-3 py-1.5 inline-block text-sm;
-  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .link-button:hover {

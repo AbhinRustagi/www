@@ -14,8 +14,7 @@ export default function WorkPage() {
   return (
     <section>
       <div className="mb-12">
-        <p className="label mb-2">Experience</p>
-        <h1 className="text-2xl mb-4">Work</h1>
+        <h1 className="text-xl mb-4">Work</h1>
         <div className="accent-line mb-6" />
         <p className="text-text-secondary">
           Selected projects and case studies from my work over the years with

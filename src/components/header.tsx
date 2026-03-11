@@ -22,7 +22,7 @@ export function Header() {
 
   return (
     <header className="mb-8 md:mb-12">
-      <div className="mx-auto max-w-3xl flex items-center justify-between px-4 py-4 md:p-6">
+      <div className="mx-auto max-w-xl flex items-center justify-between px-4 py-4 md:px-0 md:py-6">
         <div className="flex items-center gap-2 shrink-0">
           <Link
             href="/"

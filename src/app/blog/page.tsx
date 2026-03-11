@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getBlogPosts } from "@/lib/data";
 
-
 export const metadata: Metadata = {
   title: "Writing",
   description:
@@ -16,8 +15,7 @@ export default async function BlogPage() {
   return (
     <section>
       <div className="mb-12">
-        <p className="label mb-2">Blog</p>
-        <h1 className="text-2xl mb-4">Writing</h1>
+        <h1 className="text-xl mb-4">Writing</h1>
         <div className="accent-line mb-6" />
         <p className="text-text-secondary">
           Thoughts, opinions and learnings on development and building products.

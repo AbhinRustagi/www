@@ -1,3 +1,4 @@
+import { LinkButton } from "@/components/button";
 import {
   getBlogPosts,
   getGithubContributions,
@@ -17,12 +18,11 @@ export async function BlogPosts() {
     <section>
       <div className="flex items-center justify-between mb-4 animate-in animate-in-delay-1">
         <div>
-          <p className="label mb-1">Recent</p>
-          <h2 className="text-lg md:text-xl">Writing</h2>
+          <h2 className="text-lg">Writing</h2>
         </div>
-        <Link href="/blog" className="link-button">
+        <LinkButton variant="outline" href="/blog">
           Read all
-        </Link>
+        </LinkButton>
       </div>
       <div className="space-y-1">
         {recentPosts.map((post, i) => (
@@ -31,9 +31,10 @@ export async function BlogPosts() {
             href={`/blog/${post.slug}`}
             className={`block no-underline group px-4 py-3 -mx-4 rounded-xl transition-colors hover:bg-surface-raised animate-in animate-in-delay-${Math.min(i + 2, 4)}`}
           >
-            <span className="text-text-primary group-hover:text-accent transition-colors">
+            <span className="!text-text-primary font-semibold block mb-1 group-hover:text-accent transition-colors">
               {post.title}
             </span>
+            <span>{new Date(post.date).toLocaleDateString()}</span>
           </Link>
         ))}
       </div>
@@ -51,8 +52,7 @@ export async function FeaturedProjects() {
     <section>
       <div className="flex items-center justify-between mb-4 animate-in animate-in-delay-1">
         <div>
-          <p className="label mb-1">Selected</p>
-          <h2 className="text-lg md:text-xl">Projects</h2>
+          <h2 className="text-lg">Projects</h2>
         </div>
         <Link href="/projects" className="link-button">
           View all
@@ -93,8 +93,7 @@ export async function FeaturedWork() {
     <section>
       <div className="flex items-center justify-between mb-4 animate-in animate-in-delay-1">
         <div>
-          <p className="label mb-1">Experience</p>
-          <h2 className="text-lg md:text-xl">Work Projects</h2>
+          <h2 className="text-lg">Work Projects</h2>
         </div>
         <Link href="/work" className="link-button">
           View all
@@ -125,28 +124,33 @@ export async function CodingStats() {
   ]);
 
   return (
-    <div className="glass-card-static p-4 md:p-5 animate-in animate-in-delay-2 flex items-center gap-6">
-      <Link
-        href="https://wakatime.com/AbhinRustagi"
-        target="_blank"
-        className="no-underline group"
-      >
-        <span className="text-xl font-semibold text-text-primary group-hover:text-accent transition-colors">
-          {codingHours}h
-        </span>
-        <span className="label ml-2">coded this week</span>
-      </Link>
-      <span className="text-surface-border">|</span>
-      <Link
-        href="https://github.com/AbhinRustagi"
-        target="_blank"
-        className="no-underline group"
-      >
-        <span className="text-xl font-semibold text-text-primary group-hover:text-accent transition-colors">
-          {contributions}
-        </span>
-        <span className="label ml-2">contributions this year</span>
-      </Link>
+    <div className="space-y-2">
+      <div className="rounded-md glass-card-static px-4 py-2 text-sm font-medium animate-in animate-in-delay-2 flex items-center justify-between gap-4">
+        <Link
+          href="https://wakatime.com/AbhinRustagi"
+          target="_blank"
+          className="no-underline group"
+        >
+          <span className="text-text-primary group-hover:text-accent transition-colors">
+            {codingHours}h
+          </span>
+          <span className="ml-1">coded this week</span>
+        </Link>
+        <span>WakaTime</span>
+      </div>
+      <div className="rounded-md glass-card-static px-4 py-2 font-medium animate-in animate-in-delay-2 flex items-center justify-between gap-4 text-sm">
+        <Link
+          href="https://github.com/AbhinRustagi"
+          target="_blank"
+          className="no-underline group"
+        >
+          <span className="text-text-primary group-hover:text-accent transition-colors">
+            {contributions}
+          </span>
+          <span className="ml-1">contributions this year</span>
+        </Link>
+        <span>Github</span>
+      </div>
     </div>
   );
 }
@@ -161,9 +165,7 @@ export function CodingStatsSkeleton() {
 }
 
 function SkeletonLine({ width = "w-full" }: { width?: string }) {
-  return (
-    <div className={`h-4 ${width} skeleton`} />
-  );
+  return <div className={`h-4 ${width} skeleton`} />;
 }
 
 function SectionSkeleton({ rows }: { rows: number }) {

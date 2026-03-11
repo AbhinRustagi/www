@@ -15,8 +15,7 @@ export default async function ProjectsPage() {
   return (
     <section>
       <div className="mb-12">
-        <p className="label mb-2">Portfolio</p>
-        <h1 className="text-2xl mb-4">Projects</h1>
+        <h1 className="text-xl mb-4">Projects</h1>
         <div className="accent-line mb-6" />
         <p className="text-text-secondary">
           Projects I&apos;ve worked on for fun or as a side hustle. Check out

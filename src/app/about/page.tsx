@@ -30,20 +30,19 @@ const TESTIMONIALS = [
 
 export default function AboutPage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-12">
       <section>
-        <p className="label mb-2">Background</p>
-        <h1 className="text-2xl mb-4">About</h1>
-        <div className="accent-line mb-8" />
-        <div className="glass-card-static p-4 md:p-6 animate-in animate-in-delay-1 space-y-4 leading-7 text-sm md:text-base text-text-secondary">
+        <h1 className="text-xl mb-4">About</h1>
+        <div className="accent-line mb-4" />
+        <div className="animate-in animate-in-delay-1 space-y-4 leading-7 text-sm md:text-base text-text-secondary">
           <p>
             Hi, my name is Abhin, a software engineer who loves a good
             challenge. In the past, I&apos;ve had the opportunity to develop
             software across a variety of settings - from an innovative EdTech
             platform, or a creative MedTech solution, to just as a freelance
             agent for startups trying to find their feet making it big.
-            Additionally, I also volunteer my time and engineering skills to help
-            organisations fight the climate change battle.
+            Additionally, I also volunteer my time and engineering skills to
+            help organisations fight the climate change battle.
           </p>
           <p>
             Dreaming up cool automative yet productivity and user-first ideas
@@ -61,10 +60,9 @@ export default function AboutPage() {
       </section>
 
       <section className="animate-in animate-in-delay-3">
-        <p className="label mb-2">Testimonials</p>
-        <h2 className="text-xl mb-4">Good Words</h2>
+        <h2 className="text-lg mb-4">Good Words</h2>
         <div className="accent-line mb-6" />
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="flex flex-col gap-4">
           {TESTIMONIALS.map((testimonial) => (
             <div key={testimonial.author} className="glass-card p-6">
               <p className="text-text-secondary leading-relaxed mb-4 italic">
@@ -80,8 +78,7 @@ export default function AboutPage() {
       </section>
 
       <section className="animate-in animate-in-delay-4">
-        <p className="label mb-2">Get In Touch</p>
-        <h2 className="text-xl mb-4">Contact</h2>
+        <h2 className="text-lg mb-4">Contact</h2>
         <div className="accent-line mb-6" />
         <p className="text-text-secondary">
           I&apos;m always open to interesting projects and collaborations via
