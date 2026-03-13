@@ -51,10 +51,11 @@ export default function HomePage() {
           <p className="my-1 text-white font-medium">
             Full Stack Software Engineer
           </p>
-          <p className="leading-relaxed text-sm md:text-base mb-4 font-medium">
+          <p className="leading-relaxed text-sm md:text-base font-medium">
             Building systems that blend product thinking and scalability.
             Working with startups across a wide range of domains &amp; products.
           </p>
+          <p className="my-4 font-medium">Likes talking about: Generative UI</p>
           <span className="status-pill">Open to new roles</span>
         </div>
       </div>
